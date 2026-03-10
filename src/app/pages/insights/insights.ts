@@ -1,0 +1,106 @@
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import mapData from '../../data/rappers_locations_mapped.json';
+
+interface LocationData {
+  artist: string;
+  location: string;
+  song: string;
+  lat: number;
+  lng: number;
+}
+
+@Component({
+  selector: 'app-insights',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './insights.html',
+  styleUrl: './insights.scss'
+})
+export class Insights implements OnInit {
+  topRappers: { name: string; count: number }[] = [];
+  topInternationalRappers: { name: string; count: number }[] = [];
+  topCities: { name: string; count: number }[] = [];
+  mostTravelledSongs: { title: string; artist: string; count: number }[] = [];
+  totalLocations: number = 0;
+  uniqueArtists: number = 0;
+
+  // Greece Bounding Box (approximate)
+  private readonly GREECE_BOUNDS = {
+    minLat: 34.7,
+    maxLat: 41.8,
+    minLng: 19.0,
+    maxLng: 28.5
+  };
+
+  ngOnInit(): void {
+    const data = mapData as LocationData[];
+    this.totalLocations = data.length;
+    
+    this.calculateStats(data);
+  }
+
+  private calculateStats(data: LocationData[]): void {
+    const artistCounts: Record<string, number> = {};
+    const internationalArtistCounts: Record<string, number> = {};
+    const cityCounts: Record<string, number> = {};
+    const songTravel: Record<string, { artist: string; locations: Set<string> }> = {};
+
+    data.forEach(item => {
+      // Total per artist
+      artistCounts[item.artist] = (artistCounts[item.artist] || 0) + 1;
+
+      // International per artist
+      if (!this.isInsideGreece(item.lat, item.lng)) {
+        internationalArtistCounts[item.artist] = (internationalArtistCounts[item.artist] || 0) + 1;
+      }
+
+      // City frequency (normalized)
+      const city = item.location.toLowerCase().trim();
+      cityCounts[city] = (cityCounts[city] || 0) + 1;
+
+      // Most travelled song
+      const songKey = `${item.artist} - ${item.song}`;
+      if (!songTravel[songKey]) {
+        songTravel[songKey] = { artist: item.artist, locations: new Set() };
+      }
+      songTravel[songKey].locations.add(city);
+    });
+
+    this.uniqueArtists = Object.keys(artistCounts).length;
+
+    // Process and sort stats
+    this.topRappers = Object.entries(artistCounts)
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 5);
+
+    this.topInternationalRappers = Object.entries(internationalArtistCounts)
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 5);
+
+    this.topCities = Object.entries(cityCounts)
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 5);
+
+    this.mostTravelledSongs = Object.entries(songTravel)
+      .map(([key, info]) => ({
+        title: key.split(' - ')[1],
+        artist: info.artist,
+        count: info.locations.size
+      }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 5);
+  }
+
+  private isInsideGreece(lat: number, lng: number): boolean {
+    return (
+      lat >= this.GREECE_BOUNDS.minLat &&
+      lat <= this.GREECE_BOUNDS.maxLat &&
+      lng >= this.GREECE_BOUNDS.minLng &&
+      lng <= this.GREECE_BOUNDS.maxLng
+    );
+  }
+}

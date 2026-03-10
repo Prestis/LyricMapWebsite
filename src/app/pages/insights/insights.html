@@ -1,0 +1,83 @@
+<div class="insights-container">
+  <div class="hero-section">
+    <h1 class="gradient-text">Lyric Map Insights</h1>
+    <p class="subtitle">Exploring the geography of Greek rap through data</p>
+    
+    <div class="quick-stats">
+      <div class="stat-card">
+        <span class="stat-value">{{totalLocations}}</span>
+        <span class="stat-label">Total Mentions</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value">{{uniqueArtists}}</span>
+        <span class="stat-label">Artists Mapped</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <!-- Top Mentioners -->
+    <section class="stat-section glass-card">
+      <h2>🏆 Most Mentioned Locations</h2>
+      <p class="section-desc">Rappers who shout out the most places.</p>
+      <div class="bar-chart">
+        <div class="bar-row" *ngFor="let r of topRappers; let i = index">
+          <div class="bar-info">
+            <span class="rank">{{i + 1}}</span>
+            <span class="name">{{r.name}}</span>
+            <span class="value">{{r.count}}</span>
+          </div>
+          <div class="bar-wrapper">
+            <div class="bar-fill" [style.width.%]="(r.count / topRappers[0].count) * 100"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- International Rappers -->
+    <section class="stat-section glass-card">
+      <h2>🌍 Global Ambassadors</h2>
+      <p class="section-desc">Most mentions outside of Greek borders.</p>
+      <div class="bar-chart">
+        <div class="bar-row" *ngFor="let r of topInternationalRappers; let i = index">
+          <div class="bar-info">
+            <span class="rank">{{i + 1}}</span>
+            <span class="name">{{r.name}}</span>
+            <span class="value">{{r.count}}</span>
+          </div>
+          <div class="bar-wrapper">
+            <div class="bar-fill accent-2" [style.width.%]="(r.count / topInternationalRappers[0].count) * 100"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Cities -->
+    <section class="stat-section glass-card">
+      <h2>📍 Hotspots</h2>
+      <p class="section-desc">The most popular cities in lyrics.</p>
+      <ul class="simple-list">
+        <li *ngFor="let city of topCities; let i = index">
+          <span class="rank">{{i + 1}}</span>
+          <span class="name text-capitalize">{{city.name}}</span>
+          <span class="count">{{city.count}} mentions</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Travelled Songs -->
+    <section class="stat-section glass-card">
+      <h2>🎵 The "Globetrotter" Tracks</h2>
+      <p class="section-desc">Songs mentioning the highest number of unique locations.</p>
+      <div class="song-list">
+        <div class="song-item" *ngFor="let song of mostTravelledSongs">
+          <div class="song-info">
+            <span class="song-title">"{{song.title}}"</span>
+            <span class="song-artist">{{song.artist}}</span>
+          </div>
+          <span class="song-count">{{song.count}} cities</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
