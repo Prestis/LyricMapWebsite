@@ -1,2375 +1,2508 @@
 [
   {
-    "artist": "Light",
-    "location": "rotterdam",
-    "song": "Mosca",
-    "lat": 51.924411528109474,
-    "lng": 4.47762236271637
-  },
-  {
-    "artist": "Light",
-    "location": "τσιμισκή",
-    "song": "Ποιος Είμαι (Poios Eimai)",
-    "lat": 40.62714194568482,
-    "lng": 22.95317267480234
-  },
-  {
-    "artist": "Light",
-    "location": "αφρική",
-    "song": "Ποιος Είμαι (Poios Eimai)",
-    "lat": 11.503333655264397,
-    "lng": 17.758085841001858
-  },
-  {
-    "artist": "Light",
-    "location": "barcelona",
-    "song": "POLO",
-    "lat": 41.38229613834045,
-    "lng": 2.176175976074018
-  },
-  {
-    "artist": "Light",
-    "location": "πεντέλη",
-    "song": "POLO",
-    "lat": 38.05039308782273,
-    "lng": 23.8610335500481
-  },
-  {
-    "artist": "Light",
-    "location": "dubai",
-    "song": "POLO",
-    "lat": 25.075122203299575,
-    "lng": 55.18837099703508
-  },
-  {
-    "artist": "Light",
-    "location": "ελλάδα",
-    "song": "ΧΙΛΙΟΜΕΤΡΑ (XILIOMETRA)",
-    "lat": 39.07508864742285,
-    "lng": 21.82455438481171
-  },
-  {
-    "artist": "Light",
+    "artist": "Ethismos",
     "location": "αθήνα",
-    "song": "ΧΙΛΙΟΜΕΤΡΑ (XILIOMETRA)",
-    "lat": 37.982881461991525,
-    "lng": 23.72775442267437
-  },
-  {
-    "artist": "Light",
-    "location": "λύκειο",
-    "song": "Primo",
-    "lat": 40.66016257945313,
-    "lng": 22.994510780144736
-  },
-  {
-    "artist": "Light",
-    "location": "μύκονο",
-    "song": "Primo",
-    "lat": 37.445945673369415,
-    "lng": 25.32887574309699
-  },
-  {
-    "artist": "Light",
-    "location": "ελλάδα",
-    "song": "Slang",
-    "lat": 39.074051464524324,
-    "lng": 21.823433918286526
-  },
-  {
-    "artist": "Light",
-    "location": "hong kong",
-    "song": "Slang",
-    "lat": 22.34919095027827,
-    "lng": 114.18628931845564
-  },
-  {
-    "artist": "Light",
-    "location": "κέρκυρα",
-    "song": "Ανεξάρτητα (Anexartita)",
-    "lat": 39.59037485843301,
-    "lng": 19.860139246753914
-  },
-  {
-    "artist": "Light",
-    "location": "μαξίμου",
-    "song": "Ανεξάρτητα (Anexartita)",
-    "lat": 40.63305063923165,
-    "lng": 22.944605399619245
-  },
-  {
-    "artist": "Light",
-    "location": "πάτρα",
-    "song": "Ανεξάρτητα (Anexartita)",
-    "lat": 38.245554062081595,
-    "lng": 21.734591737352968
-  },
-  {
-    "artist": "Light",
-    "location": "ελλάδα",
-    "song": "Γυμνή (Gymni)",
-    "lat": 39.074906833538996,
-    "lng": 21.825125927126372
-  },
-  {
-    "artist": "Light",
-    "location": "παρίσι",
-    "song": "Lobby",
-    "lat": 48.85934128899763,
-    "lng": 2.3193426990338377
-  },
-  {
-    "artist": "Light",
-    "location": "5th ave",
-    "song": "Neymar",
-    "lat": 40.80219036086754,
-    "lng": -73.94513831287246
-  },
-  {
-    "artist": "Light",
-    "location": "μόσχα",
-    "song": "Neymar",
-    "lat": 40.64265018357134,
-    "lng": 22.936002489156344
-  },
-  {
-    "artist": "Snik",
-    "location": "μιλάνο",
-    "song": "Señorita",
-    "lat": 38.01545943495144,
-    "lng": 23.734746707499315
-  },
-  {
-    "artist": "Snik",
-    "location": "βαλκάνια",
-    "song": "Colpo Grosso",
-    "lat": 41.77887400042133,
-    "lng": 23.815497154513334
-  },
-  {
-    "artist": "Snik",
-    "location": "napoli",
-    "song": "Colpo Grosso",
-    "lat": 38.01330529560249,
-    "lng": 23.797446560864163
-  },
-  {
-    "artist": "Snik",
-    "location": "marbella",
-    "song": "Colpo Grosso",
-    "lat": 36.509040761514036,
-    "lng": -4.886547769884744
-  },
-  {
-    "artist": "Snik",
-    "location": "milano",
-    "song": "Colpo Grosso",
-    "lat": 38.015544545721994,
-    "lng": 23.735460340956404
-  },
-  {
-    "artist": "Snik",
-    "location": "santorini",
-    "song": "Colpo Grosso",
-    "lat": 36.406675244622875,
-    "lng": 25.45708654358451
-  },
-  {
-    "artist": "Snik",
-    "location": "ελλάδα",
-    "song": "Colpo Grosso",
-    "lat": 39.074996120431074,
-    "lng": 21.824858286328382
-  },
-  {
-    "artist": "Snik",
-    "location": "ibiza",
-    "song": "Colpo Grosso",
-    "lat": 38.97432347925329,
-    "lng": 1.4192636961987866
-  },
-  {
-    "artist": "Snik",
-    "location": "champs-élysées",
-    "song": "NANA",
-    "lat": 48.871288903322636,
-    "lng": 2.30631035994692
-  },
-  {
-    "artist": "Snik",
-    "location": "ελλάδα",
-    "song": "NANA",
-    "lat": 39.073937615204606,
-    "lng": 21.825168742298384
-  },
-  {
-    "artist": "Snik",
-    "location": "ελλάδα",
-    "song": "9",
-    "lat": 39.07512800194729,
-    "lng": 21.824264691969105
-  },
-  {
-    "artist": "Snik",
-    "location": "αθήνα",
-    "song": "Dominicana Latina",
-    "lat": 37.983163959464385,
-    "lng": 23.72723867941962
-  },
-  {
-    "artist": "Trannos",
-    "location": "trannoιό",
-    "song": "COCO",
-    "lat": 38.905825857681066,
-    "lng": 1.419760174692114
-  },
-  {
-    "artist": "Trannos",
-    "location": "μύκονο",
-    "song": "No Sleep",
-    "lat": 37.44672149199436,
-    "lng": 25.329818568166033
-  },
-  {
-    "artist": "Trannos",
-    "location": "ibiza",
-    "song": "Ibiza",
-    "lat": 38.9740242030956,
-    "lng": 1.420181705033651
-  },
-  {
-    "artist": "Trannos",
-    "location": "πανόρμου",
-    "song": "Panama",
-    "lat": 37.99269727373203,
-    "lng": 23.76442198895084
-  },
-  {
-    "artist": "Trannos",
-    "location": "κρήτη",
-    "song": "Panama",
-    "lat": 37.984493766599066,
-    "lng": 23.76457583943546
-  },
-  {
-    "artist": "Toquel",
-    "location": "marrakesh",
-    "song": "Stars",
-    "lat": 31.62668889053536,
-    "lng": -7.9891248622936555
-  },
-  {
-    "artist": "Toquel",
-    "location": "αθήνα",
-    "song": "Stars",
-    "lat": 37.98349118575995,
-    "lng": 23.727061601783163
-  },
-  {
-    "artist": "Toquel",
-    "location": "αθήνα",
-    "song": "Business",
-    "lat": 37.983210053770904,
-    "lng": 23.727014669226943
-  },
-  {
-    "artist": "Toquel",
-    "location": "αθήνα",
-    "song": "Netflix",
-    "lat": 37.98330694279885,
-    "lng": 23.727730832484117
-  },
-  {
-    "artist": "Toquel",
-    "location": "ευρώπη",
-    "song": "Sandra",
-    "lat": 35.347396120703095,
-    "lng": 25.14225102779731
-  },
-  {
-    "artist": "Toquel",
-    "location": "marbella",
-    "song": "Sandra",
-    "lat": 36.5084050365234,
-    "lng": -4.885473863710133
-  },
-  {
-    "artist": "Toquel",
-    "location": "ibiza",
-    "song": "Sandra",
-    "lat": 38.97362687914782,
-    "lng": 1.4198181345696075
-  },
-  {
-    "artist": "Toquel",
-    "location": "καρα",
-    "song": "Sandra",
-    "lat": 35.027945453960356,
-    "lng": 24.759173299977185
-  },
-  {
-    "artist": "Toquel",
-    "location": "αθήνα",
-    "song": "Karolina",
-    "lat": 37.983902830367796,
-    "lng": 23.728444987806807
-  },
-  {
-    "artist": "Toquel",
-    "location": "αθήνα",
-    "song": "Αυτοκτονία (Aftoktonia)",
-    "lat": 37.984678635769406,
-    "lng": 23.72744855009197
-  },
-  {
-    "artist": "Toquel",
-    "location": "ποσειδώνος",
-    "song": "G63",
-    "lat": 38.04360627656279,
-    "lng": 23.765741826947174
-  },
-  {
-    "artist": "Toquel",
-    "location": "αχαρνών",
-    "song": "G63",
-    "lat": 37.98906523671549,
-    "lng": 23.727589807313585
-  },
-  {
-    "artist": "Toquel",
-    "location": "αθήνα",
-    "song": "Kokaina",
-    "lat": 37.9839875131459,
-    "lng": 23.72834477415627
-  },
-  {
-    "artist": "Toquel",
-    "location": "beverly hills",
-    "song": "Beverly Hills",
-    "lat": 37.85970473275216,
-    "lng": 23.754709133162063
-  },
-  {
-    "artist": "Mad-clip",
-    "location": "όλυμπο",
-    "song": "Presidente",
-    "lat": 40.09487522892565,
-    "lng": 22.42767859685468
-  },
-  {
-    "artist": "Mad-clip",
-    "location": "μύκονο",
-    "song": "Presidente",
-    "lat": 37.44765419745289,
-    "lng": 25.329309774152673
-  },
-  {
-    "artist": "Mad-clip",
-    "location": "casablanca",
-    "song": "Φέρε (Fere)",
-    "lat": 37.99061753371157,
-    "lng": 23.72715865508248
-  },
-  {
-    "artist": "Mad-clip",
-    "location": "california",
-    "song": "Φέρε (Fere)",
-    "lat": 37.0383444553934,
-    "lng": 26.957888325879253
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "αθήνα",
-    "song": "Vittorio",
-    "lat": 37.98298970773804,
-    "lng": 23.726660221625266
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "ακρόπολη",
-    "song": "Αλήτικη Αγάπη (Alitiki Agapi)",
-    "lat": 40.64541608383754,
-    "lng": 22.962197041610434
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "περσία",
-    "song": "Φράχτης (Fraxtis)",
-    "lat": 34.055269921242015,
-    "lng": -118.44224578216313
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "ταγγέρη",
-    "song": "Φράχτης (Fraxtis)",
-    "lat": 35.768913586736545,
-    "lng": -5.803375669181068
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "πήλιο",
-    "song": "Φράχτης (Fraxtis)",
-    "lat": 39.36552418554664,
-    "lng": 23.1352101966971
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "βερολίνο",
-    "song": "2017",
-    "lat": 40.648898623049746,
-    "lng": 22.926242907563015
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "σαλούγκα",
-    "song": "Χειρότερη Γενιά (Xeiroteri Genia)",
-    "lat": 40.60623091506171,
-    "lng": 22.96401754739036
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "θερμαϊκό",
-    "song": "Χειρότερη Γενιά (Xeiroteri Genia)",
-    "lat": 40.61394444480078,
-    "lng": 22.985541444943703
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "εγνατία",
-    "song": "Νυχτερίδες (Nyxterides)",
-    "lat": 40.63359965264224,
-    "lng": 22.939184049926094
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "ηλύσια",
-    "song": "Γρανίτες Και Τσιγάρα (Granites Kai Tsigara)",
-    "lat": 40.639491146124904,
-    "lng": 22.938136594695866
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "μητρόπολη",
-    "song": "Γρανίτες Και Τσιγάρα (Granites Kai Tsigara)",
-    "lat": 40.631643044239674,
-    "lng": 22.943622564434364
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "θεσσαλονίκη",
-    "song": "Καταδίκη (Katadiki)",
-    "lat": 40.63945008682726,
-    "lng": 22.93555225027413
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "buenos aires, rio de janeiro",
-    "song": "Καταδίκη (Katadiki)",
-    "lat": -34.6149313262634,
-    "lng": -58.428855454381726
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "μοντεβίδεο",
-    "song": "Διαστημόπλοια (Diastimoploia)",
-    "lat": -34.90618534070773,
-    "lng": -56.19113452052424
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "hong kong",
-    "song": "Διαστημόπλοια (Diastimoploia)",
-    "lat": 22.34984298554006,
-    "lng": 114.1855656008419
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "θέρμη",
-    "song": "Απλοί Άνθρωποι (Aploi Anthropoi)",
-    "lat": 40.54704923596536,
-    "lng": 23.020920889717978
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "σταυρούπολη",
-    "song": "Απλοί Άνθρωποι (Aploi Anthropoi)",
-    "lat": 40.671672125391076,
-    "lng": 22.93238121108592
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "ποσειδώνιο",
-    "song": "Απλοί Άνθρωποι (Aploi Anthropoi)",
-    "lat": 40.6649866640273,
-    "lng": 23.70059748421138
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "ποτάμι",
-    "song": "Απλοί Άνθρωποι (Aploi Anthropoi)",
-    "lat": 40.67521312185597,
-    "lng": 22.541565597504988
-  },
-  {
-    "artist": "Lex-grc",
-    "location": "κορδελιό, το",
-    "song": "Air Max",
-    "lat": 40.67040667180806,
-    "lng": 22.897720451890034
-  },
-  {
-    "artist": "Rack",
-    "location": "saint tropez",
-    "song": "Θέλει Tattoo (Thelei Tattoo)",
-    "lat": 43.27188021633496,
-    "lng": 6.640593962574915
-  },
-  {
-    "artist": "Rack",
-    "location": "ακρόπολη",
-    "song": "Φαβέλα (Favela)",
-    "lat": 37.97133242368458,
-    "lng": 23.72591302265016
-  },
-  {
-    "artist": "Rack",
-    "location": "ελλάδα",
-    "song": "ΕΙΣΑΙ ΤΡΕΛΑ (EISAI TRELA)",
-    "lat": 39.0741706154815,
-    "lng": 21.82387378518464
-  },
-  {
-    "artist": "Rack",
-    "location": "αιγαίο",
-    "song": "ΕΙΣΑΙ ΤΡΕΛΑ (EISAI TRELA)",
-    "lat": 37.95632632677728,
-    "lng": 23.71134417303598
-  },
-  {
-    "artist": "Rack",
-    "location": "ιόνιο",
-    "song": "NAPOLI",
-    "lat": 38.00130716678654,
-    "lng": 23.72049081349152
-  },
-  {
-    "artist": "Rack",
-    "location": "phuket",
-    "song": "MILLION",
-    "lat": 7.935623951722991,
-    "lng": 98.35237181594421
-  },
-  {
-    "artist": "Rack",
-    "location": "cre",
-    "song": "GRISELDA",
-    "lat": 28.00042628207341,
-    "lng": 3.0007966935798542
-  },
-  {
-    "artist": "Rack",
-    "location": "casablanca",
-    "song": "VENDETTA",
-    "lat": 37.98975135284642,
-    "lng": 23.726841443754086
-  },
-  {
-    "artist": "Rack",
-    "location": "medellín",
-    "song": "9MM",
-    "lat": 6.26941649548068,
-    "lng": -75.60335780311264
-  },
-  {
-    "artist": "Rack",
-    "location": "άγιον όρος",
-    "song": "Barcode",
-    "lat": 40.22323106299922,
-    "lng": 24.03986375041762
-  },
-  {
-    "artist": "Rack",
-    "location": "γλυφάδα",
-    "song": "Barcode",
-    "lat": 37.86154263526594,
-    "lng": 23.754497904464024
-  },
-  {
-    "artist": "Rack",
-    "location": "ελλάδα",
-    "song": "Barcode",
-    "lat": 39.07495773738117,
-    "lng": 21.824577497343107
-  },
-  {
-    "artist": "Rack",
-    "location": "αθήνα",
-    "song": "Barcode",
-    "lat": 37.98324220387553,
-    "lng": 23.728063515263834
-  },
-  {
-    "artist": "Fy",
-    "location": "λονδίνο",
-    "song": "Δε Με Θέλουν (De Me Theloun)",
-    "lat": 40.639637666166216,
-    "lng": 22.943305797469034
-  },
-  {
-    "artist": "Fy",
-    "location": "ισπανία",
-    "song": "Νησί (Nisi)",
-    "lat": 39.3268349908955,
-    "lng": -4.83787465440935
-  },
-  {
-    "artist": "Fy",
-    "location": "λονδίνο",
-    "song": "Funky",
-    "lat": 40.63863661523409,
-    "lng": 22.943424916687164
-  },
-  {
-    "artist": "Fy",
-    "location": "παρίσι",
-    "song": "Celebrity",
-    "lat": 48.85932454784512,
-    "lng": 2.319554491177538
-  },
-  {
-    "artist": "Fy",
-    "location": "αθήνα",
-    "song": "Celebrity",
-    "lat": 37.98426697862245,
-    "lng": 23.727879415343455
-  },
-  {
-    "artist": "Fy",
-    "location": "hong-kong",
-    "song": "Την Ψυχολόγο (Tin Psihologo)",
-    "lat": 22.349165683021642,
-    "lng": 114.18507688132479
-  },
-  {
-    "artist": "Fy",
-    "location": "abu dhabi",
-    "song": "Ταπεραμέντο (Taperamento)",
-    "lat": 24.45468937836108,
-    "lng": 54.377838858627925
-  },
-  {
-    "artist": "Sidarta",
-    "location": "marrakesh",
-    "song": "MBAPPE",
-    "lat": 31.62647423347247,
-    "lng": -7.988250926379818
-  },
-  {
-    "artist": "Sidarta",
-    "location": "μαρόκο",
-    "song": "MBAPPE",
-    "lat": 28.33404286469734,
-    "lng": -10.371671025468752
-  },
-  {
-    "artist": "Sidarta",
-    "location": "βερσαλλίες",
-    "song": "MBAPPE",
-    "lat": 48.80259646455855,
-    "lng": 2.126644975886175
-  },
-  {
-    "artist": "Sidarta",
-    "location": "μιλάνο",
-    "song": "MEDITERRANEAN",
-    "lat": 38.015112336936674,
-    "lng": 23.73579134291111
-  },
-  {
-    "artist": "Sidarta",
-    "location": "αργεντινή",
-    "song": "MEDITERRANEAN",
-    "lat": 37.97675063772176,
-    "lng": 23.75091906677925
-  },
-  {
-    "artist": "Sidarta",
-    "location": "paris",
-    "song": "MEDITERRANEAN",
-    "lat": 37.99154959544806,
-    "lng": 23.72697827476126
-  },
-  {
-    "artist": "Sidarta",
-    "location": "παπάγου",
-    "song": "ΠΑΠΑΓΟΥ (PAPAGOU)",
-    "lat": 38.00032436534425,
-    "lng": 23.782740792644887
-  },
-  {
-    "artist": "Sidarta",
-    "location": "αθήνα",
-    "song": "Adrenalina",
-    "lat": 37.98400606846035,
-    "lng": 23.7276361473075
-  },
-  {
-    "artist": "Sidarta",
-    "location": "παρίσι",
-    "song": "MON AMIE",
-    "lat": 37.95410335352999,
-    "lng": 23.750504179571138
-  },
-  {
-    "artist": "Sidarta",
-    "location": "αθήνα",
-    "song": "MON AMIE",
-    "lat": 37.983667884275384,
-    "lng": 23.727812406826498
-  },
-  {
-    "artist": "Sidarta",
-    "location": "monte carlo",
-    "song": "EL DOCTOR",
-    "lat": 37.94220050001728,
-    "lng": 23.6473528422628
-  },
-  {
-    "artist": "Sidarta",
-    "location": "βαλκάνια",
-    "song": "Amazing (Remix)",
-    "lat": 41.77757042077484,
-    "lng": 23.815056887952462
-  },
-  {
-    "artist": "Saske",
-    "location": "palestina",
-    "song": "ANBU",
-    "lat": -20.337439214062517,
-    "lng": -49.47471920590022
-  },
-  {
-    "artist": "Saske",
-    "location": "vallecas",
-    "song": "ROYALFLUSH",
-    "lat": 40.386336516837275,
-    "lng": -3.6584574654067863
-  },
-  {
-    "artist": "Saske",
-    "location": "el palo",
-    "song": "ROYALFLUSH",
-    "lat": 36.720609244430364,
-    "lng": -4.359236017037219
-  },
-  {
-    "artist": "Saske",
-    "location": "toledo",
-    "song": "ROYALFLUSH",
-    "lat": 39.85567083812313,
-    "lng": -4.02379932478501
-  },
-  {
-    "artist": "Saske",
-    "location": "playa ne",
-    "song": "ROYALFLUSH",
-    "lat": 11.10968121525435,
-    "lng": -63.97051741724057
-  },
-  {
-    "artist": "Saske",
-    "location": "bilbo",
-    "song": "B2B FREESTYLE",
-    "lat": 43.262855937279696,
-    "lng": -2.935359224234162
-  },
-  {
-    "artist": "Saske",
-    "location": "tulum",
-    "song": "B2B FREESTYLE",
-    "lat": 20.43022755232989,
-    "lng": -87.65311902864114
-  },
-  {
-    "artist": "Saske",
-    "location": "barna",
-    "song": "B2B FREESTYLE",
-    "lat": 41.38341916905817,
-    "lng": 2.1766042759359454
-  },
-  {
-    "artist": "Saske",
-    "location": "menorca",
-    "song": "5HOMIEZ",
-    "lat": 39.94927018288888,
-    "lng": 4.0502308350375245
-  },
-  {
-    "artist": "Saske",
-    "location": "españa",
-    "song": "I Don’t Give a Fuck (Bonus Track)",
-    "lat": 37.96910913915708,
-    "lng": 23.72821823512977
-  },
-  {
-    "artist": "Saske",
-    "location": "india",
-    "song": "DEATH ROW II",
-    "lat": 37.96098371031191,
-    "lng": 23.719277663002025
-  },
-  {
-    "artist": "Saske",
-    "location": "ferrerías",
-    "song": "DEATH ROW II",
-    "lat": 39.982849237687496,
-    "lng": 4.010462039237879
-  },
-  {
-    "artist": "Saske",
-    "location": "madrid",
-    "song": "DEATH ROW II",
-    "lat": 40.41736388314334,
-    "lng": -3.7044820119366633
-  },
-  {
-    "artist": "Saske",
-    "location": "sevilla",
-    "song": "APRENDI DE LOS MEJORES",
-    "lat": 37.388375382279754,
-    "lng": -5.996308205439001
-  },
-  {
-    "artist": "Saske",
-    "location": "raval",
-    "song": "APRENDI DE LOS MEJORES",
-    "lat": 41.44108333030753,
-    "lng": 2.2119173066976563
-  },
-  {
-    "artist": "Saske",
-    "location": "california",
-    "song": "APRENDI DE LOS MEJORES",
-    "lat": 36.70066938460838,
-    "lng": -118.75579383889249
-  },
-  {
-    "artist": "Saske",
-    "location": "medellín",
-    "song": "APRENDI DE LOS MEJORES",
-    "lat": 6.269587878610183,
-    "lng": -75.60194571488441
-  },
-  {
-    "artist": "Saske",
-    "location": "menorca",
-    "song": "APRENDI DE LOS MEJORES",
-    "lat": 39.949798744056245,
-    "lng": 4.0490800103990185
-  },
-  {
-    "artist": "Saske",
-    "location": "palermo",
-    "song": "Ponte El Chaquetón (Intro)",
-    "lat": 38.11032046506384,
-    "lng": 13.353407540413588
-  },
-  {
-    "artist": "Saske",
-    "location": "túnez",
-    "song": "BAR$",
-    "lat": 33.84486882096006,
-    "lng": 9.399338478095594
-  },
-  {
-    "artist": "Saske",
-    "location": "menorca",
-    "song": "BAR$",
-    "lat": 39.94951832635252,
-    "lng": 4.049722690526887
-  },
-  {
-    "artist": "Saske",
-    "location": "españa",
-    "song": "TORNAR",
-    "lat": 37.968982166255955,
-    "lng": 23.72682721840677
-  },
-  {
-    "artist": "Saske",
-    "location": "meseta",
-    "song": "TORNAR",
-    "lat": 21.37049513310442,
-    "lng": -98.38880612237095
-  },
-  {
-    "artist": "Saske",
-    "location": "roqueta",
-    "song": "TORNAR",
-    "lat": 43.971354430113436,
-    "lng": 1.8376655183390065
-  },
-  {
-    "artist": "Saske",
-    "location": "menorca",
-    "song": "TORNAR",
-    "lat": 39.95004118298823,
-    "lng": 4.050084339493668
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "κομοτηνή",
-    "song": "Το Εικοσάλεπτο (To Eikosalepto)",
-    "lat": 41.1180360078337,
-    "lng": 25.403005766046185
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "ξάνθη",
-    "song": "Το Εικοσάλεπτο (To Eikosalepto)",
-    "lat": 41.138200567486805,
-    "lng": 24.886072348557267
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "θράκη",
-    "song": "KVL 2",
-    "lat": 38.01010429006116,
-    "lng": 23.732725379491715
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "δία",
-    "song": "KVL 2",
-    "lat": 35.44553749470791,
-    "lng": 25.21215436993131
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "ελλάδα",
-    "song": "KVL 2",
-    "lat": 39.07507649325522,
-    "lng": 21.82468576106859
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "κρήτη",
-    "song": "KVL 2",
-    "lat": 35.30873826008062,
-    "lng": 24.464149832020965
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "ελλάδα",
-    "song": "Αντιγονιδών (Antigonidon)",
-    "lat": 39.075071997021006,
-    "lng": 21.82335407120117
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "μέκκα",
-    "song": "THE DEAL",
-    "lat": 21.420015856856335,
-    "lng": 39.827036593842394
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "ελλάδα",
-    "song": "THE DEAL",
-    "lat": 39.074815177465894,
-    "lng": 21.82403136997811
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "βαλαωρίτου",
-    "song": "Βαλαωρίτου (Valaoritou)",
-    "lat": 40.63740080537452,
-    "lng": 22.93878438144333
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "colorado",
-    "song": "Βαλαωρίτου (Valaoritou)",
-    "lat": 36.451359693027186,
-    "lng": 28.216553924987917
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "βουλιαγμένη",
-    "song": "Πάνω (Pano)",
-    "lat": 37.814043207952444,
-    "lng": 23.782856959578698
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "αχαρνών",
-    "song": "Πάνω (Pano)",
-    "lat": 38.07377790669107,
-    "lng": 23.79930404896015
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "ήλιο",
-    "song": "Μη Σταματάς (Mi Stamatas)",
-    "lat": 37.96055436841945,
-    "lng": 23.73508263440411
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "ελλάδα",
-    "song": "Μη Σταματάς (Mi Stamatas)",
-    "lat": 39.07483527974352,
-    "lng": 21.82349579724681
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "αθήνα",
-    "song": "MAALOX",
-    "lat": 37.98361928387332,
-    "lng": 23.728256252423968
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "παρίσι",
-    "song": "MAALOX",
-    "lat": 37.95302503182257,
-    "lng": 23.75041570024191
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "ρώμη",
-    "song": "MAALOX",
-    "lat": 40.68507586686962,
-    "lng": 22.95229412075556
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "άμστερνταμ",
-    "song": "MAALOX",
-    "lat": 36.25465743116932,
-    "lng": 28.160893720520313
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "πορτογαλία",
-    "song": "MAALOX",
-    "lat": 39.66297458983214,
-    "lng": -8.135192850691244
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "κυψέλη",
-    "song": "MAALOX",
-    "lat": 38.00233940674115,
-    "lng": 23.74074924066472
-  },
-  {
-    "artist": "Bloody-hawk",
-    "location": "ελλάδα",
-    "song": "Κρίμα (Krima)",
-    "lat": 39.07383531046934,
-    "lng": 21.82461230828106
+    "song": "Γένvημα Θρέμμα (Gennima Thremma)",
+    "lat": 37.982824146700644,
+    "lng": 23.727918278852513
   },
   {
     "artist": "Ethismos",
     "location": "καλλιάνι",
     "song": "Γένvημα Θρέμμα (Gennima Thremma)",
-    "lat": 37.68847363619012,
-    "lng": 21.92407641737265
+    "lat": 37.58856709302206,
+    "lng": 22.45587007619375
   },
   {
     "artist": "Ethismos",
     "location": "πορτογαλία",
     "song": "Γένvημα Θρέμμα (Gennima Thremma)",
-    "lat": 39.66222762541823,
-    "lng": -8.135645366420803
+    "lat": 39.39913715885258,
+    "lng": -8.225383185333524
   },
   {
     "artist": "Ethismos",
     "location": "αθήνα",
-    "song": "Γένvημα Θρέμμα (Gennima Thremma)",
-    "lat": 37.98358769104808,
-    "lng": 23.727288096273654
+    "song": "EL TRÁFICO",
+    "lat": 37.98416977208378,
+    "lng": 23.72833425695873
   },
   {
     "artist": "Ethismos",
     "location": "λισαβόνα",
     "song": "EL TRÁFICO",
-    "lat": 38.70702561525096,
-    "lng": -9.136876161438716
+    "lat": 38.72209456046238,
+    "lng": -9.139085569410717
   },
   {
     "artist": "Ethismos",
-    "location": "αθήνα",
-    "song": "EL TRÁFICO",
-    "lat": 37.984314590436085,
-    "lng": 23.72727211045529
+    "location": "λόφο του στρέφη",
+    "song": "Millennials",
+    "lat": 37.98390599753671,
+    "lng": 23.734284044293933
+  },
+  {
+    "artist": "Ethismos",
+    "location": "πλατεία μαβίλης",
+    "song": "The Town",
+    "lat": 37.98330178924185,
+    "lng": 23.754552426231175
   },
   {
     "artist": "Ethismos",
     "location": "κερκύρας",
     "song": "The Town",
-    "lat": 37.99757289903034,
-    "lng": 23.740688362444082
+    "lat": 39.62420529736947,
+    "lng": 19.92160784809702
   },
   {
     "artist": "Ethismos",
     "location": "αθήνα",
     "song": "The Town",
-    "lat": 37.98371855983652,
-    "lng": 23.7270715732203
-  },
-  {
-    "artist": "Ethismos",
-    "location": "κένυα",
-    "song": "The Town",
-    "lat": 1.4421910517784318,
-    "lng": 38.4319637899502
+    "lat": 37.983727350388286,
+    "lng": 23.728203236543123
   },
   {
     "artist": "Ethismos",
     "location": "boston",
     "song": "The Town",
-    "lat": 37.98271893299937,
-    "lng": 23.760822005681597
+    "lat": 42.35913657690447,
+    "lng": -71.05827089561096
+  },
+  {
+    "artist": "Ethismos",
+    "location": "πάρκο εδέμ",
+    "song": "The Town",
+    "lat": 37.91645728993563,
+    "lng": 23.708626706731433
+  },
+  {
+    "artist": "Ethismos",
+    "location": "κένυα",
+    "song": "The Town",
+    "lat": -1.2858157658587754,
+    "lng": 36.81743643451354
   },
   {
     "artist": "Ethismos",
     "location": "ελλάδα",
     "song": "Η Ευκαιρία Μου (I Efkairia Mou)",
-    "lat": 39.07355365835461,
-    "lng": 21.825019840841758
+    "lat": 39.073639977506524,
+    "lng": 21.825121588823723
   },
   {
     "artist": "Ethismos",
     "location": "αθήνα",
     "song": "Η Ευκαιρία Μου (I Efkairia Mou)",
-    "lat": 37.983521849364244,
-    "lng": 23.728421602597173
+    "lat": 37.98301385307066,
+    "lng": 23.72796292860174
+  },
+  {
+    "artist": "Ethismos",
+    "location": "λυκαβηττό",
+    "song": "Fuck ’em All",
+    "lat": 37.98105652572,
+    "lng": 23.746694159278338
+  },
+  {
+    "artist": "Ethismos",
+    "location": "mall arte pove",
+    "song": "Fuck ’em All",
+    "lat": -0.0009959373245899646,
+    "lng": 0.00025176654448224987
   },
   {
     "artist": "Ethismos",
     "location": "αττική",
     "song": "Fuck ’em All",
-    "lat": 37.99853490044958,
-    "lng": 23.72350473295534
-  },
-  {
-    "artist": "Ethismos",
-    "location": "σόλωνος",
-    "song": "BOGOTA",
-    "lat": 37.98214392093859,
-    "lng": 23.736645320763866
-  },
-  {
-    "artist": "Ethismos",
-    "location": "αθήνα",
-    "song": "BOGOTA",
-    "lat": 37.982877410258425,
-    "lng": 23.72733452836444
+    "lat": 38.069887865762034,
+    "lng": 23.675963670372706
   },
   {
     "artist": "Ethismos",
     "location": "μπογκοτά",
     "song": "BOGOTA",
-    "lat": 4.653538123560565,
-    "lng": -74.0833650373222
+    "lat": 4.710586522002305,
+    "lng": -74.07268634101905
   },
   {
     "artist": "Ethismos",
-    "location": "γκύζη",
+    "location": "αθήνα",
     "song": "BOGOTA",
-    "lat": 37.99118206112063,
-    "lng": 23.747330171797884
+    "lat": 37.98421758842261,
+    "lng": 23.727014969051275
   },
   {
     "artist": "Ethismos",
     "location": "στουρναρη",
     "song": "BOGOTA",
-    "lat": 37.98885117787407,
-    "lng": 23.727937486131886
+    "lat": 37.985998167794975,
+    "lng": 23.730648295960656
   },
   {
     "artist": "Ethismos",
-    "location": "ποσειδώνα",
-    "song": "Σύμπαν 25 (Simpan 25)",
-    "lat": 37.913478230211744,
-    "lng": 23.008256448124637
+    "location": "σόλωνος",
+    "song": "BOGOTA",
+    "lat": 37.97873549636818,
+    "lng": 23.736039365273193
   },
   {
     "artist": "Ethismos",
-    "location": "παρθενώνα",
-    "song": "Σύμπαν 25 (Simpan 25)",
-    "lat": 41.13198489451186,
-    "lng": 25.40093326621405
-  },
-  {
-    "artist": "Ethismos",
-    "location": "αθήνα",
-    "song": "Σύμπαν 25 (Simpan 25)",
-    "lat": 37.98324272964586,
-    "lng": 23.727354946648784
+    "location": "γκύζη",
+    "song": "BOGOTA",
+    "lat": 37.99350938497411,
+    "lng": 23.754745267607124
   },
   {
     "artist": "Ethismos",
     "location": "τίρανα",
     "song": "Σύμπαν 25 (Simpan 25)",
-    "lat": 41.32729829982041,
-    "lng": 19.817825672419414
-  },
-  {
-    "artist": "Ethismos",
-    "location": "μάρνης",
-    "song": "Σύμπαν 25 (Simpan 25)",
-    "lat": 38.01403717716878,
-    "lng": 23.673815508624557
+    "lat": 41.32683594743125,
+    "lng": 19.818585068806556
   },
   {
     "artist": "Ethismos",
     "location": "rio seco",
     "song": "Σύμπαν 25 (Simpan 25)",
-    "lat": 10.59669818020703,
-    "lng": -62.898553604505196
+    "lat": -0.0009504973030432846,
+    "lng": -0.0008802326989415619
   },
   {
     "artist": "Ethismos",
-    "location": "γκύζη",
-    "song": "Made In Athens",
-    "lat": 37.991305480652855,
-    "lng": 23.746094850673476
+    "location": "μάρνης",
+    "song": "Σύμπαν 25 (Simpan 25)",
+    "lat": -0.0007398385626204545,
+    "lng": 0.0009451973055415412
   },
   {
     "artist": "Ethismos",
-    "location": "καρχηδόνα",
-    "song": "Made In Athens",
-    "lat": 36.85553667462158,
-    "lng": 10.331344527154863
+    "location": "παρθενώνα",
+    "song": "Σύμπαν 25 (Simpan 25)",
+    "lat": 37.97225616794217,
+    "lng": 23.725843225917956
+  },
+  {
+    "artist": "Ethismos",
+    "location": "αθήνα",
+    "song": "Σύμπαν 25 (Simpan 25)",
+    "lat": 37.98308853817885,
+    "lng": 23.727392640654905
+  },
+  {
+    "artist": "Ethismos",
+    "location": "ποσειδώνα",
+    "song": "Σύμπαν 25 (Simpan 25)",
+    "lat": 37.92968795229128,
+    "lng": 23.730941254538923
   },
   {
     "artist": "Ethismos",
     "location": "athen",
     "song": "Made In Athens",
-    "lat": 37.975331478350085,
-    "lng": 23.734144755496725
+    "lat": 37.98361279779373,
+    "lng": 23.728454423866598
+  },
+  {
+    "artist": "Ethismos",
+    "location": "άρειο πάγο",
+    "song": "Made In Athens",
+    "lat": 37.97221881033902,
+    "lng": 23.726207587206744
+  },
+  {
+    "artist": "Ethismos",
+    "location": "καρχηδόνα",
+    "song": "Made In Athens",
+    "lat": 36.85422919190088,
+    "lng": 10.324564470668003
+  },
+  {
+    "artist": "Ethismos",
+    "location": "γκύζη",
+    "song": "Made In Athens",
+    "lat": 37.99349850664227,
+    "lng": 23.754024640739857
   },
   {
     "artist": "Ethismos",
     "location": "athens",
     "song": "Made In Athens",
-    "lat": 37.99241433886974,
-    "lng": 23.72102763684832
-  },
-  {
-    "artist": "Ethismos",
-    "location": "las palmas",
-    "song": "Σινεμά Γαλαξίας (Cinema Galaxias)",
-    "lat": 28.129867243330853,
-    "lng": -15.43548838397502
+    "lat": 37.98286919661306,
+    "lng": 23.727427447766843
   },
   {
     "artist": "Ethismos",
     "location": "ισπανία",
     "song": "Σινεμά Γαλαξίας (Cinema Galaxias)",
-    "lat": 39.32597102202084,
-    "lng": -4.838420287142503
+    "lat": 40.46376663701915,
+    "lng": -3.7497422762158954
   },
   {
     "artist": "Ethismos",
     "location": "villa caldera",
     "song": "Σινεμά Γαλαξίας (Cinema Galaxias)",
-    "lat": 10.494335803760015,
-    "lng": -63.49761159261925
+    "lat": 36.425555896345855,
+    "lng": 25.42483739548063
   },
   {
     "artist": "Ethismos",
-    "location": "galicia",
-    "song": "ΠΟΡΤΟΓΆΛΟΣ (Portuguese)",
-    "lat": 42.618484992882166,
-    "lng": -7.8631872809194014
-  },
-  {
-    "artist": "Ethismos",
-    "location": "μπαγκλαντές",
-    "song": "ΠΟΡΤΟΓΆΛΟΣ (Portuguese)",
-    "lat": 38.015032304380426,
-    "lng": 23.783190785859016
-  },
-  {
-    "artist": "Ethismos",
-    "location": "λετονία",
-    "song": "ΠΟΡΤΟΓΆΛΟΣ (Portuguese)",
-    "lat": 56.840875627763324,
-    "lng": 24.75411462868578
+    "location": "las palmas",
+    "song": "Σινεμά Γαλαξίας (Cinema Galaxias)",
+    "lat": 28.122986392786423,
+    "lng": -15.43622607878941
   },
   {
     "artist": "Ethismos",
     "location": "μπολόνια",
     "song": "ΠΟΡΤΟΓΆΛΟΣ (Portuguese)",
-    "lat": 44.49416329459659,
-    "lng": 11.34181741504801
+    "lat": 44.494438483341646,
+    "lng": 11.342829259839665
   },
   {
     "artist": "Ethismos",
-    "location": "ουκρανία",
+    "location": "galicia",
     "song": "ΠΟΡΤΟΓΆΛΟΣ (Portuguese)",
-    "lat": 49.48673178577347,
-    "lng": 31.27116617699421
+    "lat": 42.92367373229967,
+    "lng": -7.895765843394246
+  },
+  {
+    "artist": "Ethismos",
+    "location": "πορτογάλος",
+    "song": "ΠΟΡΤΟΓΆΛΟΣ (Portuguese)",
+    "lat": 38.01764522086941,
+    "lng": 23.73329776254673
   },
   {
     "artist": "Ethismos",
     "location": "βουδαπέστη",
     "song": "ΠΟΡΤΟΓΆΛΟΣ (Portuguese)",
-    "lat": 47.48100053547991,
-    "lng": 19.14582381444725
+    "lat": 47.498752178195836,
+    "lng": 19.040573031673127
+  },
+  {
+    "artist": "Ethismos",
+    "location": "λετονία",
+    "song": "ΠΟΡΤΟΓΆΛΟΣ (Portuguese)",
+    "lat": 56.87911354933071,
+    "lng": 24.602564916504075
+  },
+  {
+    "artist": "Ethismos",
+    "location": "ουκρανία",
+    "song": "ΠΟΡΤΟΓΆΛΟΣ (Portuguese)",
+    "lat": 48.38007192857811,
+    "lng": 31.16653360020146
+  },
+  {
+    "artist": "Ethismos",
+    "location": "μπαγκλαντές",
+    "song": "ΠΟΡΤΟΓΆΛΟΣ (Portuguese)",
+    "lat": 23.6847022253204,
+    "lng": 90.35680568328691
+  },
+  {
+    "artist": "Ethismos",
+    "location": "ελλάδα",
+    "song": "Πρωτεύουσα (Protevousa)",
+    "lat": 39.07409739678383,
+    "lng": 21.824277065518004
+  },
+  {
+    "artist": "Ethismos",
+    "location": "αθήνα",
+    "song": "Πρωτεύουσα (Protevousa)",
+    "lat": 37.98290311317723,
+    "lng": 23.727634204835685
+  },
+  {
+    "artist": "Ethismos",
+    "location": "βολιβία",
+    "song": "Πρωτεύουσα (Protevousa)",
+    "lat": -16.28935610350658,
+    "lng": -63.58890603678326
   },
   {
     "artist": "Ethismos",
     "location": "ath, athens",
     "song": "Πρωτεύουσα (Protevousa)",
-    "lat": 38.002508033849274,
-    "lng": 23.762253251506763
-  },
-  {
-    "artist": "Ethismos",
-    "location": "βολιβία",
-    "song": "Πρωτεύουσα (Protevousa)",
-    "lat": -17.056918481866994,
-    "lng": -64.99213914189632
-  },
-  {
-    "artist": "Ethismos",
-    "location": "ελλάδα",
-    "song": "Πρωτεύουσα (Protevousa)",
-    "lat": 39.07394687985827,
-    "lng": 21.825129587398816
-  },
-  {
-    "artist": "Ethismos",
-    "location": "αθήνα",
-    "song": "Πρωτεύουσα (Protevousa)",
-    "lat": 37.983718809649766,
-    "lng": 23.727099768966852
-  },
-  {
-    "artist": "Ethismos",
-    "location": "καλβου",
-    "song": "FACE CONTROL",
-    "lat": 37.99205665524769,
-    "lng": 23.750894331519685
-  },
-  {
-    "artist": "Ethismos",
-    "location": "ολυμπιου διος",
-    "song": "FACE CONTROL",
-    "lat": 37.91408900685876,
-    "lng": 23.722324417385355
+    "lat": 37.98473520319282,
+    "lng": 23.727125811042317
   },
   {
     "artist": "Ethismos",
     "location": "γκυζη",
     "song": "FACE CONTROL",
-    "lat": 37.991181055816696,
-    "lng": 23.746588992270453
+    "lat": 37.99546471016053,
+    "lng": 23.750380524588753
+  },
+  {
+    "artist": "Ethismos",
+    "location": "ολυμπιου διος",
+    "song": "FACE CONTROL",
+    "lat": 37.96871459784939,
+    "lng": 23.73420783750602
+  },
+  {
+    "artist": "Ethismos",
+    "location": "καλβου",
+    "song": "FACE CONTROL",
+    "lat": 37.98945811119683,
+    "lng": 23.731247900142396
   },
   {
     "artist": "Ethismos",
     "location": "ελλάδα",
     "song": "Revanche",
-    "lat": 39.07497834769474,
-    "lng": 21.825202769912785
+    "lat": 39.073533933847045,
+    "lng": 21.82472729733934
   },
   {
     "artist": "Ethismos",
     "location": "medellín",
     "song": "Revanche",
-    "lat": 6.269229952064888,
-    "lng": -75.6024768187219
+    "lat": 6.2440499178744595,
+    "lng": -75.57331493971532
   },
   {
     "artist": "Ethismos",
     "location": "πετράλωνα",
     "song": "BLUE JEANS",
-    "lat": 37.96890305922836,
-    "lng": 23.70821810464038
-  },
-  {
-    "artist": "Ethismos",
-    "location": "athens city",
-    "song": "BLUE JEANS",
-    "lat": 38.007151760249926,
-    "lng": 23.736229099078106
-  },
-  {
-    "artist": "Ethismos",
-    "location": "αθήνα",
-    "song": "BLUE JEANS",
-    "lat": 37.984794409352716,
-    "lng": 23.72665190651329
-  },
-  {
-    "artist": "Ethismos",
-    "location": "αττικό άλσος",
-    "song": "BLUE JEANS",
-    "lat": 38.005096559675614,
-    "lng": 23.753816620575282
-  },
-  {
-    "artist": "Ethismos",
-    "location": "θεσσαλονίκη",
-    "song": "BLUE JEANS",
-    "lat": 38.01233155356482,
-    "lng": 23.717968608668045
+    "lat": 37.96803025103679,
+    "lng": 23.712601895312464
   },
   {
     "artist": "Ethismos",
     "location": "πύρρο",
     "song": "BLUE JEANS",
-    "lat": 64.28740158546195,
-    "lng": 24.889236641413664
+    "lat": 39.542192467277246,
+    "lng": 20.854227894716676
   },
   {
     "artist": "Ethismos",
-    "location": "lisboa",
-    "song": "Olivais Sul",
-    "lat": 38.707915063241025,
-    "lng": -9.136656215176362
+    "location": "θεσσαλονίκη",
+    "song": "BLUE JEANS",
+    "lat": 40.64060241128234,
+    "lng": 22.94479084600085
+  },
+  {
+    "artist": "Ethismos",
+    "location": "αθήνα",
+    "song": "BLUE JEANS",
+    "lat": 37.98416759850129,
+    "lng": 23.727960951482913
+  },
+  {
+    "artist": "Ethismos",
+    "location": "κυψέλη, γκύζη, περιστέρι",
+    "song": "BLUE JEANS",
+    "lat": 37.99960829434421,
+    "lng": 23.737230539190737
+  },
+  {
+    "artist": "Ethismos",
+    "location": "σκλαβενίτη",
+    "song": "BLUE JEANS",
+    "lat": 38.0011223625797,
+    "lng": 23.730592014525627
+  },
+  {
+    "artist": "Ethismos",
+    "location": "athens city",
+    "song": "BLUE JEANS",
+    "lat": 37.983401395032104,
+    "lng": 23.72801535668002
+  },
+  {
+    "artist": "Ethismos",
+    "location": "αττικό άλσος",
+    "song": "BLUE JEANS",
+    "lat": 38.00428449884638,
+    "lng": 23.755222977349362
   },
   {
     "artist": "Ethismos",
     "location": "βαρκελώνη",
     "song": "Olivais Sul",
-    "lat": 41.382462622106566,
-    "lng": 2.177224317734656
+    "lat": 41.38436163509259,
+    "lng": 2.1733796988059937
   },
   {
     "artist": "Ethismos",
     "location": "olivais",
     "song": "Olivais Sul",
-    "lat": 38.76805513811483,
-    "lng": -9.117427930904794
+    "lat": 38.76557511799259,
+    "lng": -9.117734049415999
   },
   {
     "artist": "Ethismos",
-    "location": "broadway",
-    "song": "Documento",
-    "lat": 40.830637304225824,
-    "lng": -73.94612329748519
+    "location": "lisboa",
+    "song": "Olivais Sul",
+    "lat": 38.72294502854087,
+    "lng": -9.139541862885427
   },
   {
     "artist": "Ethismos",
     "location": "πορτογαλία",
     "song": "Documento",
-    "lat": 39.661227139744476,
-    "lng": -8.135673812153337
+    "lat": 39.39991800458451,
+    "lng": -8.225230638276413
   },
   {
     "artist": "Ethismos",
-    "location": "γερμανία",
+    "location": "ιταλία",
     "song": "Documento",
-    "lat": 51.16415773665892,
-    "lng": 10.448756434192388
+    "lat": 41.871433208552304,
+    "lng": 12.567639513296127
   },
   {
     "artist": "Ethismos",
     "location": "ισπανία",
     "song": "Documento",
-    "lat": 39.32582742001088,
-    "lng": -4.838410733025819
+    "lat": 40.4627585872616,
+    "lng": -3.748895838652594
+  },
+  {
+    "artist": "Ethismos",
+    "location": "broadway",
+    "song": "Documento",
+    "lat": 38.00265245104121,
+    "lng": 23.73231858391647
   },
   {
     "artist": "Ethismos",
     "location": "porto",
     "song": "Documento",
-    "lat": 38.05127820315047,
-    "lng": 23.809172201982502
+    "lat": 41.157377787887334,
+    "lng": -8.629015660080995
+  },
+  {
+    "artist": "Ethismos",
+    "location": "γερμανία",
+    "song": "Documento",
+    "lat": 51.1663663838971,
+    "lng": 10.451866066424797
   },
   {
     "artist": "Ethismos",
     "location": "γαλλία",
     "song": "Documento",
-    "lat": 46.60326024472928,
-    "lng": 1.887628478096
-  },
-  {
-    "artist": "Ethismos",
-    "location": "ιταλία",
-    "song": "Documento",
-    "lat": 37.92543266238998,
-    "lng": 23.691506867193652
-  },
-  {
-    "artist": "Ethismos",
-    "location": "κυψέλης",
-    "song": "Μπλόκο (Mploko)",
-    "lat": 38.001672621909094,
-    "lng": 23.742553668000642
+    "lat": 46.226827043242174,
+    "lng": 2.213502216246869
   },
   {
     "artist": "Ethismos",
     "location": "γαλατσίου",
     "song": "Μπλόκο (Mploko)",
-    "lat": 38.016204833734776,
-    "lng": 23.739208157009713
+    "lat": 38.01150166046209,
+    "lng": 23.75437085461624
+  },
+  {
+    "artist": "Ethismos",
+    "location": "κυψέλης",
+    "song": "Μπλόκο (Mploko)",
+    "lat": 38.001454400926,
+    "lng": 23.73862740439607
   },
   {
     "artist": "Ethismos",
     "location": "mars",
     "song": "Mojo",
-    "lat": 37.97545837492606,
-    "lng": 23.72219738425683
+    "lat": 34.4091453119005,
+    "lng": 132.48345796039996
+  },
+  {
+    "artist": "Ethismos",
+    "location": "αθήνα",
+    "song": "Mojo",
+    "lat": 37.98400352591494,
+    "lng": 23.726779428500773
   },
   {
     "artist": "Ethismos",
     "location": "λακωνία",
     "song": "Mojo",
-    "lat": 55.339047208795016,
-    "lng": 37.841327059372546
+    "lat": 36.91725006897415,
+    "lng": 22.51612604370708
   },
   {
-    "artist": "Ethismos",
+    "artist": "Light",
+    "location": "rotterdam",
+    "song": "Mosca",
+    "lat": 51.92188018888262,
+    "lng": 4.478276355439637
+  },
+  {
+    "artist": "Light",
+    "location": "αφρική",
+    "song": "Ποιος Είμαι (Poios Eimai)",
+    "lat": -8.783205740103819,
+    "lng": 34.50798176462897
+  },
+  {
+    "artist": "Light",
+    "location": "τσιμισκή",
+    "song": "Ποιος Είμαι (Poios Eimai)",
+    "lat": 40.63347562856207,
+    "lng": 22.944799164222903
+  },
+  {
+    "artist": "Light",
+    "location": "dubai",
+    "song": "POLO",
+    "lat": 25.205244627670123,
+    "lng": 55.271523797223864
+  },
+  {
+    "artist": "Light",
+    "location": "barcelona",
+    "song": "POLO",
+    "lat": 41.38489384899308,
+    "lng": 2.1724326701971624
+  },
+  {
+    "artist": "Light",
+    "location": "πεντέλη",
+    "song": "POLO",
+    "lat": 38.05805717432649,
+    "lng": 23.857655262224025
+  },
+  {
+    "artist": "Light",
     "location": "αθήνα",
-    "song": "Mojo",
-    "lat": 37.98414733104672,
-    "lng": 23.72756464571744
+    "song": "ΧΙΛΙΟΜΕΤΡΑ (XILIOMETRA)",
+    "lat": 37.983132989082414,
+    "lng": 23.72785389891965
   },
   {
-    "artist": "Dani-gambino",
-    "location": "ακρόπολη",
-    "song": "CAPITANO",
-    "lat": 37.97215596218129,
-    "lng": 23.725941616886786
-  },
-  {
-    "artist": "Dani-gambino",
+    "artist": "Light",
     "location": "ελλάδα",
-    "song": "CASTELLANO",
-    "lat": 39.07373216640673,
-    "lng": 21.824692433577916
+    "song": "ΧΙΛΙΟΜΕΤΡΑ (XILIOMETRA)",
+    "lat": 39.07392463079828,
+    "lng": 21.82338338975453
   },
   {
-    "artist": "Dani-gambino",
-    "location": "αθήνα",
-    "song": "CASTELLANO",
-    "lat": 37.983265963316626,
-    "lng": 23.727593326332446
+    "artist": "Light",
+    "location": "narnia",
+    "song": "Primo",
+    "lat": -0.00042916724133432236,
+    "lng": -0.0003944513665076088
   },
   {
-    "artist": "Dani-gambino",
-    "location": "ελλάδα",
-    "song": "Απατεών (Apatewn)",
-    "lat": 39.07342620121821,
-    "lng": 21.82364895246818
+    "artist": "Light",
+    "location": "λύκειο",
+    "song": "Primo",
+    "lat": 37.971421340332824,
+    "lng": 23.74220579209579
   },
   {
-    "artist": "Dani-gambino",
-    "location": "αθήνα",
-    "song": "Απατεών (Apatewn)",
-    "lat": 37.98343013467282,
-    "lng": 23.727257451322824
-  },
-  {
-    "artist": "Dani-gambino",
-    "location": "ομόνοια",
-    "song": "ΣΑΡΑΝΤΑΡΙΑ (SARANTARIA)",
-    "lat": 37.983668709636966,
-    "lng": 23.727196201898835
-  },
-  {
-    "artist": "Dani-gambino",
-    "location": "πράσινου λόφου",
-    "song": "ΣΑΡΑΝΤΑΡΙΑ (SARANTARIA)",
-    "lat": 38.06065049957702,
-    "lng": 23.72899659216044
-  },
-  {
-    "artist": "Dani-gambino",
-    "location": "chicago",
-    "song": "ΣΑΡΑΝΤΑΡΙΑ (SARANTARIA)",
-    "lat": 35.37166500410857,
-    "lng": 24.538618315782585
-  },
-  {
-    "artist": "Dani-gambino",
+    "artist": "Light",
     "location": "μύκονο",
-    "song": "ΣΑΡΑΝΤΑΡΙΑ (SARANTARIA)",
-    "lat": 37.44727068913094,
-    "lng": 25.32806553411243
+    "song": "Primo",
+    "lat": 37.44713616981775,
+    "lng": 25.328571769603748
   },
   {
-    "artist": "Dani-gambino",
+    "artist": "Light",
     "location": "ελλάδα",
-    "song": "ΣΑΡΑΝΤΑΡΙΑ (SARANTARIA)",
-    "lat": 39.074236208712136,
-    "lng": 21.824634757621673
+    "song": "Slang",
+    "lat": 39.074904399399465,
+    "lng": 21.825207519932825
   },
   {
-    "artist": "Dani-gambino",
-    "location": "αυγή",
-    "song": "ΣΑΡΑΝΤΑΡΙΑ (SARANTARIA)",
-    "lat": 40.81263074364188,
-    "lng": 23.313882000000014
+    "artist": "Light",
+    "location": "hong kong",
+    "song": "Slang",
+    "lat": 22.31977177399917,
+    "lng": 114.17032163747334
   },
   {
-    "artist": "Dani-gambino",
-    "location": "τερέζα",
-    "song": "1000 Κόσμοι (1000 Kosmoi)",
-    "lat": 36.72523941681462,
-    "lng": 24.446798229339716
+    "artist": "Light",
+    "location": "μαξίμου",
+    "song": "Ανεξάρτητα (Anexartita)",
+    "lat": 37.97362251697432,
+    "lng": 23.74100973204389
   },
   {
-    "artist": "Dani-gambino",
-    "location": "αθήνα",
-    "song": "1000 Κόσμοι (1000 Kosmoi)",
-    "lat": 37.983256807525166,
-    "lng": 23.727069361680357
+    "artist": "Light",
+    "location": "κέρκυρα",
+    "song": "Ανεξάρτητα (Anexartita)",
+    "lat": 39.623953242981855,
+    "lng": 19.921823316842833
   },
   {
-    "artist": "Dani-gambino",
-    "location": "άγιο παύλο",
-    "song": "ΝΕΟΙ ΣΤΟ ΝΟΣΟΚΟΜΕΙΟ (NEOI STO NOSOKOMEIO)",
-    "lat": 39.10110063694478,
-    "lng": 26.239866160271028
+    "artist": "Light",
+    "location": "πάτρα",
+    "song": "Ανεξάρτητα (Anexartita)",
+    "lat": 38.24547919648089,
+    "lng": 21.734145858465574
   },
   {
-    "artist": "Dani-gambino",
-    "location": "συρία",
-    "song": "131X",
-    "lat": 37.93915521620244,
-    "lng": 23.650851759496685
+    "artist": "Light",
+    "location": "παράδεισο",
+    "song": "Τι Φοβάσαι (Ti Fovasai)",
+    "lat": 38.037903299691656,
+    "lng": 23.805830942794415
   },
   {
-    "artist": "Dani-gambino",
-    "location": "λιοσίων",
-    "song": "131X",
-    "lat": 38.0784205724721,
-    "lng": 23.72433551402072
+    "artist": "Light",
+    "location": "άδη",
+    "song": "Τι Φοβάσαι (Ti Fovasai)",
+    "lat": 0.000147647759238402,
+    "lng": -0.0009314751205592473
   },
   {
-    "artist": "Dani-gambino",
+    "artist": "Light",
     "location": "ελλάδα",
-    "song": "EZINE",
-    "lat": 39.07456585850557,
-    "lng": 21.82331553118781
+    "song": "Γυμνή (Gymni)",
+    "lat": 39.07366208635068,
+    "lng": 21.824525182219592
   },
   {
-    "artist": "Dani-gambino",
-    "location": "πρασίνου",
-    "song": "CARLOS TEVEZ",
-    "lat": 37.98394945621159,
-    "lng": 24.0026678746758
+    "artist": "Light",
+    "location": "king kong",
+    "song": "Lobby",
+    "lat": -0.0004599888595688808,
+    "lng": 0.0008188693980811486
   },
   {
-    "artist": "Dani-gambino",
+    "artist": "Light",
     "location": "παρίσι",
-    "song": "ZULU",
-    "lat": 37.95313474171592,
-    "lng": 23.750357581578044
+    "song": "Lobby",
+    "lat": 48.85603673148208,
+    "lng": 2.3524399993553344
   },
   {
-    "artist": "Dani-gambino",
-    "location": "παρίσι",
-    "song": "ΚΟΜΠΟΙ (KOMPOI)",
-    "lat": 37.95248056765746,
-    "lng": 23.750006250185503
+    "artist": "Light",
+    "location": "μόσχα",
+    "song": "Neymar",
+    "lat": 55.755443543458746,
+    "lng": 37.616473096912486
   },
   {
-    "artist": "Dani-gambino",
-    "location": "μαβίλη",
-    "song": "ΣΥΜΠΛΟΚΕΣ (SIMPLOKES)",
-    "lat": 37.97946141418365,
-    "lng": 23.63416179941184
+    "artist": "Light",
+    "location": "5th ave",
+    "song": "Neymar",
+    "lat": 40.7616480420729,
+    "lng": -73.97720766524478
   },
   {
-    "artist": "Dani-gambino",
-    "location": "κηφισίας",
-    "song": "ΣΥΜΠΛΟΚΕΣ (SIMPLOKES)",
-    "lat": 38.04849751002028,
-    "lng": 23.806917908505103
+    "artist": "Snik",
+    "location": "μιλάνο",
+    "song": "Señorita",
+    "lat": 45.46442509162247,
+    "lng": 9.18972213398162
   },
   {
-    "artist": "Dani-gambino",
+    "artist": "Snik",
+    "location": "ελλάδα",
+    "song": "Colpo Grosso",
+    "lat": 39.0741819974276,
+    "lng": 21.82363716131277
+  },
+  {
+    "artist": "Snik",
+    "location": "βαλκάνια",
+    "song": "Colpo Grosso",
+    "lat": 44.570414947019,
+    "lng": 21.804412530546035
+  },
+  {
+    "artist": "Snik",
+    "location": "milano",
+    "song": "Colpo Grosso",
+    "lat": 45.46437017539379,
+    "lng": 9.190659257054504
+  },
+  {
+    "artist": "Snik",
+    "location": "santorini",
+    "song": "Colpo Grosso",
+    "lat": 36.39380970105196,
+    "lng": 25.46128041135664
+  },
+  {
+    "artist": "Snik",
+    "location": "ibiza",
+    "song": "Colpo Grosso",
+    "lat": 38.90731782202402,
+    "lng": 1.4206974357431146
+  },
+  {
+    "artist": "Snik",
+    "location": "napoli",
+    "song": "Colpo Grosso",
+    "lat": 40.85166845688175,
+    "lng": 14.267740605616087
+  },
+  {
+    "artist": "Snik",
+    "location": "marbella",
+    "song": "Colpo Grosso",
+    "lat": 36.511342117363306,
+    "lng": -4.885382875634712
+  },
+  {
+    "artist": "Snik",
+    "location": "ελλάδα",
+    "song": "NANA",
+    "lat": 39.07386035070781,
+    "lng": 21.824127858126474
+  },
+  {
+    "artist": "Snik",
+    "location": "champs-élysées",
+    "song": "NANA",
+    "lat": 48.86995123669632,
+    "lng": 2.306675989370947
+  },
+  {
+    "artist": "Snik",
+    "location": "ελλάδα",
+    "song": "9",
+    "lat": 39.07482533648855,
+    "lng": 21.82473057023135
+  },
+  {
+    "artist": "Snik",
     "location": "αθήνα",
-    "song": "ΣΥΜΠΛΟΚΕΣ (SIMPLOKES)",
-    "lat": 37.983579914578215,
-    "lng": 23.728245894359315
+    "song": "Dominicana Latina",
+    "lat": 37.984000135706495,
+    "lng": 23.728381222455095
+  },
+  {
+    "artist": "Snik",
+    "location": "κηφισό",
+    "song": "Chinchilla",
+    "lat": 38.007302799365505,
+    "lng": 23.673605061532367
+  },
+  {
+    "artist": "Snik",
+    "location": "benzo",
+    "song": "Cubano",
+    "lat": -0.000311643743054385,
+    "lng": -0.0009179532029053996
+  },
+  {
+    "artist": "Trannos",
+    "location": "κορυδαλλό",
+    "song": "COCO",
+    "lat": 37.984357331873554,
+    "lng": 23.650023373329418
+  },
+  {
+    "artist": "Trannos",
+    "location": "trannoιό",
+    "song": "COCO",
+    "lat": 0.0006480371725686052,
+    "lng": -0.000444152092450236
+  },
+  {
+    "artist": "Trannos",
+    "location": "γιάννενα-αργυρόκαστρο",
+    "song": "COCO",
+    "lat": 39.66317430341498,
+    "lng": 20.85240160643202
+  },
+  {
+    "artist": "Trannos",
+    "location": "ταλαβέρι",
+    "song": "Μαύρο Γυαλί (Mauro Gyali)",
+    "lat": 0.000344804920842386,
+    "lng": -0.0006983020233529462
+  },
+  {
+    "artist": "Trannos",
+    "location": "μύκονο",
+    "song": "No Sleep",
+    "lat": 37.44650694626082,
+    "lng": 25.328626753976963
+  },
+  {
+    "artist": "Trannos",
+    "location": "ibiza",
+    "song": "Ibiza",
+    "lat": 38.906095624884344,
+    "lng": 1.4213160035856203
+  },
+  {
+    "artist": "Trannos",
+    "location": "πανόρμου",
+    "song": "Panama",
+    "lat": 37.98688634099554,
+    "lng": 23.762232957162045
+  },
+  {
+    "artist": "Trannos",
+    "location": "κρήτη",
+    "song": "Panama",
+    "lat": 35.24035239389602,
+    "lng": 24.8101424322257
+  },
+  {
+    "artist": "Toquel",
+    "location": "αθήνα",
+    "song": "Stars",
+    "lat": 37.98359032687722,
+    "lng": 23.727524355901302
+  },
+  {
+    "artist": "Toquel",
+    "location": "marrakesh",
+    "song": "Stars",
+    "lat": 31.6297068122591,
+    "lng": -7.981461512354694
+  },
+  {
+    "artist": "Toquel",
+    "location": "αθήνα",
+    "song": "Business",
+    "lat": 37.983557400433725,
+    "lng": 23.72683560350141
+  },
+  {
+    "artist": "Toquel",
+    "location": "αθήνα",
+    "song": "Netflix",
+    "lat": 37.983546949931245,
+    "lng": 23.727822679724678
+  },
+  {
+    "artist": "Toquel",
+    "location": "marbella",
+    "song": "Sandra",
+    "lat": 36.5109209114829,
+    "lng": -4.88659023754503
+  },
+  {
+    "artist": "Toquel",
+    "location": "ευρώπη",
+    "song": "Sandra",
+    "lat": 54.52543779925019,
+    "lng": 15.254241247789501
+  },
+  {
+    "artist": "Toquel",
+    "location": "ibiza",
+    "song": "Sandra",
+    "lat": 38.906062703565915,
+    "lng": 1.4203990229970276
+  },
+  {
+    "artist": "Toquel",
+    "location": "καρα",
+    "song": "Sandra",
+    "lat": 38.07781212385301,
+    "lng": 23.754275089426248
+  },
+  {
+    "artist": "Toquel",
+    "location": "αθήνα",
+    "song": "Karolina",
+    "lat": 37.983171345040454,
+    "lng": 23.72805381787103
+  },
+  {
+    "artist": "Toquel",
+    "location": "αθήνα",
+    "song": "Αυτοκτονία (Aftoktonia)",
+    "lat": 37.98439383181242,
+    "lng": 23.728092637003613
+  },
+  {
+    "artist": "Toquel",
+    "location": "ποσειδώνος",
+    "song": "G63",
+    "lat": 37.9141051688798,
+    "lng": 23.70517768781965
+  },
+  {
+    "artist": "Toquel",
+    "location": "αχαρνών",
+    "song": "G63",
+    "lat": 38.01765421760683,
+    "lng": 23.73262566616296
+  },
+  {
+    "artist": "Toquel",
+    "location": "αθήνα",
+    "song": "Kokaina",
+    "lat": 37.98354879468636,
+    "lng": 23.72773662254982
+  },
+  {
+    "artist": "Toquel",
+    "location": "παλιό ψυχικό",
+    "song": "Kokaina",
+    "lat": 38.007144195932796,
+    "lng": 23.774640678943257
+  },
+  {
+    "artist": "Toquel",
+    "location": "φλοίσβο",
+    "song": "Kokaina",
+    "lat": 37.924925377192665,
+    "lng": 23.685276315711473
+  },
+  {
+    "artist": "Toquel",
+    "location": "κοκαΐνα",
+    "song": "Kokaina",
+    "lat": 0.00019308524656860149,
+    "lng": -0.0009640370612504594
+  },
+  {
+    "artist": "Toquel",
+    "location": "beverly hills",
+    "song": "Beverly Hills",
+    "lat": 34.072813379270855,
+    "lng": -118.4011181999126
+  },
+  {
+    "artist": "Mad-clip",
+    "location": "μύκονο",
+    "song": "Presidente",
+    "lat": 37.447464264790874,
+    "lng": 25.32864587097273
+  },
+  {
+    "artist": "Mad-clip",
+    "location": "όλυμπο",
+    "song": "Presidente",
+    "lat": 40.088635435730716,
+    "lng": 22.359413050819143
+  },
+  {
+    "artist": "Mad-clip",
+    "location": "casablanca",
+    "song": "Φέρε (Fere)",
+    "lat": 33.59068320607694,
+    "lng": -7.604854558950836
+  },
+  {
+    "artist": "Mad-clip",
+    "location": "california",
+    "song": "Φέρε (Fere)",
+    "lat": 36.777377214939705,
+    "lng": -119.41881547965733
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "αθήνα",
+    "song": "Vittorio",
+    "lat": 37.98307644732624,
+    "lng": 23.72678492785785
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "ακρόπολη",
+    "song": "Αλήτικη Αγάπη (Alitiki Agapi)",
+    "lat": 37.97056847335384,
+    "lng": 23.724882859953365
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "depon",
+    "song": "Παυσίπονα (Pafsipona)",
+    "lat": 38.01642046326772,
+    "lng": 23.705765975258185
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "panadol, mes",
+    "song": "Παυσίπονα (Pafsipona)",
+    "lat": -0.00008571350408087697,
+    "lng": -0.0005403863895085426
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "θεσσαλονίκη, σόφια, βελιγράδι",
+    "song": "Παυσίπονα (Pafsipona)",
+    "lat": 40.63977628219096,
+    "lng": 22.94517501834879
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "περσία",
+    "song": "Φράχτης (Fraxtis)",
+    "lat": 32.428489774965186,
+    "lng": 53.688615970826326
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "πήλιο",
+    "song": "Φράχτης (Fraxtis)",
+    "lat": 39.4329026888569,
+    "lng": 23.16729087497775
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "ταγγέρη",
+    "song": "Φράχτης (Fraxtis)",
+    "lat": 35.77591740570416,
+    "lng": -5.803509789882095
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "βερολίνο",
+    "song": "2017",
+    "lat": 52.5200113216038,
+    "lng": 13.40529319155385
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "θερμαϊκό",
+    "song": "Χειρότερη Γενιά (Xeiroteri Genia)",
+    "lat": 40.59187634112394,
+    "lng": 22.945218930722202
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "σαλούγκα",
+    "song": "Χειρότερη Γενιά (Xeiroteri Genia)",
+    "lat": 44.49517093687443,
+    "lng": 11.342036330223742
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "εγνατία",
+    "song": "Νυχτερίδες (Nyxterides)",
+    "lat": 40.63306976158893,
+    "lng": 22.942854506151583
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "ηλύσια",
+    "song": "Γρανίτες Και Τσιγάρα (Granites Kai Tsigara)",
+    "lat": 37.97423888126489,
+    "lng": 23.754308116606015
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "μητρόπολη",
+    "song": "Γρανίτες Και Τσιγάρα (Granites Kai Tsigara)",
+    "lat": 39.3615852165498,
+    "lng": 21.90603258327672
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "buenos aires, rio de janeiro",
+    "song": "Καταδίκη (Katadiki)",
+    "lat": -34.60432810858445,
+    "lng": -58.38133532123012
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "θεσσαλονίκη",
+    "song": "Καταδίκη (Katadiki)",
+    "lat": 40.64079647725612,
+    "lng": 22.944421722549578
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "μοντεβίδεο",
+    "song": "Διαστημόπλοια (Diastimoploia)",
+    "lat": -34.8838421945975,
+    "lng": -56.18113855471302
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "hong kong",
+    "song": "Διαστημόπλοια (Diastimoploia)",
+    "lat": 22.319913607480196,
+    "lng": 114.16933917497228
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "ποτάμι",
+    "song": "Απλοί Άνθρωποι (Aploi Anthropoi)",
+    "lat": 38.24737804477994,
+    "lng": 21.73427962808662
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "ποσειδώνιο",
+    "song": "Απλοί Άνθρωποι (Aploi Anthropoi)",
+    "lat": 37.94338814524255,
+    "lng": 23.68893266590874
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "σταυρούπολη",
+    "song": "Απλοί Άνθρωποι (Aploi Anthropoi)",
+    "lat": 40.66696961666227,
+    "lng": 22.93255128240001
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "θέρμη",
+    "song": "Απλοί Άνθρωποι (Aploi Anthropoi)",
+    "lat": 40.54706718893704,
+    "lng": 23.003103383682667
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "κορδελιό, το",
+    "song": "Air Max",
+    "lat": 40.666926919717014,
+    "lng": 22.91016533923281
+  },
+  {
+    "artist": "Lex-grc",
+    "location": "συκιές, ναβαρίνου, ροτόντα",
+    "song": "Air Max",
+    "lat": 40.63337928409467,
+    "lng": 22.953619110106064
+  },
+  {
+    "artist": "Fy",
+    "location": "λονδίνο",
+    "song": "Δε Με Θέλουν (De Me Theloun)",
+    "lat": 51.50711734025962,
+    "lng": -0.1271293721664505
+  },
+  {
+    "artist": "Fy",
+    "location": "ισπανία",
+    "song": "Νησί (Nisi)",
+    "lat": 40.46451640681118,
+    "lng": -3.7491793403969407
+  },
+  {
+    "artist": "Fy",
+    "location": "λονδίνο",
+    "song": "Funky",
+    "lat": 51.50777115878431,
+    "lng": -0.12769184006356551
+  },
+  {
+    "artist": "Fy",
+    "location": "αθήνα",
+    "song": "Celebrity",
+    "lat": 37.98412675875308,
+    "lng": 23.7272638347799
+  },
+  {
+    "artist": "Fy",
+    "location": "παρίσι",
+    "song": "Celebrity",
+    "lat": 48.85668775192795,
+    "lng": 2.3531134979528163
+  },
+  {
+    "artist": "Fy",
+    "location": "hong-kong",
+    "song": "Την Ψυχολόγο (Tin Psihologo)",
+    "lat": 22.319273862889634,
+    "lng": 114.16879339178247
+  },
+  {
+    "artist": "Fy",
+    "location": "abu dhabi",
+    "song": "Ταπεραμέντο (Taperamento)",
+    "lat": 24.45449563339013,
+    "lng": 54.3766555030412
+  },
+  {
+    "artist": "Sidarta",
+    "location": "βερσαλλίες",
+    "song": "MBAPPE",
+    "lat": 48.80412665472186,
+    "lng": 2.119747574606581
+  },
+  {
+    "artist": "Sidarta",
+    "location": "marrakesh",
+    "song": "MBAPPE",
+    "lat": 31.630412013030718,
+    "lng": -7.980382471629483
+  },
+  {
+    "artist": "Sidarta",
+    "location": "μαρόκο",
+    "song": "MBAPPE",
+    "lat": 31.792492286345745,
+    "lng": -7.09170311989817
+  },
+  {
+    "artist": "Sidarta",
+    "location": "αργεντινή",
+    "song": "MEDITERRANEAN",
+    "lat": -34.603503678379845,
+    "lng": -58.38123295441392
+  },
+  {
+    "artist": "Sidarta",
+    "location": "μιλάνο",
+    "song": "MEDITERRANEAN",
+    "lat": 45.463463356229695,
+    "lng": 9.1907575284091
+  },
+  {
+    "artist": "Sidarta",
+    "location": "paris",
+    "song": "MEDITERRANEAN",
+    "lat": 48.85642433430176,
+    "lng": 2.3526689398309673
+  },
+  {
+    "artist": "Sidarta",
+    "location": "παπάγου",
+    "song": "ΠΑΠΑΓΟΥ (PAPAGOU)",
+    "lat": 37.99934638865667,
+    "lng": 23.794867634737187
+  },
+  {
+    "artist": "Sidarta",
+    "location": "αθήνα",
+    "song": "Adrenalina",
+    "lat": 37.98325097664341,
+    "lng": 23.727637029141754
+  },
+  {
+    "artist": "Sidarta",
+    "location": "αθήνα",
+    "song": "MON AMIE",
+    "lat": 37.98303999946429,
+    "lng": 23.72823814447344
+  },
+  {
+    "artist": "Sidarta",
+    "location": "παρίσι",
+    "song": "MON AMIE",
+    "lat": 48.85732438648015,
+    "lng": 2.3517442023942428
+  },
+  {
+    "artist": "Sidarta",
+    "location": "monte carlo",
+    "song": "EL DOCTOR",
+    "lat": 43.7390841607825,
+    "lng": 7.425252746261765
+  },
+  {
+    "artist": "Sidarta",
+    "location": "βαλκάνια",
+    "song": "Amazing (Remix)",
+    "lat": 44.570782257272434,
+    "lng": 21.803979926827324
+  },
+  {
+    "artist": "Saske",
+    "location": "palestina",
+    "song": "ANBU",
+    "lat": 31.951895035191374,
+    "lng": 35.23299037421187
+  },
+  {
+    "artist": "Saske",
+    "location": "vallecas",
+    "song": "ROYALFLUSH",
+    "lat": 40.385670371108574,
+    "lng": -3.6560806628685136
+  },
+  {
+    "artist": "Saske",
+    "location": "playa ne",
+    "song": "ROYALFLUSH",
+    "lat": 38.257068061022444,
+    "lng": 21.740084923196136
+  },
+  {
+    "artist": "Saske",
+    "location": "el palo",
+    "song": "ROYALFLUSH",
+    "lat": 36.72059751048859,
+    "lng": -4.382256439760708
+  },
+  {
+    "artist": "Saske",
+    "location": "toledo",
+    "song": "ROYALFLUSH",
+    "lat": 39.85629586593451,
+    "lng": -4.025297535963344
+  },
+  {
+    "artist": "Saske",
+    "location": "bilbo",
+    "song": "B2B FREESTYLE",
+    "lat": 43.26387010442774,
+    "lng": -2.9353984337604984
+  },
+  {
+    "artist": "Saske",
+    "location": "tulum",
+    "song": "B2B FREESTYLE",
+    "lat": 20.212224080775627,
+    "lng": -87.46638369654414
+  },
+  {
+    "artist": "Saske",
+    "location": "barna",
+    "song": "B2B FREESTYLE",
+    "lat": 41.38554493158499,
+    "lng": 2.1732313755547255
+  },
+  {
+    "artist": "Saske",
+    "location": "menorca",
+    "song": "5HOMIEZ",
+    "lat": 39.94964242532153,
+    "lng": 4.133412318610845
+  },
+  {
+    "artist": "Saske",
+    "location": "españa",
+    "song": "I Don’t Give a Fuck (Bonus Track)",
+    "lat": 40.46314586398717,
+    "lng": -3.7486291583660094
+  },
+  {
+    "artist": "Saske",
+    "location": "madrid",
+    "song": "DEATH ROW II",
+    "lat": 40.41703200720219,
+    "lng": -3.7040680796968037
+  },
+  {
+    "artist": "Saske",
+    "location": "ferrerías",
+    "song": "DEATH ROW II",
+    "lat": 39.98313343114535,
+    "lng": 4.016662095810042
+  },
+  {
+    "artist": "Saske",
+    "location": "india",
+    "song": "DEATH ROW II",
+    "lat": 20.594283573783958,
+    "lng": 78.96249879231192
+  },
+  {
+    "artist": "Saske",
+    "location": "benz de castro",
+    "song": "DEATH ROW II",
+    "lat": -0.0003657544038978107,
+    "lng": 0.0006878175190709762
+  },
+  {
+    "artist": "Saske",
+    "location": "medellín",
+    "song": "APRENDI DE LOS MEJORES",
+    "lat": 6.2440129076670505,
+    "lng": -75.57436131589847
+  },
+  {
+    "artist": "Saske",
+    "location": "menorca",
+    "song": "APRENDI DE LOS MEJORES",
+    "lat": 39.94973898012721,
+    "lng": 4.104125493210934
+  },
+  {
+    "artist": "Saske",
+    "location": "sevilla",
+    "song": "APRENDI DE LOS MEJORES",
+    "lat": 37.389873665411464,
+    "lng": -5.985491306425278
+  },
+  {
+    "artist": "Saske",
+    "location": "california",
+    "song": "APRENDI DE LOS MEJORES",
+    "lat": 36.778786098136884,
+    "lng": -119.41879978678155
+  },
+  {
+    "artist": "Saske",
+    "location": "raval",
+    "song": "APRENDI DE LOS MEJORES",
+    "lat": 41.37858931267673,
+    "lng": 2.167928063623375
+  },
+  {
+    "artist": "Saske",
+    "location": "palermo",
+    "song": "Ponte El Chaquetón (Intro)",
+    "lat": 38.115041403696615,
+    "lng": 13.3607742215626
+  },
+  {
+    "artist": "Saske",
+    "location": "túnez",
+    "song": "BAR$",
+    "lat": 36.806904795821275,
+    "lng": 10.181063348256817
+  },
+  {
+    "artist": "Saske",
+    "location": "menorca",
+    "song": "BAR$",
+    "lat": 39.95057995758675,
+    "lng": 4.098049145579329
+  },
+  {
+    "artist": "Saske",
+    "location": "españa",
+    "song": "TORNAR",
+    "lat": 40.463022409278935,
+    "lng": -3.7492823089935388
+  },
+  {
+    "artist": "Saske",
+    "location": "menorca",
+    "song": "TORNAR",
+    "lat": 39.948988905627616,
+    "lng": 4.108814404617369
+  },
+  {
+    "artist": "Saske",
+    "location": "roqueta",
+    "song": "TORNAR",
+    "lat": 36.76409166450749,
+    "lng": -2.9460447813564605
+  },
+  {
+    "artist": "Saske",
+    "location": "meseta",
+    "song": "TORNAR",
+    "lat": 40.41724609907408,
+    "lng": -3.7040293269556153
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "ξάνθη",
+    "song": "Το Εικοσάλεπτο (To Eikosalepto)",
+    "lat": 41.13949860076674,
+    "lng": 24.887230862867376
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "κομοτηνή",
+    "song": "Το Εικοσάλεπτο (To Eikosalepto)",
+    "lat": 41.1164724430748,
+    "lng": 25.404547984815263
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "ελλάδα",
+    "song": "KVL 2",
+    "lat": 39.074630370724876,
+    "lng": 21.823690418887878
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "κρήτη",
+    "song": "KVL 2",
+    "lat": 35.23924304437174,
+    "lng": 24.80992927984002
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "δία",
+    "song": "KVL 2",
+    "lat": 35.150035277193645,
+    "lng": 25.416934350869376
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "θράκη",
+    "song": "KVL 2",
+    "lat": 41.13551734292385,
+    "lng": 25.40834644537109
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "ελλάδα",
+    "song": "Αντιγονιδών (Antigonidon)",
+    "lat": 39.07344325010647,
+    "lng": 21.825036828464828
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "ελλάδα",
+    "song": "THE DEAL",
+    "lat": 39.07328053774688,
+    "lng": 21.82406871483631
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "τίμημα",
+    "song": "THE DEAL",
+    "lat": -0.0008320623661093401,
+    "lng": 0.0008024033472714966
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "μέκκα",
+    "song": "THE DEAL",
+    "lat": 21.422830738866345,
+    "lng": 39.82585565422089
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "colorado",
+    "song": "Βαλαωρίτου (Valaoritou)",
+    "lat": 39.55003786251703,
+    "lng": -105.7828660262081
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "βαλαωρίτου",
+    "song": "Βαλαωρίτου (Valaoritou)",
+    "lat": 40.63537216745092,
+    "lng": 22.940920291362573
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "αχαρνών",
+    "song": "Πάνω (Pano)",
+    "lat": 38.01766767966632,
+    "lng": 23.733430565944673
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "βουλιαγμένη",
+    "song": "Πάνω (Pano)",
+    "lat": 37.81115359967273,
+    "lng": 23.774121333294453
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "ελλάδα",
+    "song": "Μη Σταματάς (Mi Stamatas)",
+    "lat": 39.0746880168751,
+    "lng": 21.82446446955812
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "ήλιο",
+    "song": "Μη Σταματάς (Mi Stamatas)",
+    "lat": 38.35910368028806,
+    "lng": 26.13189402387423
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "πορτογαλία",
+    "song": "MAALOX",
+    "lat": 39.39980493771277,
+    "lng": -8.224481761952275
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "ρώμη",
+    "song": "MAALOX",
+    "lat": 41.902782945314414,
+    "lng": 12.497058555945298
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "αθήνα",
+    "song": "MAALOX",
+    "lat": 37.98345339397846,
+    "lng": 23.726967870887407
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "άουσβιτς",
+    "song": "MAALOX",
+    "lat": 50.035254938809935,
+    "lng": 19.179156078381762
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "παρίσι",
+    "song": "MAALOX",
+    "lat": 48.856106779313215,
+    "lng": 2.352107039844738
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "κυψέλη",
+    "song": "MAALOX",
+    "lat": 38.000151025127025,
+    "lng": 23.737907450413402
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "άμστερνταμ",
+    "song": "MAALOX",
+    "lat": 52.367412336545726,
+    "lng": 4.904297347605493
+  },
+  {
+    "artist": "Bloody-hawk",
+    "location": "ελλάδα",
+    "song": "Κρίμα (Krima)",
+    "lat": 39.07350920549591,
+    "lng": 21.825140606530482
+  },
+  {
+    "artist": "Mente-fuerte",
+    "location": "ελλάδα",
+    "song": "Caliente",
+    "lat": 39.07329774011425,
+    "lng": 21.82389832445864
+  },
+  {
+    "artist": "Mente-fuerte",
+    "location": "λυκαβηττό",
+    "song": "Oulala",
+    "lat": 37.97948394796649,
+    "lng": 23.746581232639116
+  },
+  {
+    "artist": "Mente-fuerte",
+    "location": "αθήνα",
+    "song": "Sportex",
+    "lat": 37.98436992328151,
+    "lng": 23.726773205361862
+  },
+  {
+    "artist": "Mente-fuerte",
+    "location": "αθήνας",
+    "song": "Sportex",
+    "lat": 37.983255985978566,
+    "lng": 23.728211861077448
+  },
+  {
+    "artist": "Mente-fuerte",
+    "location": "θεσσαλονίκη",
+    "song": "Sportex",
+    "lat": 40.64021635361579,
+    "lng": 22.945108145751963
+  },
+  {
+    "artist": "Mente-fuerte",
+    "location": "ελλάδα",
+    "song": "211",
+    "lat": 39.07418932723224,
+    "lng": 21.823463590596024
+  },
+  {
+    "artist": "Mente-fuerte",
+    "location": "αθήνα",
+    "song": "211",
+    "lat": 37.98310661590158,
+    "lng": 23.728121866461205
+  },
+  {
+    "artist": "Mente-fuerte",
+    "location": "ακρόπολη",
+    "song": "211",
+    "lat": 37.97164593564908,
+    "lng": 23.726101099188604
+  },
+  {
+    "artist": "Mente-fuerte",
+    "location": "beverly",
+    "song": "Winners",
+    "lat": 34.0735853180348,
+    "lng": -118.3997365454435
+  },
+  {
+    "artist": "Mente-fuerte",
+    "location": "ακρόπολη",
+    "song": "Los Bandoleros",
+    "lat": 37.97101625678772,
+    "lng": 23.726444222471237
+  },
+  {
+    "artist": "Mente-fuerte",
+    "location": "ευρώπη",
+    "song": "Los Bandoleros",
+    "lat": 54.52566737837366,
+    "lng": 15.256018149828604
+  },
+  {
+    "artist": "Mente-fuerte",
+    "location": "βόρειο πόλο",
+    "song": "Καρδιά Μου (Kardia Mou)",
+    "lat": 89.99973135328057,
+    "lng": -0.00044593502679036946
   },
   {
     "artist": "Fly-lo",
     "location": "θηβών",
     "song": "Morocco",
-    "lat": 37.98389371596506,
-    "lng": 23.76726733233156
+    "lat": 38.00837204049985,
+    "lng": 23.71216481835362
+  },
+  {
+    "artist": "Fly-lo",
+    "location": "κηφισό",
+    "song": "ΚΗΦΙΣΟΣ (KHFISOS)",
+    "lat": 38.00814783615637,
+    "lng": 23.673031034178077
   },
   {
     "artist": "Fly-lo",
     "location": "αθήνα",
     "song": "Κόκκινα Μπλε (Kokkina Mple)",
-    "lat": 37.983236861146025,
-    "lng": 23.727856507007697
+    "lat": 37.98301396201936,
+    "lng": 23.726679116740925
   },
   {
     "artist": "Fly-lo",
     "location": "πάτρα",
     "song": "Κόκκινα Μπλε (Kokkina Mple)",
-    "lat": 37.98599443431652,
-    "lng": 23.68519629855344
+    "lat": 38.245690935850284,
+    "lng": 21.73430537606699
+  },
+  {
+    "artist": "Fly-lo",
+    "location": "αθήνα",
+    "song": "Lebron",
+    "lat": 37.98446237826369,
+    "lng": 23.72706891482607
   },
   {
     "artist": "Fly-lo",
     "location": "σιβηρία",
     "song": "Lebron",
-    "lat": 72.9593683430713,
-    "lng": 157.66257534596218
-  },
-  {
-    "artist": "Fly-lo",
-    "location": "αθήνα",
-    "song": "Lebron",
-    "lat": 37.98344397475066,
-    "lng": 23.726971270163954
+    "lat": 60.00037425832822,
+    "lng": 104.99964940564722
   },
   {
     "artist": "Fly-lo",
     "location": "μιλανο",
     "song": "Loyal",
-    "lat": 38.01624705833304,
-    "lng": 23.735477065036118
+    "lat": 45.46443223313806,
+    "lng": 9.1895994545241
   },
   {
     "artist": "Fly-lo",
     "location": "μπουρνάζι",
     "song": "G Walk",
-    "lat": 38.01429020483386,
-    "lng": 23.705754201782806
+    "lat": 38.00674965385398,
+    "lng": 23.693108121220945
   },
   {
     "artist": "Fly-lo",
     "location": "αφγανιστάν",
     "song": "Prezi",
-    "lat": 38.00259182512452,
-    "lng": 23.773117629158573
+    "lat": 33.93836546542705,
+    "lng": 67.7104625230094
   },
   {
     "artist": "Fly-lo",
     "location": "λονδίνο",
     "song": "LDN",
-    "lat": 51.507064658990636,
-    "lng": -0.12791330557298944
+    "lat": 51.508192723059416,
+    "lng": -0.12715763345985753
   },
   {
     "artist": "Fly-lo",
     "location": "βολιβία",
     "song": "El Paso",
-    "lat": -17.056122559730408,
-    "lng": -64.99173941596683
-  },
-  {
-    "artist": "Fly-lo",
-    "location": "el paso",
-    "song": "El Paso",
-    "lat": 37.96095884683171,
-    "lng": 23.703970149548038
+    "lat": -16.2904055598008,
+    "lng": -63.58956235676982
   },
   {
     "artist": "Fly-lo",
     "location": "κολομβία",
     "song": "El Paso",
-    "lat": 4.099898818600174,
-    "lng": -72.90966515441038
+    "lat": 4.570636082116235,
+    "lng": -74.29793332620144
+  },
+  {
+    "artist": "Fly-lo",
+    "location": "el paso",
+    "song": "El Paso",
+    "lat": 31.762330343098757,
+    "lng": -106.48439966646845
   },
   {
     "artist": "Hawk-grc",
     "location": "σαλόνικα",
     "song": "Deja Vu",
-    "lat": 40.64096492502869,
-    "lng": 22.943861380667336
-  },
-  {
-    "artist": "Hawk-grc",
-    "location": "παρίσι",
-    "song": "CELINE",
-    "lat": 48.859526701279925,
-    "lng": 2.319737659017047
+    "lat": 40.640095453838875,
+    "lng": 22.943792082335033
   },
   {
     "artist": "Hawk-grc",
     "location": "σαντορίνη",
     "song": "CELINE",
-    "lat": 36.40808118472125,
-    "lng": 25.457140573712742
+    "lat": 36.392838103512034,
+    "lng": 25.46065105091114
+  },
+  {
+    "artist": "Hawk-grc",
+    "location": "παρίσι",
+    "song": "CELINE",
+    "lat": 48.85646058835394,
+    "lng": 2.3531445327572325
   },
   {
     "artist": "Hawk-grc",
     "location": "αφροδίτη",
     "song": "MONROE",
-    "lat": 40.68182828715881,
-    "lng": 22.93753821944197
+    "lat": 38.016438006063474,
+    "lng": 23.71580780636534
   },
   {
     "artist": "Hawk-grc",
     "location": "ελλάδα",
     "song": "Εδώ Είναι Ελλάδα (Edo Einai Ellada)",
-    "lat": 39.07368700621743,
-    "lng": 21.823831411060098
+    "lat": 39.075176970358484,
+    "lng": 21.825157188013826
+  },
+  {
+    "artist": "Hawk-grc",
+    "location": "αθήνα, σαλονίκη, ντου",
+    "song": "Many",
+    "lat": 37.983138072355786,
+    "lng": 23.727929586037998
   },
   {
     "artist": "Hawk-grc",
     "location": "αθήνα",
     "song": "Nemesis",
-    "lat": 37.98382740644833,
-    "lng": 23.72701963246336
+    "lat": 37.984662739670874,
+    "lng": 23.72733264713178
   },
   {
     "artist": "Hawk-grc",
     "location": "κοντιζά",
     "song": "GINA",
-    "lat": 37.43519870933048,
-    "lng": 24.928497977796535
+    "lat": 38.00830807370389,
+    "lng": 23.72302227174019
   },
   {
     "artist": "Hawk-grc",
     "location": "σαλόνικα",
     "song": "Ένα Βράδυ Στη Σαλόνικα (Ena Vradi Sti Salonika)",
-    "lat": 40.640753604006036,
-    "lng": 22.94535309233969
+    "lat": 40.63983231727423,
+    "lng": 22.94392659913526
   },
   {
     "artist": "Hawk-grc",
-    "location": "ελλάδα",
-    "song": "Diva",
-    "lat": 39.07373972349992,
-    "lng": 21.824942083986446
-  },
-  {
-    "artist": "Hawk-grc",
-    "location": "σαλονίκη",
-    "song": "Diva",
-    "lat": 40.64071193665249,
-    "lng": 22.944902956118543
+    "location": "σαλόνικα, σαλόνικα",
+    "song": "Ένα Βράδυ Στη Σαλόνικα (Ena Vradi Sti Salonika)",
+    "lat": 40.63946131553435,
+    "lng": 22.94403927632249
   },
   {
     "artist": "Hawk-grc",
     "location": "αθήνα",
     "song": "Diva",
-    "lat": 37.98437610434998,
-    "lng": 23.727811671896117
+    "lat": 37.98406664802228,
+    "lng": 23.727260012048042
+  },
+  {
+    "artist": "Hawk-grc",
+    "location": "ελλάδα",
+    "song": "Diva",
+    "lat": 39.07441421750636,
+    "lng": 21.823535244725132
+  },
+  {
+    "artist": "Hawk-grc",
+    "location": "σαλονίκη",
+    "song": "Diva",
+    "lat": 40.63988293225285,
+    "lng": 22.944343658354587
   },
   {
     "artist": "Hawk-grc",
     "location": "σαλονίκη",
     "song": "YEEZY",
-    "lat": 40.64033170136282,
-    "lng": 22.944017868055923
-  },
-  {
-    "artist": "Hawk-grc",
-    "location": "ίμια",
-    "song": "JAY-Z",
-    "lat": 37.05495515043626,
-    "lng": 27.149575963203034
+    "lat": 40.63971070306863,
+    "lng": 22.94493397701935
   },
   {
     "artist": "Hawk-grc",
     "location": "ελλάδα",
     "song": "JAY-Z",
-    "lat": 39.07479800939718,
-    "lng": 21.82468780695133
+    "lat": 39.07434528491433,
+    "lng": 21.82341322220485
+  },
+  {
+    "artist": "Hawk-grc",
+    "location": "ίμια",
+    "song": "JAY-Z",
+    "lat": 37.078893434414894,
+    "lng": 27.140806087155756
   },
   {
     "artist": "Hawk-grc",
     "location": "ελλάδα",
     "song": "5D",
-    "lat": 39.07454490890899,
-    "lng": 21.823436075270294
+    "lat": 39.07493153283797,
+    "lng": 21.82357156876303
+  },
+  {
+    "artist": "Hawk-grc",
+    "location": "ορφέ",
+    "song": "5D",
+    "lat": 41.07682828991133,
+    "lng": 24.877537396716367
   },
   {
     "artist": "Ricta",
     "location": "σαλονίκη",
     "song": "Gel Burda",
-    "lat": 40.64015632382117,
-    "lng": 22.944522671389883
+    "lat": 40.640468073093594,
+    "lng": 22.943679114442663
   },
   {
     "artist": "Ricta",
     "location": "σαλονίκη",
     "song": "ΤΟ ΔΩΡΟ (TO DWRO)",
-    "lat": 40.64082606774085,
-    "lng": 22.945181502656016
+    "lat": 40.64043622197032,
+    "lng": 22.94524509095978
   },
   {
     "artist": "Ricta",
     "location": "γεννηματά",
     "song": "Ccinderella",
-    "lat": 40.578978865950056,
-    "lng": 22.960070350374647
+    "lat": 38.00281216609706,
+    "lng": 23.713151692114785
   },
   {
     "artist": "Ricta",
     "location": "εγνατία",
     "song": "ERNEST HEBRARD",
-    "lat": 40.633088105192044,
-    "lng": 22.939161879232934
+    "lat": 40.63272253780859,
+    "lng": 22.943705571810803
+  },
+  {
+    "artist": "Ricta",
+    "location": "ελλάδα, γεωργία, αλβανία",
+    "song": "ERNEST HEBRARD",
+    "lat": 39.075006395386445,
+    "lng": 21.823409981332585
+  },
+  {
+    "artist": "Ricta",
+    "location": "κωλοδάχτυ",
+    "song": "Fuck Da Police",
+    "lat": 0.00008910283657276109,
+    "lng": -0.000030794149749284963
+  },
+  {
+    "artist": "Ricta",
+    "location": "κωλοδάχτυλα",
+    "song": "Fuck Da Police",
+    "lat": -0.00022994313578206938,
+    "lng": 0.0003305820718500583
   },
   {
     "artist": "Ricta",
     "location": "σμύρνη",
     "song": "Fuck Da Police",
-    "lat": 38.41853184308662,
-    "lng": 27.128653580112253
-  },
-  {
-    "artist": "Ricta",
-    "location": "σαλούγκα",
-    "song": "BBQ-2",
-    "lat": 40.60678797487616,
-    "lng": 22.96362673154133
-  },
-  {
-    "artist": "Ricta",
-    "location": "περού",
-    "song": "BBQ-2",
-    "lat": -6.870382206165598,
-    "lng": -75.04616295786815
+    "lat": 38.42332522926253,
+    "lng": 27.142550727081908
   },
   {
     "artist": "Ricta",
     "location": "βελβεντό",
     "song": "BBQ-2",
-    "lat": 40.272778926371515,
-    "lng": 22.117066291618503
+    "lat": 40.24499603780753,
+    "lng": 22.050130492745062
   },
   {
     "artist": "Ricta",
-    "location": "τσινάρι",
-    "song": "Η ΠΟΛΗ ΜΑΣ (I POLI MAS)",
-    "lat": 40.642822664995556,
-    "lng": 22.94714144117513
+    "location": "κορυδαλλό",
+    "song": "BBQ-2",
+    "lat": 37.98377298599925,
+    "lng": 23.649087777916172
   },
   {
     "artist": "Ricta",
-    "location": "κρήνη",
-    "song": "Η ΠΟΛΗ ΜΑΣ (I POLI MAS)",
-    "lat": 40.64305849619967,
-    "lng": 22.94883419951841
+    "location": "σαλούγκα",
+    "song": "BBQ-2",
+    "lat": 44.49571060995204,
+    "lng": 11.342538778765391
   },
   {
     "artist": "Ricta",
-    "location": "παύλου μελά",
-    "song": "Η ΠΟΛΗ ΜΑΣ (I POLI MAS)",
-    "lat": 40.660560326489716,
-    "lng": 22.93959684284826
-  },
-  {
-    "artist": "Ricta",
-    "location": "θεσσαλονίκης",
-    "song": "Η ΠΟΛΗ ΜΑΣ (I POLI MAS)",
-    "lat": 40.705998446826385,
-    "lng": 22.93562728619322
-  },
-  {
-    "artist": "Ricta",
-    "location": "aρχαία aγο",
-    "song": "Η ΠΟΛΗ ΜΑΣ (I POLI MAS)",
-    "lat": 37.974607544744615,
-    "lng": 23.72201619028884
+    "location": "περού",
+    "song": "BBQ-2",
+    "lat": -9.190949296106044,
+    "lng": -75.01477596259029
   },
   {
     "artist": "Ricta",
     "location": "παλαιστίνη",
     "song": "Η ΠΟΛΗ ΜΑΣ (I POLI MAS)",
-    "lat": 31.462217518898505,
-    "lng": 34.26237515945594
+    "lat": 31.951243440749597,
+    "lng": 35.23303610244915
+  },
+  {
+    "artist": "Ricta",
+    "location": "aρχαία aγο",
+    "song": "Η ΠΟΛΗ ΜΑΣ (I POLI MAS)",
+    "lat": 37.975085585985795,
+    "lng": 23.72218713401819
+  },
+  {
+    "artist": "Ricta",
+    "location": "κρήνη",
+    "song": "Η ΠΟΛΗ ΜΑΣ (I POLI MAS)",
+    "lat": 40.61887678257863,
+    "lng": 22.957054913900272
+  },
+  {
+    "artist": "Ricta",
+    "location": "θεσσαλονίκης",
+    "song": "Η ΠΟΛΗ ΜΑΣ (I POLI MAS)",
+    "lat": 40.6401003061568,
+    "lng": 22.945254712188248
+  },
+  {
+    "artist": "Ricta",
+    "location": "τσινάρι",
+    "song": "Η ΠΟΛΗ ΜΑΣ (I POLI MAS)",
+    "lat": 40.6446012052289,
+    "lng": 22.95463782821522
+  },
+  {
+    "artist": "Ricta",
+    "location": "παύλου μελά",
+    "song": "Η ΠΟΛΗ ΜΑΣ (I POLI MAS)",
+    "lat": 40.665476818426676,
+    "lng": 22.94037798055836
+  },
+  {
+    "artist": "Ricta",
+    "location": "αθήνα",
+    "song": "ΣΕΝΑΡΙΟ (SENARIO)",
+    "lat": 37.98381321548403,
+    "lng": 23.7282063405921
+  },
+  {
+    "artist": "Ricta",
+    "location": "σαλόνικα αθήνα",
+    "song": "ΣΕΝΑΡΙΟ (SENARIO)",
+    "lat": 40.63939850017831,
+    "lng": 22.9443879099151
   },
   {
     "artist": "Ricta",
     "location": "ικτίνου",
     "song": "ΣΕΝΑΡΙΟ (SENARIO)",
-    "lat": 40.62918246764912,
-    "lng": 23.045136577046687
+    "lat": 40.63297098526736,
+    "lng": 22.943441035659124
   },
   {
     "artist": "Ricta",
     "location": "φάληρο",
     "song": "ΣΕΝΑΡΙΟ (SENARIO)",
-    "lat": 40.61200692950916,
-    "lng": 22.957463154839907
-  },
-  {
-    "artist": "Ricta",
-    "location": "αθήνα",
-    "song": "ΣΕΝΑΡΙΟ (SENARIO)",
-    "lat": 37.983995900317865,
-    "lng": 23.726907008762765
+    "lat": 37.93292708453211,
+    "lng": 23.683774527517077
   },
   {
     "artist": "Ricta",
     "location": "χαλκιδική",
     "song": "BBQ-3",
-    "lat": 40.330018727196645,
-    "lng": 23.362981221937098
-  },
-  {
-    "artist": "Ricta",
-    "location": "σέρβο",
-    "song": "BBQ-3",
-    "lat": 45.65069048853388,
-    "lng": 13.773019938224285
-  },
-  {
-    "artist": "Ricta",
-    "location": "σερβία",
-    "song": "BBQ-3",
-    "lat": 44.023852980187996,
-    "lng": 21.07646642290635
+    "lat": 40.35884724904124,
+    "lng": 23.474381854204946
   },
   {
     "artist": "Ricta",
     "location": "κρήτη",
     "song": "BBQ-3",
-    "lat": 35.308513730536184,
-    "lng": 24.463109596450536
+    "lat": 35.240429669363834,
+    "lng": 24.80978846576021
+  },
+  {
+    "artist": "Ricta",
+    "location": "σέρβο",
+    "song": "BBQ-3",
+    "lat": 40.63899242512481,
+    "lng": 22.95174439433104
+  },
+  {
+    "artist": "Ricta",
+    "location": "σερβία",
+    "song": "BBQ-3",
+    "lat": 44.01654069713268,
+    "lng": 21.00603700653236
   },
   {
     "artist": "Ricta",
     "location": "κυψέλη",
     "song": "Πελάτες (Pelates)",
-    "lat": 40.63562313571714,
-    "lng": 22.94223618975391
+    "lat": 38.000249170393644,
+    "lng": 23.738874900209016
   },
   {
     "artist": "Ricta",
     "location": "ίμια",
     "song": "BBQ",
-    "lat": 37.05501276862299,
-    "lng": 27.149848762305435
-  },
-  {
-    "artist": "Ricta",
-    "location": "κάστρα",
-    "song": "CC Girl",
-    "lat": 43.89103833300861,
-    "lng": 22.523475024237598
-  },
-  {
-    "artist": "Ricta",
-    "location": "θεσσαλονίκη",
-    "song": "CC Girl",
-    "lat": 40.641062541108795,
-    "lng": 22.934837893151695
+    "lat": 37.078230230123225,
+    "lng": 27.142518190631005
   },
   {
     "artist": "Ricta",
     "location": "ναυαρίνου",
     "song": "CC Girl",
-    "lat": 40.67519047935523,
-    "lng": 22.943505395920848
+    "lat": 38.24279631345931,
+    "lng": 21.73405170146853
+  },
+  {
+    "artist": "Ricta",
+    "location": "κάστρα",
+    "song": "CC Girl",
+    "lat": 40.63830293474923,
+    "lng": 22.955620709225343
+  },
+  {
+    "artist": "Ricta",
+    "location": "θεσσαλονίκη",
+    "song": "CC Girl",
+    "lat": 40.64037014524392,
+    "lng": 22.945062692536492
   },
   {
     "artist": "Ricta",
     "location": "αυλώνα",
     "song": "ΑΠΟ ΑΛΛΗ ΜΑΤΙΑ (APO ALLH MATIA)",
-    "lat": 35.15929146403572,
-    "lng": 33.097664741689584
-  },
-  {
-    "artist": "Ricta",
-    "location": "αθήνα-σ",
-    "song": "FUEGO",
-    "lat": 37.96919419191375,
-    "lng": 23.693786833924577
+    "lat": 38.2811431979098,
+    "lng": 23.685014286861406
   },
   {
     "artist": "Ricta",
     "location": "χαβάη",
     "song": "FUEGO",
-    "lat": 40.458047523607675,
-    "lng": 22.862784748660342
+    "lat": 38.00525229066483,
+    "lng": 23.705363592878577
   },
   {
     "artist": "Ricta",
     "location": "λονδίνο",
     "song": "FUEGO",
-    "lat": 40.638727143847404,
-    "lng": 22.943068232092674
+    "lat": 51.50820635352373,
+    "lng": -0.1279163583117954
+  },
+  {
+    "artist": "Ricta",
+    "location": "αθήνα-σ",
+    "song": "FUEGO",
+    "lat": 37.98292828052629,
+    "lng": 23.72655489025122
   },
   {
     "artist": "Vlospa",
     "location": "ειρηνικό",
     "song": "Μεσάνυχτα (Mesanyxta)",
-    "lat": 0.000843133043427442,
-    "lng": -159.9994149935536
+    "lat": 0.0009630605989669003,
+    "lng": -149.99966625277048
   },
   {
     "artist": "Vlospa",
     "location": "ελλάδα",
     "song": "KTLVN",
-    "lat": 39.075019178053935,
-    "lng": 21.82438052150203
+    "lat": 39.073374884386006,
+    "lng": 21.823931365757474
   },
   {
     "artist": "Vlospa",
     "location": "france",
     "song": "MANY",
-    "lat": 40.64666767119174,
-    "lng": 22.921302378635435
+    "lat": 46.226920573433986,
+    "lng": 2.2142711752630464
   },
   {
     "artist": "Vlospa",
     "location": "grèce",
     "song": "MANY",
-    "lat": 40.62689036842651,
-    "lng": 22.949335101011545
+    "lat": 39.07428860288119,
+    "lng": 21.824480571754783
   },
   {
     "artist": "Ivan-greko",
     "location": "ελλάδα",
     "song": "SILLY BOY",
-    "lat": 39.07487747260031,
-    "lng": 21.824005586619762
-  },
-  {
-    "artist": "Ivan-greko",
-    "location": "μαζατλαν",
-    "song": "BLACK PHONE MAFIA",
-    "lat": 18.014121187631535,
-    "lng": -96.90657038921834
-  },
-  {
-    "artist": "Ivan-greko",
-    "location": "συρια",
-    "song": "BLACK PHONE MAFIA",
-    "lat": 34.639711139104975,
-    "lng": 39.049112972991445
+    "lat": 39.07440511687364,
+    "lng": 21.823560969918436
   },
   {
     "artist": "Ivan-greko",
     "location": "βιετνάμ",
     "song": "BLACK PHONE MAFIA",
-    "lat": 38.009852812821386,
-    "lng": 23.773614740760568
+    "lat": 14.058016289014123,
+    "lng": 108.27719896908279
+  },
+  {
+    "artist": "Ivan-greko",
+    "location": "μαζατλαν",
+    "song": "BLACK PHONE MAFIA",
+    "lat": 23.248736702361153,
+    "lng": -106.41193550381495
+  },
+  {
+    "artist": "Ivan-greko",
+    "location": "συρια",
+    "song": "BLACK PHONE MAFIA",
+    "lat": 34.99931323369412,
+    "lng": 38.00094641673956
   },
   {
     "artist": "Ivan-greko",
     "location": "στοκχόλμη",
     "song": "Jet",
-    "lat": 59.32534361309304,
-    "lng": 18.07204972203486
-  },
-  {
-    "artist": "Ivan-greko",
-    "location": "qatar",
-    "song": "PULL UP",
-    "lat": 38.00425648041612,
-    "lng": 23.775212330496814
+    "lat": 59.32913885897505,
+    "lng": 18.068430781120284
   },
   {
     "artist": "Ivan-greko",
     "location": "ελλάδα",
     "song": "PULL UP",
-    "lat": 39.07409734796905,
-    "lng": 21.82402488797287
+    "lat": 39.07514737910506,
+    "lng": 21.824411348179478
+  },
+  {
+    "artist": "Ivan-greko",
+    "location": "qatar",
+    "song": "PULL UP",
+    "lat": 25.35532307718058,
+    "lng": 51.18414060030514
   },
   {
     "artist": "Ivan-greko",
     "location": "μαρόκο",
     "song": "ΣΤΗ ΛΙΣΤΑ (STH LISTA)",
-    "lat": 28.334050341988032,
-    "lng": -10.37043644041395
-  },
-  {
-    "artist": "Ivan-greko",
-    "location": "μασσαλία",
-    "song": "Pyrex",
-    "lat": 43.29641687905777,
-    "lng": 5.3692053601402385
-  },
-  {
-    "artist": "Ivan-greko",
-    "location": "ρωσία",
-    "song": "Pyrex",
-    "lat": 64.68616454113996,
-    "lng": 97.74562028177904
-  },
-  {
-    "artist": "Ivan-greko",
-    "location": "ισπανία",
-    "song": "Pyrex",
-    "lat": 39.32597917568986,
-    "lng": -4.837045237273626
-  },
-  {
-    "artist": "Ivan-greko",
-    "location": "σουηδία",
-    "song": "Pyrex",
-    "lat": 59.67551759632154,
-    "lng": 14.520575639716753
+    "lat": 31.79240291030945,
+    "lng": -7.09343375923107
   },
   {
     "artist": "Ivan-greko",
     "location": "ιταλία",
     "song": "Pyrex",
-    "lat": 37.92598670912801,
-    "lng": 23.691926233602985
+    "lat": 41.872225751875575,
+    "lng": 12.568160606614576
+  },
+  {
+    "artist": "Ivan-greko",
+    "location": "σουηδία",
+    "song": "Pyrex",
+    "lat": 60.12887651241305,
+    "lng": 18.643610871794348
+  },
+  {
+    "artist": "Ivan-greko",
+    "location": "ρωσία",
+    "song": "Pyrex",
+    "lat": 61.52484759754775,
+    "lng": 105.31966917548021
+  },
+  {
+    "artist": "Ivan-greko",
+    "location": "μασσαλία",
+    "song": "Pyrex",
+    "lat": 43.29596122185297,
+    "lng": 5.369006210792789
+  },
+  {
+    "artist": "Ivan-greko",
+    "location": "ισπανία",
+    "song": "Pyrex",
+    "lat": 40.464533439297114,
+    "lng": -3.749548011836796
   },
   {
     "artist": "Ivan-greko",
     "location": "πέραμα",
     "song": "ΠΙΣΣΑ (PISSA)",
-    "lat": 38.01161387115509,
-    "lng": 23.606995557347915
+    "lat": 37.963343832095056,
+    "lng": 23.591591182808642
   },
   {
     "artist": "Ivan-greko",
     "location": "ισπανία",
     "song": "ΠΙΣΣΑ (PISSA)",
-    "lat": 39.32596019450658,
-    "lng": -4.83787546004719
+    "lat": 40.4639742349928,
+    "lng": -3.7486747436570047
   },
   {
     "artist": "Ivan-greko",
     "location": "baghdad baghdad",
     "song": "Trap Mes To Bando",
-    "lat": 30.66646520863002,
-    "lng": 33.72274674992874
+    "lat": 33.31462554577149,
+    "lng": 44.365511937422156
   },
   {
     "artist": "Ivan-greko",
     "location": "ελλάς",
     "song": "ΑΧΑΡΙΣΤΗ (AXARISTI)",
-    "lat": 37.98315572614868,
-    "lng": 23.727918185254484
-  },
-  {
-    "artist": "Ivan-greko",
-    "location": "μπολι",
-    "song": "LV ΤΣΑΝΤΑ (LV TSANTA)",
-    "lat": 35.841645891751774,
-    "lng": 128.5384400917976
+    "lat": 39.07500649206598,
+    "lng": 21.82505267629683
   },
   {
     "artist": "Ivan-greko",
     "location": "colombia",
     "song": "LV ΤΣΑΝΤΑ (LV TSANTA)",
-    "lat": 4.099308050094411,
-    "lng": -72.90956950693665
+    "lat": 4.570632764805346,
+    "lng": -74.29697150137615
+  },
+  {
+    "artist": "Ivan-greko",
+    "location": "μπολι",
+    "song": "LV ΤΣΑΝΤΑ (LV TSANTA)",
+    "lat": 38.04172072479046,
+    "lng": 23.737853904328123
   },
   {
     "artist": "Ivan-greko",
     "location": "βουκουρέστι",
     "song": "R6",
-    "lat": 44.43561862293453,
-    "lng": 26.10262338978958
+    "lat": 44.42707351907882,
+    "lng": 26.101526383793463
   },
   {
     "artist": "Bossikan",
     "location": "αθήνα",
     "song": "Full Press",
-    "lat": 37.98314299741575,
-    "lng": 23.727806889046516
+    "lat": 37.98366045379775,
+    "lng": 23.726805163452678
   },
   {
     "artist": "Bossikan",
     "location": "βουλγαρία",
     "song": "Full Press",
-    "lat": 42.6066096860008,
-    "lng": 25.485184683549694
+    "lat": 42.7346174722133,
+    "lng": 25.485446530313506
   },
   {
     "artist": "Bossikan",
     "location": "πετρούπολη",
     "song": "Full Press",
-    "lat": 38.045279100284155,
-    "lng": 23.675643098790058
+    "lat": 38.04368435776392,
+    "lng": 23.687020497518613
   },
   {
     "artist": "Bossikan",
     "location": "montana",
     "song": "XCM (Xapiacocomayro)",
-    "lat": 47.37426983970768,
-    "lng": -109.63899958100897
+    "lat": 46.880071126885966,
+    "lng": -110.3633119548597
+  },
+  {
+    "artist": "Bossikan",
+    "location": "τάνια",
+    "song": "XCM (Xapiacocomayro)",
+    "lat": 0.00023200299491054068,
+    "lng": -0.000783231106748101
   },
   {
     "artist": "Bossikan",
     "location": "σαλόνικα",
     "song": "XCM (Xapiacocomayro)",
-    "lat": 40.640726505539384,
-    "lng": 22.944844033630268
+    "lat": 40.63940829444665,
+    "lng": 22.945058809878496
   },
   {
     "artist": "Bossikan",
     "location": "αρμενία",
     "song": "XCM (Xapiacocomayro)",
-    "lat": 40.77015761927052,
-    "lng": 44.67393673116913
+    "lat": 40.06957366745725,
+    "lng": 45.038768787247164
+  },
+  {
+    "artist": "Bossikan",
+    "location": "μασωνεία",
+    "song": "XCM (Xapiacocomayro)",
+    "lat": 37.97375313632466,
+    "lng": 23.743041732374454
+  },
+  {
+    "artist": "Bossikan",
+    "location": "ελλάδα, γεωργία, ρωσία",
+    "song": "XCM (Xapiacocomayro)",
+    "lat": 0.0009082743841986845,
+    "lng": 0.00018952061658833986
   },
   {
     "artist": "Bossikan",
     "location": "cali",
     "song": "Full",
-    "lat": 40.693002507222886,
-    "lng": 23.330149441401808
+    "lat": 3.4199054957329325,
+    "lng": -76.5231268531043
   },
   {
     "artist": "Bossikan",
-    "location": "νάπολι",
-    "song": "Napoli",
-    "lat": 37.56513543578299,
-    "lng": 22.80671782314237
-  },
-  {
-    "artist": "Bossikan",
-    "location": "νεάπολη",
-    "song": "Napoli",
-    "lat": 40.65385011401116,
-    "lng": 22.942474317927488
+    "location": "συγκρού",
+    "song": "Full",
+    "lat": 37.963470556706305,
+    "lng": 23.716823671106436
   },
   {
     "artist": "Bossikan",
     "location": "japan",
     "song": "Napoli",
-    "lat": 40.639908346277714,
-    "lng": 22.936950413415595
+    "lat": 36.205724618729754,
+    "lng": 138.252777081995
   },
   {
     "artist": "Bossikan",
-    "location": "αφγανιστάν",
-    "song": "Νέα κολόνια (Nea Kolonia)",
-    "lat": 33.76788108658994,
-    "lng": 66.23815441971047
+    "location": "νάπολι",
+    "song": "Napoli",
+    "lat": 40.852209853982195,
+    "lng": 14.268274135284937
+  },
+  {
+    "artist": "Bossikan",
+    "location": "νεάπολη",
+    "song": "Napoli",
+    "lat": 40.63993575398547,
+    "lng": 22.944440245884643
   },
   {
     "artist": "Bossikan",
     "location": "λονδίνο",
     "song": "Νέα κολόνια (Nea Kolonia)",
-    "lat": 40.63804552741188,
-    "lng": 22.94195123647865
+    "lat": 51.50671640810461,
+    "lng": -0.12820905358827606
   },
   {
     "artist": "Bossikan",
     "location": "κοκαΐνα κολομβία",
     "song": "Νέα κολόνια (Nea Kolonia)",
-    "lat": 4.570484601747497,
-    "lng": -74.29787529489852
+    "lat": 4.57174641309914,
+    "lng": -74.29735232769427
+  },
+  {
+    "artist": "Bossikan",
+    "location": "αφγανιστάν",
+    "song": "Νέα κολόνια (Nea Kolonia)",
+    "lat": 33.93841838505626,
+    "lng": 67.71061858396963
   },
   {
     "artist": "Bossikan",
     "location": "γιαννιτσών",
     "song": "Κατάρες (Katares)",
-    "lat": 40.65524219878553,
-    "lng": 22.902017696630413
+    "lat": 40.79371351532931,
+    "lng": 22.417560761722893
+  },
+  {
+    "artist": "Bossikan",
+    "location": "μητροπάνος",
+    "song": "Salonika",
+    "lat": 38.01627120818174,
+    "lng": 23.730678177498532
+  },
+  {
+    "artist": "Bossikan",
+    "location": "υμηττό",
+    "song": "Salonika",
+    "lat": 37.95805411567647,
+    "lng": 23.77454175481217
   },
   {
     "artist": "Bossikan",
     "location": "βαλαωρίτου",
     "song": "Salonika",
-    "lat": 40.63829266464296,
-    "lng": 22.93913247883885
+    "lat": 40.635548736960786,
+    "lng": 22.941211112283604
   },
   {
     "artist": "Bossikan",
     "location": "νεάπολη",
     "song": "Salonika",
-    "lat": 40.65499231728571,
-    "lng": 22.941997002230266
+    "lat": 40.640623265699816,
+    "lng": 22.944366847982817
   }
 ]
