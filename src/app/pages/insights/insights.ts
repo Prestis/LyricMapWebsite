@@ -61,7 +61,7 @@ export class Insights implements OnInit, OnDestroy {
       }
 
       // City frequency (normalized)
-      const city = item.location.toLowerCase().trim();
+      const city = this.normalizeLocation(item.location);
       cityCounts[city] = (cityCounts[city] || 0) + 1;
 
       // Most travelled song
@@ -100,6 +100,15 @@ export class Insights implements OnInit, OnDestroy {
       .slice(0, 5);
   }
 
+  private normalizeLocation(text: string): string {
+    if (!text) return '';
+    return text
+      .toLowerCase()
+      .trim()
+      .normalize('NFD') // Decompose combined characters (e.g., ά -> α + ́)
+      .replace(/[\u0300-\u036f]/g, ''); // Remove the combining diacritical marks
+  }
+
   private isInsideGreece(lat: number, lng: number): boolean {
     return (
       lat >= this.GREECE_BOUNDS.minLat &&
@@ -109,3 +118,4 @@ export class Insights implements OnInit, OnDestroy {
     );
   }
 }
+

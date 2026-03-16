@@ -9,56 +9,60 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(18, 18, 20, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-primary);
+  border-bottom: 2px solid var(--text-primary);
   transition: all 0.3s ease;
 
+  .logo a {
+    text-decoration: none;
+    color: inherit;
+    /* Keeps the color the same as the parent div */
+    cursor: pointer;
+  }
+
   .nav-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 1.5rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
   .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
     color: var(--text-primary);
-    letter-spacing: -0.5px;
-    background: linear-gradient(135deg, #fff, #a5a5a5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    line-height: 1;
   }
 
   .navbar {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
 
     a {
       color: var(--text-secondary);
       text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: color 0.2s ease;
-      position: relative;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.5rem 1rem;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
 
-      &:hover, &.active {
-        color: var(--text-primary);
+      &:hover,
+      &.active {
+        color: var(--accent-green);
+        border: 1px solid var(--accent-green);
+        background: rgba(204, 255, 0, 0.05);
       }
 
-      &.active::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: var(--accent-gradient);
-        border-radius: 2px;
+      &.active {
+        background: var(--accent-green);
+        color: var(--bg-primary);
       }
     }
   }
@@ -68,20 +72,35 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  /* padding-top will be handled by pages that need content below header, like home with hero */
 }
 
 .modern-footer {
-  background: #0a0a0b;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 2rem;
+  background: var(--bg-secondary);
+  border-top: 2px solid var(--bg-concrete);
+  padding: 3rem 2rem;
   margin-top: auto;
 
   .footer-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    p {
+      margin: 0;
+
+      &::before {
+        content: '[ ';
+        color: var(--accent-blue);
+      }
+
+      &::after {
+        content: ' ]';
+        color: var(--accent-blue);
+      }
+    }
   }
 }

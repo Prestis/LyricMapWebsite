@@ -83,10 +83,10 @@ export class Home implements AfterViewInit, OnDestroy {
 
     pins.forEach((point: LocationData) => {
       const marker = L.circleMarker([point.lat, point.lng], {
-        color: '#a855f7',
+        color: '#ccff00',
         radius: 6,
-        fillOpacity: 0.6,
-        weight: 1
+        fillOpacity: 0.8,
+        weight: 2
       }).bindPopup(`
           <div class="custom-popup">
             <div class="popup-location">${point.location}</div>
