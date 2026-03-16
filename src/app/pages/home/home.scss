@@ -195,4 +195,51 @@
       }
     }
   }
+
+  /* Marker Cluster Styles */
+  .marker-cluster {
+    background-clip: padding-box;
+    border-radius: 20px;
+    
+    div {
+      width: 30px;
+      height: 30px;
+      margin-left: 5px;
+      margin-top: 5px;
+      text-align: center;
+      border-radius: 15px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  .marker-cluster-small {
+    background-color: rgba(168, 85, 247, 0.4);
+    div {
+      background-color: rgba(168, 85, 247, 0.6);
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+    }
+  }
+
+  .marker-cluster-medium {
+    background-color: rgba(168, 85, 247, 0.5);
+    div {
+      background-color: rgba(168, 85, 247, 0.7);
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+    }
+  }
+
+  .marker-cluster-large {
+    background-color: rgba(168, 85, 247, 0.6);
+    div {
+      background-color: rgba(168, 85, 247, 0.8);
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+    }
+  }
 }

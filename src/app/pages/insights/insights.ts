@@ -1,14 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import mapData from '../../data/rappers_locations_mapped.json';
+import { MapPinsService, LocationData } from '../../services/map-pins.service';
+import { Subscription } from 'rxjs';
 
-interface LocationData {
-  artist: string;
-  location: string;
-  song: string;
-  lat: number;
-  lng: number;
-}
 
 @Component({
   selector: 'app-insights',
@@ -17,13 +11,17 @@ interface LocationData {
   templateUrl: './insights.html',
   styleUrl: './insights.scss'
 })
-export class Insights implements OnInit {
+export class Insights implements OnInit, OnDestroy {
   topRappers: { name: string; count: number }[] = [];
   topInternationalRappers: { name: string; count: number }[] = [];
   topCities: { name: string; count: number }[] = [];
   mostTravelledSongs: { title: string; artist: string; count: number }[] = [];
   totalLocations: number = 0;
   uniqueArtists: number = 0;
+  private pinsSubscription: Subscription | undefined;
+  private mapPinsService = inject(MapPinsService);
+
+  constructor() {}
 
   // Greece Bounding Box (approximate)
   private readonly GREECE_BOUNDS = {
@@ -34,10 +32,17 @@ export class Insights implements OnInit {
   };
 
   ngOnInit(): void {
-    const data = mapData as LocationData[];
-    this.totalLocations = data.length;
-    
-    this.calculateStats(data);
+    this.pinsSubscription = this.mapPinsService.pins$.subscribe(pins => {
+      console.log('[Insights] Received pins. Count:', pins.length);
+      this.totalLocations = pins.length;
+      this.calculateStats(pins);
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.pinsSubscription) {
+      this.pinsSubscription.unsubscribe();
+    }
   }
 
   private calculateStats(data: LocationData[]): void {
