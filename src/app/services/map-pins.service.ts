@@ -1,8 +1,8 @@
 import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of, combineLatest } from 'rxjs';
+import { catchError, map, tap, shareReplay } from 'rxjs/operators';
 import mapDataFallback from '../data/rappers_locations_mapped.json';
 
 export interface LocationData {
@@ -24,6 +24,25 @@ export class MapPinsService {
 
   private pinsSubject = new BehaviorSubject<LocationData[]>([]);
   public pins$ = this.pinsSubject.asObservable();
+
+  private selectedArtistsSubject = new BehaviorSubject<string[]>([]);
+  public selectedArtists$ = this.selectedArtistsSubject.asObservable();
+
+  public artists$ = this.pins$.pipe(
+    map(pins => {
+      const artists = Array.from(new Set(pins.map(p => p.artist))).sort();
+      return artists;
+    }),
+    shareReplay(1)
+  );
+
+  public filteredPins$ = combineLatest([this.pins$, this.selectedArtists$]).pipe(
+    map(([pins, selectedArtists]) => {
+      if (selectedArtists.length === 0) return pins;
+      return pins.filter(p => selectedArtists.includes(p.artist));
+    }),
+    shareReplay(1)
+  );
 
   constructor(
     private http: HttpClient,
@@ -165,6 +184,14 @@ export class MapPinsService {
     }
 
     return mappedData;
+  }
+
+  public setSelectedArtists(artists: string[]): void {
+    this.selectedArtistsSubject.next(artists);
+  }
+
+  public getSelectedArtists(): string[] {
+    return this.selectedArtistsSubject.value;
   }
 
   private formatPin(artist: string | undefined, item: any): LocationData {

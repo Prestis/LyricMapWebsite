@@ -32,8 +32,8 @@ export class Insights implements OnInit, OnDestroy {
   };
 
   ngOnInit(): void {
-    this.pinsSubscription = this.mapPinsService.pins$.subscribe(pins => {
-      console.log('[Insights] Received pins. Count:', pins.length);
+    this.pinsSubscription = this.mapPinsService.filteredPins$.subscribe(pins => {
+      console.log('[Insights] Received filtered pins. Count:', pins.length);
       this.totalLocations = pins.length;
       this.calculateStats(pins);
     });

@@ -12,8 +12,34 @@
 </section>
 
 <section id="map-section" class="map-container">
-  <p>The following map is the product of locations mentioned in the top 20 most streamed Greek Rap of 22
-    Greek Rap Artists</p>
+  <div class="filter-controls">
+    <div class="filter-header">
+      <p class="map-description">The following map is the product of locations mentioned in the top 20 most streamed Greek Rap of 22 Greek Rap Artists</p>
+      
+      <div class="filter-actions">
+        <button class="filter-toggle" (click)="toggleFilterDropdown()" [class.active]="isFilterOpen">
+          <span class="icon">🔍</span>
+          Filter by Artist
+          <span class="count" *ngIf="selectedArtists.length > 0">{{selectedArtists.length}}</span>
+        </button>
+        <button class="clear-btn" *ngIf="selectedArtists.length > 0" (click)="clearFilters()">Reset</button>
+      </div>
+    </div>
+
+    <div class="artist-dropdown-panel" *ngIf="isFilterOpen">
+      <div class="artist-grid">
+        <button 
+          *ngFor="let artist of (artists$ | async)" 
+          class="artist-tag" 
+          [class.selected]="isArtistSelected(artist)"
+          (click)="toggleArtist(artist)"
+        >
+          {{artist}}
+        </button>
+      </div>
+    </div>
+  </div>
+
   <div class="map-wrapper">
     <div id="map"></div>
   </div>

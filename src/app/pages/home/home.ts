@@ -17,6 +17,10 @@ export class Home implements AfterViewInit, OnDestroy {
   private mapPinsService = inject(MapPinsService);
   private platformId = inject(PLATFORM_ID);
 
+  public artists$ = this.mapPinsService.artists$;
+  public selectedArtists: string[] = [];
+  public isFilterOpen = false;
+
   constructor() { }
 
   async ngAfterViewInit(): Promise<void> {
@@ -37,10 +41,15 @@ export class Home implements AfterViewInit, OnDestroy {
 
       console.log('[Home] Map and MarkerCluster initialized');
 
-      // Subscribe to map pins from service
-      this.pinsSubscription = this.mapPinsService.pins$.subscribe(pins => {
-        console.log('[Home] Received pins. Count:', pins.length);
+      // Subscribe to filtered map pins from service
+      this.pinsSubscription = this.mapPinsService.filteredPins$.subscribe(pins => {
+        console.log('[Home] Received filtered pins. Count:', pins.length);
         this.updateMapPins(leafletWithPlugins, pins);
+      });
+      
+      // Keep track of selected artists locally for the UI
+      this.mapPinsService.selectedArtists$.subscribe(artists => {
+        this.selectedArtists = artists;
       });
     }
   }
@@ -101,5 +110,28 @@ export class Home implements AfterViewInit, OnDestroy {
     });
 
     this.markerClusterGroup.addLayers(markers);
+  }
+
+  public toggleArtist(artist: string): void {
+    const current = [...this.selectedArtists];
+    const index = current.indexOf(artist);
+    if (index > -1) {
+      current.splice(index, 1);
+    } else {
+      current.push(artist);
+    }
+    this.mapPinsService.setSelectedArtists(current);
+  }
+
+  public isArtistSelected(artist: string): boolean {
+    return this.selectedArtists.includes(artist);
+  }
+
+  public clearFilters(): void {
+    this.mapPinsService.setSelectedArtists([]);
+  }
+
+  public toggleFilterDropdown(): void {
+    this.isFilterOpen = !this.isFilterOpen;
   }
 }
