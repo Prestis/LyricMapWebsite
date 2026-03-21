@@ -1,0 +1,47 @@
+<div class="admin-container">
+  <h1>Location Management</h1>
+  <p>Manually override coordinates for misplaced mentions.</p>
+
+  <div class="search-box">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Search by artist, song, or location..." (input)="onSearch()">
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Artist</th>
+          <th>Song</th>
+          <th>Location</th>
+          <th>Lat</th>
+          <th>Lng</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pin of filteredPins" [class.manual]="pin.is_manual">
+          <td>{{ pin.artist }}</td>
+          <td>{{ pin.song }}</td>
+          <td>{{ pin.location }}</td>
+          <td>
+            <input type="number" [(ngModel)]="pin.lat" step="0.000001">
+          </td>
+          <td>
+            <input type="number" [(ngModel)]="pin.lng" step="0.000001">
+          </td>
+          <td>
+            <span class="status-badge" [class.manual]="pin.is_manual">
+              {{ pin.is_manual ? 'Manual' : 'Auto' }}
+            </span>
+          </td>
+          <td>
+            <button (click)="saveLocation(pin)" [disabled]="savingId === pin.id">
+              {{ savingId === pin.id ? 'Saving...' : 'Save' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

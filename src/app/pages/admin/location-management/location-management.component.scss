@@ -1,0 +1,120 @@
+.admin-container {
+  padding: 2rem;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+h1 {
+  font-family: 'Brutal', 'Inter', sans-serif;
+  color: #00f2ff; /* Electric Blue */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-left: 5px solid #00f2ff;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.search-box {
+  margin-bottom: 2rem;
+  input {
+    width: 100%;
+    padding: 0.8rem;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 1rem;
+    &:focus {
+      outline: none;
+      border-color: #00f2ff;
+      box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+    }
+  }
+}
+
+.table-container {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #222;
+  }
+
+  th {
+    background: #0d0d0d;
+    color: #00f2ff;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+
+  tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  tr.manual {
+    background: rgba(0, 242, 255, 0.05);
+  }
+
+  input[type="number"] {
+    background: #333;
+    border: 1px solid #555;
+    color: #fff;
+    padding: 0.3rem;
+    border-radius: 4px;
+    width: 120px;
+    &:focus {
+      border-color: #00f2ff;
+    }
+  }
+}
+
+.status-badge {
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  background: #444;
+  color: #ccc;
+
+  &.manual {
+    background: #00f2ff;
+    color: #000;
+  }
+}
+
+button {
+  background: transparent;
+  border: 1px solid #00f2ff;
+  color: #00f2ff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8rem;
+
+  &:hover:not(:disabled) {
+    background: #00f2ff;
+    color: #000;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: #555;
+    color: #555;
+  }
+}

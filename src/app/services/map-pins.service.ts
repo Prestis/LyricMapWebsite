@@ -6,11 +6,13 @@ import { catchError, map, tap, shareReplay } from 'rxjs/operators';
 import mapDataFallback from '../data/rappers_locations_mapped.json';
 
 export interface LocationData {
+  id: number;
   artist: string;
   location: string;
   song: string;
   lat: number;
   lng: number;
+  is_manual: boolean;
 }
 
 @Injectable({
@@ -200,11 +202,33 @@ export class MapPinsService {
     const offsetLon = (Math.random() - 0.5) * 0.002;
 
     return {
+      id: item.id || 0,
       artist: artist || item.artist || 'Unknown',
       location: item.location || 'Unknown',
       song: item.song || 'Unknown',
       lat: Number(item.lat) + offsetLat,
-      lng: Number(item.lng) + offsetLon
+      lng: Number(item.lng) + offsetLon,
+      is_manual: !!item.is_manual
     };
+  }
+
+  public updateLocation(id: number, lat: number, lng: number): Observable<any> {
+    return this.http.put(`${this.API_URL}/${id}`, { lat, lng }).pipe(
+      tap(() => {
+        // Update local state
+        const currentPins = this.pinsSubject.value;
+        const index = currentPins.findIndex(p => p.id === id);
+        if (index !== -1) {
+          const updatedPins = [...currentPins];
+          updatedPins[index] = { ...updatedPins[index], lat, lng, is_manual: true };
+          this.pinsSubject.next(updatedPins);
+          
+          // Update cache
+          if (isPlatformBrowser(this.platformId)) {
+            localStorage.setItem(this.CACHE_KEY, JSON.stringify(updatedPins));
+          }
+        }
+      })
+    );
   }
 }
