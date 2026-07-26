@@ -1,0 +1,43 @@
+<div class="modal-overlay" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>Report Issue</h2>
+      <button class="close-btn" (click)="closeModal()">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <p class="location-context">What is wrong with the location <strong>{{ locationName }}</strong>?</p>
+
+      <div *ngIf="successMessage" class="alert success">{{ successMessage }}</div>
+      <div *ngIf="errorMessage" class="alert error">{{ errorMessage }}</div>
+
+      <form *ngIf="!successMessage" (ngSubmit)="submitReport()">
+        <!-- Honeypot field for anti-spam -->
+        <input type="text" name="website" class="honeypot" [(ngModel)]="honeypot" tabindex="-1" autocomplete="off">
+
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="reportType" value="fictional" [(ngModel)]="reportType">
+            <span>It's completely fictional (e.g., made up place or slang)</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="reportType" value="suggestion" [(ngModel)]="reportType">
+            <span>I know the actual location</span>
+          </label>
+        </div>
+
+        <div class="suggestion-group" *ngIf="reportType === 'suggestion'">
+          <label for="suggestion">Please suggest the correct location name or address:</label>
+          <input type="text" id="suggestion" name="suggestion" [(ngModel)]="suggestion" placeholder="e.g. Kipseli, Athens" required>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" (click)="closeModal()" [disabled]="isSubmitting">Cancel</button>
+          <button type="submit" class="btn-submit" [disabled]="isSubmitting || !reportType">
+            {{ isSubmitting ? 'Submitting...' : 'Submit Report' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

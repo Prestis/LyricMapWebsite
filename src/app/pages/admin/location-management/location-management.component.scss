@@ -16,6 +16,29 @@ h1 {
   margin-bottom: 1rem;
 }
 
+h2 {
+  font-family: 'Brutal', 'Inter', sans-serif;
+  color: #ff4d4d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-left: 4px solid #ff4d4d;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.reports-section {
+  margin-bottom: 3rem;
+  
+  .table-container {
+    border-color: #441111;
+  }
+  
+  th {
+    color: #ff4d4d;
+  }
+}
+
 .search-box {
   margin-bottom: 2rem;
   input {
@@ -92,6 +115,11 @@ table {
     background: #00f2ff;
     color: #000;
   }
+
+  &.fictional {
+    background: #ff4d4d;
+    color: #000;
+  }
 }
 
 button {
@@ -116,5 +144,49 @@ button {
     cursor: not-allowed;
     border-color: #555;
     color: #555;
+  }
+
+  &.btn-resolve {
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+
+    &:hover:not(:disabled) {
+      background: #ff4d4d;
+      color: #000;
+    }
+  }
+}
+
+.spotify-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  background: rgba(29, 185, 84, 0.1);
+  border: 1px solid rgba(29, 185, 84, 0.35);
+  color: #1DB954;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background: rgba(29, 185, 84, 0.25);
+    border-color: #1DB954;
+    box-shadow: 0 0 12px rgba(29, 185, 84, 0.3);
+    color: #1DB954;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 }

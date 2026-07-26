@@ -330,38 +330,151 @@
     .custom-popup {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 12px;
+      width: 260px;
+      max-height: 250px;
+
+      .popup-location-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid var(--bg-concrete);
+        padding-bottom: 8px;
+        gap: 10px;
+      }
 
       .popup-location {
         font-family: var(--font-heading);
-        font-size: 1.25rem;
+        font-size: 1.2rem;
         color: var(--accent-green);
         text-transform: uppercase;
-        letter-spacing: -1px;
-        margin-bottom: 4px;
-        line-height: 1;
+        letter-spacing: -0.5px;
+        line-height: 1.1;
+        margin: 0;
+      }
+
+      .popup-badge {
+        font-size: 0.75rem;
+        font-family: var(--font-mono);
+        color: var(--bg-primary);
+        background: var(--accent-blue);
+        padding: 2px 6px;
+        text-transform: uppercase;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+
+      .popup-mentions-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-height: 150px;
+        overflow-y: auto;
+        padding-right: 4px;
+
+        /* Custom scrollbar for popup */
+        &::-webkit-scrollbar {
+          width: 4px;
+        }
+        &::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.05);
+        }
+        &::-webkit-scrollbar-thumb {
+          background: var(--bg-concrete);
+        }
+      }
+
+      .popup-mention-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding-bottom: 6px;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+
+        &:last-child {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+      }
+
+      .popup-mention-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        flex: 1;
+        min-width: 0;
+      }
+
+      .popup-mention-actions {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        gap: 0.5rem;
+
+        .popup-link {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 28px;
+          height: 28px;
+          border-radius: 4px;
+          text-decoration: none;
+          transition: all 0.15s ease;
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          background: rgba(255, 255, 255, 0.05);
+          color: var(--text-secondary);
+          cursor: pointer;
+
+          &:hover {
+            transform: translateY(-2px);
+          }
+
+          &.spotify-link:hover {
+            background: rgba(29, 185, 84, 0.2);
+            color: #1DB954;
+            border-color: #1DB954;
+            box-shadow: -2px 2px 0 #1DB954;
+          }
+
+          &.report-issue-btn:hover {
+            background: rgba(220, 53, 69, 0.2);
+            color: #ff4d4d;
+            border-color: #ff4d4d;
+            box-shadow: -2px 2px 0 #ff4d4d;
+          }
+        }
       }
 
       .popup-artist {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         font-weight: 700;
         color: var(--text-primary);
         text-transform: uppercase;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         
         &::before {
           content: 'ARTIST: ';
           color: var(--text-secondary);
           font-weight: 400;
+          font-size: 0.8rem;
         }
       }
 
       .popup-song {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         color: var(--accent-blue);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         
         &::before {
           content: 'TRACK: ';
           color: var(--text-secondary);
+          font-size: 0.75rem;
         }
       }
     }

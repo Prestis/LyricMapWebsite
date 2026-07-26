@@ -44,3 +44,10 @@
     <div id="map"></div>
   </div>
 </section>
+
+<app-report-issue-modal 
+  *ngIf="isReportModalOpen"
+  [locationId]="reportLocationId"
+  [locationName]="reportLocationName"
+  (close)="closeReportModal()">
+</app-report-issue-modal>

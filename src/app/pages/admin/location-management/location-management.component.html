@@ -2,6 +2,43 @@
   <h1>Location Management</h1>
   <p>Manually override coordinates for misplaced mentions.</p>
 
+  <div class="reports-section" *ngIf="reports.length > 0">
+    <h2>Pending Reports ({{ reports.length }})</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Artist</th>
+            <th>Song</th>
+            <th>Issue Type</th>
+            <th>Suggestion</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let report of reports" class="report-row">
+            <td>{{ report.created_at }}</td>
+            <td>{{ report.location_name }}</td>
+            <td>{{ report.artist }}</td>
+            <td>{{ report.song }}</td>
+            <td>
+              <span class="status-badge" [class.fictional]="report.report_type === 'fictional'">
+                {{ report.report_type === 'fictional' ? 'Fictional' : 'Suggestion' }}
+              </span>
+            </td>
+            <td>{{ report.suggestion || '-' }}</td>
+            <td>
+              <button (click)="resolveReport(report.id)" [disabled]="resolvingId === report.id" class="btn-resolve">
+                {{ resolvingId === report.id ? 'Resolving...' : 'Resolve' }}
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <div class="search-box">
     <input type="text" [(ngModel)]="searchTerm" placeholder="Search by artist, song, or location..." (input)="onSearch()">
   </div>
@@ -16,6 +53,7 @@
           <th>Lat</th>
           <th>Lng</th>
           <th>Status</th>
+          <th>Listen</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -34,6 +72,12 @@
             <span class="status-badge" [class.manual]="pin.is_manual">
               {{ pin.is_manual ? 'Manual' : 'Auto' }}
             </span>
+          </td>
+          <td>
+            <a [href]="getSpotifyUrl(pin.artist, pin.song)" target="_blank" rel="noopener noreferrer" class="spotify-btn" title="Search on Spotify">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.894-.982-.336.076-.67-.135-.746-.472-.076-.336.135-.67.472-.746 3.856-.882 7.15-.502 9.822 1.133.295.18.387.565.207.86zm1.225-2.72c-.226.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.076-1.183-.412.125-.845-.107-.97-.52-.125-.413.108-.846.52-.971 3.67-1.113 8.24-.567 11.34 1.34.367.227.487.708.26 1.074zm.106-2.833C14.384 8.78 8.463 8.583 5.033 9.625c-.526.16-1.082-.143-1.242-.67-.16-.527.143-1.082.67-1.242 3.93-1.193 10.485-.967 14.55 1.448.473.28.627.893.347 1.366-.28.473-.893.627-1.366.347z"/></svg>
+              <span>Spotify</span>
+            </a>
           </td>
           <td>
             <button (click)="saveLocation(pin)" [disabled]="savingId === pin.id">

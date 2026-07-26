@@ -197,17 +197,13 @@ export class MapPinsService {
   }
 
   private formatPin(artist: string | undefined, item: any): LocationData {
-    // Add a very slight random offset to prevent exact overlapping pins on the map
-    const offsetLat = (Math.random() - 0.5) * 0.002;
-    const offsetLon = (Math.random() - 0.5) * 0.002;
-
     return {
       id: item.id || 0,
       artist: artist || item.artist || 'Unknown',
       location: item.location || 'Unknown',
       song: item.song || 'Unknown',
-      lat: Number(item.lat) + offsetLat,
-      lng: Number(item.lng) + offsetLon,
+      lat: Number(item.lat),
+      lng: Number(item.lng),
       is_manual: !!item.is_manual
     };
   }
