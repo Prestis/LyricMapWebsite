@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of, combineLatest } from 'rxjs';
 import { catchError, map, tap, shareReplay } from 'rxjs/operators';
 import mapDataFallback from '../data/rappers_locations_mapped.json';
+import { environment } from '../../environments/environment';
 
 export interface LocationData {
   id: number;
@@ -19,7 +20,7 @@ export interface LocationData {
   providedIn: 'root'
 })
 export class MapPinsService {
-  private readonly API_URL = 'http://localhost:8000/locations';
+  private readonly API_URL = `${environment.apiUrl}/locations`;
   private readonly REFRESH_INTERVAL_DAYS = 7;
   private readonly STORAGE_KEY = 'lastMapPinRefresh';
   private readonly CACHE_KEY = 'cachedMapPins';

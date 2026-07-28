@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject, Observable, tap, catchError, of } from 'rxjs';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly TOKEN_URL = 'http://localhost:8000/token';
-  private readonly AUTH_URL = 'http://localhost:8000/auth';
+  private readonly TOKEN_URL = `${environment.apiUrl}/token`;
+  private readonly AUTH_URL = `${environment.apiUrl}/auth`;
   private loggedInSubject = new BehaviorSubject<boolean>(false);
   public loggedIn$ = this.loggedInSubject.asObservable();
 
