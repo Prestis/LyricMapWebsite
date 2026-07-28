@@ -48,11 +48,11 @@ export class LocationManagementComponent implements OnInit {
     if (!this.searchTerm) {
       this.filteredPins = [...this.allPins];
     } else {
-      const term = this.searchTerm.toLowerCase();
+      const term = this.mapPinsService.normalizeLocationName(this.searchTerm);
       this.filteredPins = this.allPins.filter(p => 
-        p.artist.toLowerCase().includes(term) ||
-        p.song.toLowerCase().includes(term) ||
-        p.location.toLowerCase().includes(term)
+        this.mapPinsService.normalizeLocationName(p.artist).includes(term) ||
+        this.mapPinsService.normalizeLocationName(p.song).includes(term) ||
+        this.mapPinsService.normalizeLocationName(p.location).includes(term)
       );
     }
   }

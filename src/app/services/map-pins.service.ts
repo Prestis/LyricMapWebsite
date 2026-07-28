@@ -46,6 +46,16 @@ export class MapPinsService {
     shareReplay(1)
   );
 
+  public normalizeLocationName(text: string): string {
+    if (!text) return '';
+    return text
+      .toLowerCase()
+      .trim()
+      .normalize('NFD') // Decompose combined characters
+      .replace(/[\u0300-\u036f]/g, '') // Remove diacritical marks
+      .replace(/ς/g, 'σ'); // Normalize Greek final sigma to regular sigma
+  }
+
   constructor(
     private http: HttpClient,
     @Inject(PLATFORM_ID) private platformId: Object

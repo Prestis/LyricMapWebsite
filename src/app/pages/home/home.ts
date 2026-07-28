@@ -2,6 +2,7 @@ import { Component, AfterViewInit, PLATFORM_ID, Inject, OnDestroy, inject, NgZon
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { MapPinsService, LocationData } from '../../services/map-pins.service';
 import { Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { ReportIssueModalComponent } from '../../components/report-issue-modal/report-issue-modal.component';
 
 @Component({
@@ -20,6 +21,8 @@ export class Home implements AfterViewInit, OnDestroy {
   private ngZone = inject(NgZone);
 
   public artists$ = this.mapPinsService.artists$;
+  public totalArtists$ = this.artists$.pipe(map(artists => artists.length));
+  public totalSongs$ = this.mapPinsService.pins$.pipe(map(pins => new Set(pins.map(p => p.song)).size));
   public selectedArtists: string[] = [];
   public isFilterOpen = false;
 
@@ -115,10 +118,15 @@ export class Home implements AfterViewInit, OnDestroy {
     const markers: any[] = [];
     const groups: { [key: string]: { lat: number; lng: number; location: string; mentions: LocationData[] } } = {};
 
-    // Group pins by their coordinates
+    // Group pins by their normalized location name, fallback to coordinates
     pins.forEach((point: LocationData) => {
       if (point.lat == null || point.lng == null) return;
-      const key = `${point.lat}_${point.lng}`;
+      
+      let key = this.mapPinsService.normalizeLocationName(point.location);
+      if (!key || key === 'unknown') {
+        key = `${point.lat}_${point.lng}`;
+      }
+      
       if (!groups[key]) {
         groups[key] = {
           lat: point.lat,
