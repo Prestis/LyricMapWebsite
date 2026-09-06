@@ -25,6 +25,7 @@ export class Home implements AfterViewInit, OnDestroy {
   public totalSongs$ = this.mapPinsService.pins$.pipe(map(pins => new Set(pins.map(p => p.song)).size));
   public selectedArtists: string[] = [];
   public isFilterOpen = false;
+  public isHeroCollapsed = false;
 
   public isReportModalOpen = false;
   public reportLocationId = 0;
@@ -222,5 +223,20 @@ export class Home implements AfterViewInit, OnDestroy {
 
   public closeReportModal(): void {
     this.isReportModalOpen = false;
+  }
+
+  public toggleHero(collapsed?: boolean): void {
+    if (typeof collapsed === 'boolean') {
+      this.isHeroCollapsed = collapsed;
+    } else {
+      this.isHeroCollapsed = !this.isHeroCollapsed;
+    }
+
+    // Trigger Leaflet map invalidateSize after CSS slide animation completes
+    setTimeout(() => {
+      if (this.map) {
+        this.map.invalidateSize();
+      }
+    }, 450);
   }
 }
