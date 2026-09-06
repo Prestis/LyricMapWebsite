@@ -123,17 +123,14 @@ This application interacts with a companion FastAPI backend service (usually run
   * Security: Requires administrative privileges (interceptor appends the bearer token).
 
 ### 2. AuthService
-* **Base URL**: `http://localhost:8000/token`
-* **Credentials Action (`login(username, password)`)**: Form-data submission to fetch an administrative JWT (`access_token`).
-* **Session Storage**: Saves JWT to `localStorage` under `admin_token`.
+* **Base URL**: Configured via environment (`environment.apiUrl`).
+* **Credentials Action (`login(username, password)`)**: Form-data submission to `/token` with `{ withCredentials: true }`. The backend issues an `HttpOnly` `access_token` cookie.
+* **Session Storage**: Cookies are managed securely by the browser (`HttpOnly`). No tokens are stored in `localStorage`. Session state is verified at startup via `GET /auth/me`.
 
 ---
 
 ## 🔒 Security & Router Protection
 
 1. **Authentication Guard**: `/admin/locations` is protected by `authGuard`. If a user is not authenticated, they are redirected to `/login`.
-2. **Bearer Interceptor**: `authInterceptor` intercepts every outgoing HTTP request. If an `admin_token` exists in `localStorage`, it attaches:
-   ```http
-   Authorization: Bearer <token>
-   ```
-3. **Session Expiration**: If any HTTP request receives a `401 Unauthorized` response, the interceptor automatically calls `AuthService.logout()`, clearing the token and redirecting the client to `/login`.
+2. **Credentialed Interceptor**: `authInterceptor` intercepts outgoing HTTP requests and automatically attaches `withCredentials: true` so the browser sends the `HttpOnly` cookie with requests.
+3. **Session Expiration**: If an HTTP request receives a `401 Unauthorized` response while the user is logged in, the interceptor automatically calls `AuthService.logout()`, clearing the cookie on the server (`POST /auth/logout`) and redirecting the client to `/login`.

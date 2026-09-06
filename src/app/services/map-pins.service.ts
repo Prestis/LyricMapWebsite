@@ -1,9 +1,8 @@
 import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, of, combineLatest } from 'rxjs';
+import { BehaviorSubject, Observable, of, combineLatest, from } from 'rxjs';
 import { catchError, map, tap, shareReplay } from 'rxjs/operators';
-import mapDataFallback from '../data/rappers_locations_mapped.json';
 import { environment } from '../../environments/environment';
 
 export interface LocationData {
@@ -47,6 +46,11 @@ export class MapPinsService {
     shareReplay(1)
   );
 
+  private async getFallbackData(): Promise<LocationData[]> {
+    const mapDataFallback = (await import('../data/rappers_locations_mapped.json')).default;
+    return mapDataFallback as LocationData[];
+  }
+
   public normalizeLocationName(text: string): string {
     if (!text) return '';
     return text
@@ -64,7 +68,8 @@ export class MapPinsService {
 
   public async initialize(): Promise<void> {
     if (!isPlatformBrowser(this.platformId)) {
-      this.pinsSubject.next(mapDataFallback as LocationData[]);
+      const fallback = await this.getFallbackData();
+      this.pinsSubject.next(fallback);
       return;
     }
 
@@ -85,10 +90,11 @@ export class MapPinsService {
               console.log('[MapPinsService] Initial refresh complete. Pins count:', data.length);
               resolve();
             },
-            error: (err) => {
+            error: async (err) => {
               console.error('[MapPinsService] Initial refresh failed:', err);
               if (this.pinsSubject.value.length === 0) {
-                this.pinsSubject.next(mapDataFallback as LocationData[]);
+                const fallback = await this.getFallbackData();
+                this.pinsSubject.next(fallback);
               }
               resolve(); 
             }
@@ -108,15 +114,18 @@ export class MapPinsService {
             }
           } catch (e) {
             console.error('Failed to parse cached pins, falling back to local file.', e);
-            this.pinsSubject.next(mapDataFallback as LocationData[]);
+            const fallback = await this.getFallbackData();
+            this.pinsSubject.next(fallback);
           }
         } else {
-          this.pinsSubject.next(mapDataFallback as LocationData[]);
+          const fallback = await this.getFallbackData();
+          this.pinsSubject.next(fallback);
         }
       }
     } catch (e) {
       console.error('MapPinsService initialize error:', e);
-      this.pinsSubject.next(mapDataFallback as LocationData[]);
+      const fallback = await this.getFallbackData();
+      this.pinsSubject.next(fallback);
     }
   }
 
@@ -124,8 +133,9 @@ export class MapPinsService {
     await new Promise<void>((resolve) => {
       this.refreshPins().subscribe({
         next: () => resolve(),
-        error: () => {
-          this.pinsSubject.next(mapDataFallback as LocationData[]);
+        error: async () => {
+          const fallback = await this.getFallbackData();
+          this.pinsSubject.next(fallback);
           resolve();
         }
       });
@@ -149,9 +159,9 @@ export class MapPinsService {
       }),
       catchError(error => {
         console.warn('API fetch failed, falling back to local data.', error);
-        const fallback = mapDataFallback as LocationData[];
-        this.pinsSubject.next(fallback);
-        return of(fallback);
+        return from(this.getFallbackData()).pipe(
+          tap(fallback => this.pinsSubject.next(fallback))
+        );
       })
     );
   }

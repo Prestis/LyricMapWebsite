@@ -5,7 +5,6 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { MapPinsService } from './services/map-pins.service';
 import { AuthService } from './services/auth.service';
 
 export const appConfig: ApplicationConfig = {
@@ -13,12 +12,6 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(withFetch(), withInterceptors([authInterceptor])),
-    {
-      provide: APP_INITIALIZER,
-      useFactory: (mapPinsService: MapPinsService) => () => mapPinsService.initialize(),
-      deps: [MapPinsService],
-      multi: true
-    },
     {
       // Verify auth state from the server before any route guard runs.
       // This ensures that after a page refresh, the admin session (stored

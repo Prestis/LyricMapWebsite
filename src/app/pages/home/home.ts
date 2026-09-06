@@ -34,6 +34,9 @@ export class Home implements AfterViewInit, OnDestroy {
 
   async ngAfterViewInit(): Promise<void> {
     if (isPlatformBrowser(this.platformId)) {
+      // Trigger non-blocking map pins initialization
+      this.mapPinsService.initialize();
+
       // Dynamic import to prevent SSR issues with Leaflet
       const Leaflet = await import('leaflet');
       // Some builders export Leaflet as 'default', others as the module itself

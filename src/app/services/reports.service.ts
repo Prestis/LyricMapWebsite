@@ -4,6 +4,8 @@ import { isPlatformBrowser } from '@angular/common';
 import { Observable, throwError } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
+import { environment } from '../../environments/environment';
+
 export interface Report {
   id: number;
   location_id: number;
@@ -19,7 +21,7 @@ export interface Report {
   providedIn: 'root'
 })
 export class ReportsService {
-  private readonly API_URL = 'http://localhost:8000/reports';
+  private readonly API_URL = `${environment.apiUrl}/reports`;
   private readonly STORAGE_KEY = 'lyric_map_reports_count';
   private readonly DATE_KEY = 'lyric_map_reports_date';
   private readonly MAX_REPORTS_PER_DAY = 5;
