@@ -95,11 +95,20 @@ export class Home implements AfterViewInit, OnDestroy {
     // Default location (e.g., Greece/Athens focus)
     this.map = L.map('map').setView([37.9838, 23.7275], 5);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
       subdomains: 'abcd',
       maxZoom: 20
     }).addTo(this.map);
+
+    // Close artist filter when user clicks anywhere on the map
+    this.map.on('click', () => {
+      this.ngZone.run(() => {
+        if (this.isFilterOpen) {
+          this.isFilterOpen = false;
+        }
+      });
+    });
 
     // Initialize Marker Cluster Group
     // @ts-ignore
@@ -113,11 +122,15 @@ export class Home implements AfterViewInit, OnDestroy {
     this.map.addLayer(this.markerClusterGroup);
   }
 
+  public isNoticeDismissed = false;
+
   private updateMapPins(L: any, pins: LocationData[]): void {
-    if (!this.map || !pins || pins.length === 0 || !this.markerClusterGroup) return;
+    if (!this.map || !this.markerClusterGroup) return;
 
     // Clear existing clusters/markers
     this.markerClusterGroup.clearLayers();
+
+    if (!pins || pins.length === 0) return;
 
     const markers: any[] = [];
     const groups: { [key: string]: { lat: number; lng: number; location: string; mentions: LocationData[] } } = {};
@@ -209,6 +222,18 @@ export class Home implements AfterViewInit, OnDestroy {
 
   public clearFilters(): void {
     this.mapPinsService.setSelectedArtists([]);
+  }
+
+  public shuffleRandom(): void {
+    this.mapPinsService.selectRandomArtists(10);
+  }
+
+  public selectAll(): void {
+    this.mapPinsService.selectAllArtists();
+  }
+
+  public dismissNotice(): void {
+    this.isNoticeDismissed = true;
   }
 
   public toggleFilterDropdown(): void {

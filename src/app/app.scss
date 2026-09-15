@@ -23,19 +23,34 @@
   .nav-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 1.5rem 2rem;
+    padding: 0.5rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
   .logo {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    color: var(--text-primary);
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    line-height: 1;
+    display: flex;
+    align-items: center;
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 72px;
+      width: auto;
+      object-fit: contain;
+      margin: -8px 0;
+      transition: transform 0.2s ease, filter 0.2s ease;
+
+      &:hover {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 10px rgba(204, 255, 0, 0.5));
+      }
+    }
   }
 
   .navbar {

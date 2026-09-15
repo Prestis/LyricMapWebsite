@@ -23,14 +23,37 @@
 
   <!-- Full Screen Map Container -->
   <section id="map-section" class="map-container">
-    <div class="filter-controls">
+    <!-- Onboarding Guidance Banner -->
+    <div class="onboarding-notice-banner" *ngIf="!isNoticeDismissed">
+      <div class="notice-icon">🎧</div>
+      <div class="notice-body">
+        <span class="notice-title">Explore Your Favorite Artists</span>
+        <span class="notice-text">
+          Showing <strong>10 random artists</strong> to get you started. Use the filter menu to pick your favorite artists and explore the map!
+        </span>
+      </div>
+      <div class="notice-actions">
+        <button class="notice-btn" (click)="toggleFilterDropdown(); dismissNotice()" title="Pick Artists">
+          Pick Artists &rarr;
+        </button>
+        <button class="notice-dismiss-btn" (click)="dismissNotice()" title="Dismiss guidance">&times;</button>
+      </div>
+    </div>
+
+    <div class="filter-controls" (click)="$event.stopPropagation()">
       <div class="filter-header">
         <p class="map-description">Top {{ (totalSongs$ | async) || 20 }} songs by {{ (totalArtists$ | async) || 22 }} Greek Rap Artists</p>
         
         <div class="filter-actions">
+          <button class="action-btn shuffle-btn" (click)="shuffleRandom()" title="Shuffle 10 random artists">
+            <span class="icon">🎲</span> Shuffle 10
+          </button>
+          <button class="action-btn select-all-btn" (click)="selectAll()" title="Select all artists">
+            Select All
+          </button>
           <button class="filter-toggle" (click)="toggleFilterDropdown()" [class.active]="isFilterOpen">
             <span class="icon">🔍</span>
-            Filter by Artist
+            Filter Artists
             <span class="count" *ngIf="selectedArtists.length > 0">{{selectedArtists.length}}</span>
           </button>
           <button class="clear-btn" *ngIf="selectedArtists.length > 0" (click)="clearFilters()">Reset</button>
@@ -38,6 +61,11 @@
       </div>
 
       <div class="artist-dropdown-panel" *ngIf="isFilterOpen">
+        <div class="dropdown-actions-bar">
+          <button class="quick-btn" (click)="shuffleRandom()">🎲 Shuffle 10</button>
+          <button class="quick-btn" (click)="selectAll()">Select All</button>
+          <button class="quick-btn clear" (click)="clearFilters()">Clear All</button>
+        </div>
         <div class="artist-grid">
           <button 
             *ngFor="let artist of (artists$ | async)" 

@@ -40,11 +40,37 @@ export class MapPinsService {
 
   public filteredPins$ = combineLatest([this.pins$, this.selectedArtists$]).pipe(
     map(([pins, selectedArtists]) => {
-      if (selectedArtists.length === 0) return pins;
+      if (selectedArtists.length === 0) return [];
       return pins.filter(p => selectedArtists.includes(p.artist));
     }),
     shareReplay(1)
   );
+
+  private updatePinsSubject(pins: LocationData[]): void {
+    this.pinsSubject.next(pins);
+    if (pins.length > 0 && this.selectedArtistsSubject.value.length === 0) {
+      this.selectRandomArtists(10);
+    }
+  }
+
+  public selectRandomArtists(count: number = 10): void {
+    const pins = this.pinsSubject.value;
+    if (!pins || pins.length === 0) return;
+    const allArtists = Array.from(new Set(pins.map(p => p.artist)));
+    if (allArtists.length <= count) {
+      this.setSelectedArtists(allArtists);
+      return;
+    }
+    const shuffled = [...allArtists].sort(() => 0.5 - Math.random());
+    this.setSelectedArtists(shuffled.slice(0, count));
+  }
+
+  public selectAllArtists(): void {
+    const pins = this.pinsSubject.value;
+    if (!pins || pins.length === 0) return;
+    const allArtists = Array.from(new Set(pins.map(p => p.artist)));
+    this.setSelectedArtists(allArtists);
+  }
 
   private async getFallbackData(): Promise<LocationData[]> {
     const mapDataFallback = (await import('../data/rappers_locations_mapped.json')).default;
@@ -69,7 +95,7 @@ export class MapPinsService {
   public async initialize(): Promise<void> {
     if (!isPlatformBrowser(this.platformId)) {
       const fallback = await this.getFallbackData();
-      this.pinsSubject.next(fallback);
+      this.updatePinsSubject(fallback);
       return;
     }
 
@@ -94,7 +120,7 @@ export class MapPinsService {
               console.error('[MapPinsService] Initial refresh failed:', err);
               if (this.pinsSubject.value.length === 0) {
                 const fallback = await this.getFallbackData();
-                this.pinsSubject.next(fallback);
+                this.updatePinsSubject(fallback);
               }
               resolve(); 
             }
@@ -107,7 +133,7 @@ export class MapPinsService {
           try {
             const parsed = JSON.parse(cachedData);
             if (Array.isArray(parsed) && parsed.length > 0) {
-              this.pinsSubject.next(parsed);
+              this.updatePinsSubject(parsed);
             } else {
               console.log('[MapPinsService] Cache empty or invalid, triggering refresh.');
               await this.initializeForceRefresh();
@@ -115,17 +141,17 @@ export class MapPinsService {
           } catch (e) {
             console.error('Failed to parse cached pins, falling back to local file.', e);
             const fallback = await this.getFallbackData();
-            this.pinsSubject.next(fallback);
+            this.updatePinsSubject(fallback);
           }
         } else {
           const fallback = await this.getFallbackData();
-          this.pinsSubject.next(fallback);
+          this.updatePinsSubject(fallback);
         }
       }
     } catch (e) {
       console.error('MapPinsService initialize error:', e);
       const fallback = await this.getFallbackData();
-      this.pinsSubject.next(fallback);
+      this.updatePinsSubject(fallback);
     }
   }
 
@@ -135,7 +161,7 @@ export class MapPinsService {
         next: () => resolve(),
         error: async () => {
           const fallback = await this.getFallbackData();
-          this.pinsSubject.next(fallback);
+          this.updatePinsSubject(fallback);
           resolve();
         }
       });
@@ -147,7 +173,7 @@ export class MapPinsService {
       map(data => this.processData(data)),
       tap(processedData => {
         console.log(`[MapPinsService] Successfully processed ${processedData.length} map pins.`);
-        this.pinsSubject.next(processedData);
+        this.updatePinsSubject(processedData);
         if (isPlatformBrowser(this.platformId) && processedData.length > 0) {
           try {
             localStorage.setItem(this.STORAGE_KEY, new Date().getTime().toString());
@@ -160,7 +186,7 @@ export class MapPinsService {
       catchError(error => {
         console.warn('API fetch failed, falling back to local data.', error);
         return from(this.getFallbackData()).pipe(
-          tap(fallback => this.pinsSubject.next(fallback))
+          tap(fallback => this.updatePinsSubject(fallback))
         );
       })
     );
