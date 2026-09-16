@@ -25,6 +25,13 @@ const angularApp = new AngularNodeAppEngine();
  */
 
 /**
+ * Health check endpoint for PaaS / DigitalOcean App Platform container checks.
+ */
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
+/**
  * Serve static files from /browser
  */
 app.use(
@@ -49,16 +56,12 @@ app.use((req, res, next) => {
 
 /**
  * Start the server if this module is the main entry point.
- * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
+ * The server listens on the port defined by the `PORT` environment variable, or defaults to 8080.
  */
 if (isMainModule(import.meta.url)) {
-  const port = process.env['PORT'] || 4000;
-  app.listen(port, (error) => {
-    if (error) {
-      throw error;
-    }
-
-    console.log(`Node Express server listening on http://localhost:${port}`);
+  const port = Number(process.env['PORT']) || 8080;
+  app.listen(port, '0.0.0.0', () => {
+    console.log(`Node Express server listening on http://0.0.0.0:${port}`);
   });
 }
 
