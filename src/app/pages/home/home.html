@@ -40,6 +40,7 @@
       </div>
     </div>
 
+    <!-- Desktop filter controls (hidden on mobile) -->
     <div class="filter-controls" (click)="$event.stopPropagation()">
       <div class="filter-header">
         <p class="map-description">Top {{ (totalSongs$ | async) || 20 }} songs by {{ (totalArtists$ | async) || 22 }} Greek Rap Artists</p>
@@ -79,6 +80,40 @@
       </div>
     </div>
 
+    <!-- Mobile FAB for filter controls -->
+    <button
+      class="mobile-filter-fab"
+      (click)="toggleFilterDropdown(); $event.stopPropagation()"
+      [class.has-filters]="selectedArtists.length > 0"
+      id="mobile-filter-fab"
+      title="Filter Artists">
+      <span class="fab-icon">🔍</span>
+      <span class="fab-badge" *ngIf="selectedArtists.length > 0">{{selectedArtists.length}}</span>
+    </button>
+
+    <!-- Mobile filter sheet (appears above FAB) -->
+    <div class="mobile-filter-sheet" *ngIf="isFilterOpen" (click)="$event.stopPropagation()">
+      <div class="mobile-filter-sheet-header">
+        <span class="mobile-filter-title">Filter Artists</span>
+        <div class="mobile-filter-quick-btns">
+          <button class="quick-btn" (click)="shuffleRandom()">🎲 Shuffle</button>
+          <button class="quick-btn" (click)="selectAll()">All</button>
+          <button class="quick-btn clear" (click)="clearFilters()">Clear</button>
+        </div>
+        <button class="mobile-filter-close" (click)="toggleFilterDropdown()">✕</button>
+      </div>
+      <div class="artist-grid">
+        <button 
+          *ngFor="let artist of (artists$ | async)" 
+          class="artist-tag" 
+          [class.selected]="isArtistSelected(artist)"
+          (click)="toggleArtist(artist)"
+        >
+          {{artist}}
+        </button>
+      </div>
+    </div>
+
     <div class="map-wrapper">
       <div id="map"></div>
     </div>
@@ -90,4 +125,4 @@
   [locationId]="reportLocationId"
   [locationName]="reportLocationName"
   (close)="closeReportModal()">
-</app-report-issue-modal>
+</app-report-issue-modal>

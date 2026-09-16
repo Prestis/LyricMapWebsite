@@ -762,3 +762,244 @@
     }
   }
 }
+
+/* ─── Mobile FAB & Filter Sheet ─── */
+.mobile-filter-fab {
+  display: none; /* hidden on desktop */
+  position: absolute;
+  bottom: 2rem;
+  right: 1.5rem;
+  z-index: 1100;
+  width: 56px;
+  height: 56px;
+  background: var(--bg-primary);
+  border: 2px solid var(--accent-green);
+  color: var(--text-primary);
+  box-shadow: 4px 4px 0 var(--accent-green);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  transition: all 0.2s ease;
+  position: absolute;
+
+  .fab-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--accent-blue);
+    color: var(--bg-primary);
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+  }
+
+  &.has-filters {
+    border-color: var(--accent-blue);
+    box-shadow: 4px 4px 0 var(--accent-blue);
+  }
+
+  &:hover {
+    background: var(--accent-green);
+    color: var(--bg-primary);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--accent-blue);
+  }
+}
+
+.mobile-filter-sheet {
+  display: none; /* hidden on desktop */
+  position: absolute;
+  bottom: 5.5rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 1100;
+  background: rgba(18, 18, 18, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 2px solid var(--text-primary);
+  box-shadow: 6px 6px 0 var(--bg-concrete);
+  max-height: 55vh;
+  overflow-y: auto;
+  animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  .mobile-filter-sheet-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--bg-concrete);
+    flex-wrap: wrap;
+
+    .mobile-filter-title {
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-green);
+      flex: 1;
+    }
+
+    .mobile-filter-quick-btns {
+      display: flex;
+      gap: 0.35rem;
+    }
+
+    .mobile-filter-close {
+      background: transparent;
+      border: 1px solid var(--bg-concrete);
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      padding: 0.3rem 0.5rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      line-height: 1;
+
+      &:hover {
+        border-color: var(--accent-green);
+        color: var(--accent-green);
+      }
+    }
+  }
+
+  .artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.4rem;
+    padding: 0.75rem;
+  }
+
+  .artist-tag {
+    background: var(--bg-secondary);
+    border: 1px solid var(--bg-concrete);
+    color: var(--text-secondary);
+    padding: 0.5rem 0.5rem;
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-transform: uppercase;
+
+    &:hover {
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+    }
+
+    &.selected {
+      background: var(--accent-green);
+      border-color: var(--accent-green);
+      color: var(--bg-primary);
+      font-weight: 700;
+      box-shadow: 2px 2px 0 var(--text-primary);
+    }
+  }
+
+  .quick-btn {
+    background: var(--bg-secondary);
+    border: 1px solid var(--bg-concrete);
+    color: var(--text-secondary);
+    padding: 0.3rem 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover {
+      border-color: var(--accent-green);
+      color: var(--accent-green);
+    }
+
+    &.clear:hover {
+      border-color: #ff4d4d;
+      color: #ff4d4d;
+    }
+  }
+}
+
+/* ─── Mobile Breakpoint ─── */
+@media (max-width: 768px) {
+  .home-viewport-container {
+    height: calc(100vh - 64px);
+    margin-top: 64px;
+  }
+
+  /* Hero: more compact on mobile */
+  .hero {
+    padding: 2rem 1.25rem;
+
+    .hero-close-btn {
+      top: 1rem;
+      right: 1.25rem;
+      font-size: 0.75rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .hero-content {
+      padding: 0;
+      padding-left: 1.5rem;
+      border-left-width: 3px;
+      max-width: 100%;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 10vw, 3rem);
+      letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+      font-size: 0.85rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .cta-button {
+      padding: 0.85rem 1.75rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  .hero-edge-toggle {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.75rem;
+  }
+
+  /* Hide desktop filter controls on mobile */
+  .map-container > .filter-controls {
+    display: none;
+  }
+
+  /* Onboarding banner: push it down a bit so it doesn't fight header */
+  .onboarding-notice-banner {
+    top: 0.75rem;
+    flex-wrap: wrap;
+
+    .notice-actions {
+      width: 100%;
+      justify-content: flex-end;
+    }
+  }
+
+  /* Show mobile FAB and sheet */
+  .mobile-filter-fab {
+    display: flex;
+  }
+
+  .mobile-filter-sheet {
+    display: block;
+  }
+
+  /* Leaflet popups: constrain width on small screens */
+  :host ::ng-deep .premium-popup .custom-popup {
+    width: calc(100vw - 48px);
+    max-width: 320px;
+  }
+}

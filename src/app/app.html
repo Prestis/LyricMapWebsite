@@ -1,18 +1,47 @@
 <header class="glass-header">
   <div class="nav-container">
     <div class="logo">
-      <a routerLink="/" class="logo-link">
+      <a routerLink="/" class="logo-link" (click)="closeMobileMenu()">
         <img src="images/logo-lyric-map.png" alt="LyricMap Logo" class="logo-img" />
       </a>
     </div>
+    <!-- Desktop nav -->
     <nav class="navbar">
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
       <a routerLink="/insights" routerLinkActive="active">Insights</a>
       <a routerLink="/about" routerLinkActive="active">About</a>
       <a routerLink="/contact" routerLinkActive="active">Contact</a>
     </nav>
+    <!-- Hamburger button (mobile only) -->
+    <button
+      class="hamburger-btn"
+      [class.is-open]="isMobileMenuOpen"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle navigation menu"
+      id="hamburger-menu-btn">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
   </div>
 </header>
+
+<!-- Mobile Drawer Overlay -->
+<div class="mobile-overlay" [class.is-open]="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
+
+<!-- Mobile Slide-out Drawer -->
+<nav class="mobile-drawer" [class.is-open]="isMobileMenuOpen" id="mobile-nav-drawer">
+  <div class="mobile-drawer-header">
+    <span class="mobile-drawer-title">LYRICMAP</span>
+    <button class="mobile-drawer-close" (click)="closeMobileMenu()" aria-label="Close menu">✕</button>
+  </div>
+  <div class="mobile-nav-links">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">Home</a>
+    <a routerLink="/insights" routerLinkActive="active" (click)="closeMobileMenu()">Insights</a>
+    <a routerLink="/about" routerLinkActive="active" (click)="closeMobileMenu()">About</a>
+    <a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">Contact</a>
+  </div>
+</nav>
 
 <main class="content-wrapper">
   <router-outlet></router-outlet>

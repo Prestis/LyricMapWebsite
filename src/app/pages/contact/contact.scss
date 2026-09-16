@@ -123,11 +123,20 @@
 }
 
 @media (max-width: 600px) {
-    .glass-card {
-        padding: 2rem 1.5rem;
-    }
-    
-    .background-text {
-        font-size: 30vw;
-    }
+  .contact-page-wrapper {
+    padding: 90px 1.25rem 3rem;
+  }
+
+  .glass-card {
+    padding: 2rem 1.25rem;
+  }
+
+  .background-text {
+    font-size: 30vw;
+  }
+
+  .contact-links p {
+    font-size: 0.9rem;
+  }
 }
+

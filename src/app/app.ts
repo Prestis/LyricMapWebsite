@@ -11,6 +11,15 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 
 export class App {
   protected title = 'lyric-map-app';
+  public isMobileMenuOpen = false;
+
+  public toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  public closeMobileMenu(): void {
+    this.isMobileMenuOpen = false;
+  }
 }
 
 
