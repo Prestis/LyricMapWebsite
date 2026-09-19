@@ -6,6 +6,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { AuthService } from './services/auth.service';
+import { MapPinsService } from './services/map-pins.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,6 +20,12 @@ export const appConfig: ApplicationConfig = {
       provide: APP_INITIALIZER,
       useFactory: (authService: AuthService) => () => authService.checkAuthStatus(),
       deps: [AuthService],
+      multi: true
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (mapPinsService: MapPinsService) => () => mapPinsService.initialize(),
+      deps: [MapPinsService],
       multi: true
     },
     provideRouter(routes), provideClientHydration(withEventReplay())
