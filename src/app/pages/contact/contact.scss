@@ -122,6 +122,11 @@
     }
 }
 
+.content-grid {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 @media (max-width: 600px) {
   .contact-page-wrapper {
     padding: 90px 1.25rem 3rem;
@@ -129,6 +134,8 @@
 
   .glass-card {
     padding: 2rem 1.25rem;
+    /* Compensate for the ::after shadow offset so the card stays visually centered */
+    margin-right: 10px;
   }
 
   .background-text {
