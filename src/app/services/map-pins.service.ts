@@ -15,6 +15,46 @@ export interface LocationData {
   is_manual: boolean;
 }
 
+export interface AreaDefinition {
+  id: string;
+  name: string;
+  displayName: string;
+  bounds: { minLat: number; maxLat: number; minLng: number; maxLng: number };
+  defaultZoom: number;
+  centerLat: number;
+  centerLng: number;
+}
+
+export const DEFINED_AREAS: AreaDefinition[] = [
+  {
+    id: 'athens',
+    name: 'Athens',
+    displayName: 'Αθήνα',
+    bounds: { minLat: 37.85, maxLat: 38.20, minLng: 23.50, maxLng: 24.05 },
+    defaultZoom: 12,
+    centerLat: 37.9838,
+    centerLng: 23.7275
+  },
+  {
+    id: 'thessaloniki',
+    name: 'Thessaloniki',
+    displayName: 'Θεσσαλονίκη',
+    bounds: { minLat: 40.45, maxLat: 40.80, minLng: 22.75, maxLng: 23.15 },
+    defaultZoom: 12,
+    centerLat: 40.6401,
+    centerLng: 22.9444
+  },
+  {
+    id: 'patras',
+    name: 'Patras',
+    displayName: 'Πάτρα',
+    bounds: { minLat: 38.15, maxLat: 38.35, minLng: 21.65, maxLng: 21.90 },
+    defaultZoom: 13,
+    centerLat: 38.2466,
+    centerLng: 21.7346
+  }
+];
+
 @Injectable({
   providedIn: 'root'
 })
@@ -241,6 +281,37 @@ export class MapPinsService {
 
   public getSelectedArtists(): string[] {
     return this.selectedArtistsSubject.value;
+  }
+
+  /**
+   * Returns all pins that fall within a defined area's bounding box.
+   */
+  public getPinsForArea(area: AreaDefinition): LocationData[] {
+    const pins = this.pinsSubject.value;
+    return pins.filter(p =>
+      p.lat >= area.bounds.minLat &&
+      p.lat <= area.bounds.maxLat &&
+      p.lng >= area.bounds.minLng &&
+      p.lng <= area.bounds.maxLng
+    );
+  }
+
+  /**
+   * Returns available areas with pin counts (only areas that have at least 1 pin).
+   */
+  public getAvailableAreas(): { area: AreaDefinition; count: number }[] {
+    return DEFINED_AREAS.map(area => ({
+      area,
+      count: this.getPinsForArea(area).length
+    })).filter(a => a.count > 0);
+  }
+
+  /**
+   * Capitalizes the first letter of a string (handles Greek characters properly).
+   */
+  public capitalizeFirst(text: string): string {
+    if (!text) return '';
+    return text.charAt(0).toUpperCase() + text.slice(1);
   }
 
   private formatPin(artist: string | undefined, item: any): LocationData {

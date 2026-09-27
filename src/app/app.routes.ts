@@ -19,6 +19,11 @@ export const routes: Routes = [
       import('./pages/insights/insights').then(m => m.Insights),
   },
   {
+    path: 'poster',
+    loadComponent: () =>
+      import('./pages/poster/poster').then(m => m.Poster),
+  },
+  {
     path: 'contact',
     loadComponent: () =>
       import('./pages/contact/contact').then(m => m.Contact),
