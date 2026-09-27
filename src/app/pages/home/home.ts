@@ -4,6 +4,7 @@ import { MapPinsService, LocationData } from '../../services/map-pins.service';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ReportIssueModalComponent } from '../../components/report-issue-modal/report-issue-modal.component';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -95,7 +96,11 @@ export class Home implements AfterViewInit, OnDestroy {
     // Default location (e.g., Greece/Athens focus)
     this.map = L.map('map').setView([37.9838, 23.7275], 5);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png', {
+    const apiKey = (typeof window !== 'undefined' && (window as any).__ENV__?.CARTO_API_KEY)
+      || environment.cartoApiKey
+      || '';
+    const apiKeyQuery = apiKey ? `?key=${apiKey}` : '';
+    L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png${apiKeyQuery}`, {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
       subdomains: 'abcd',
       maxZoom: 20

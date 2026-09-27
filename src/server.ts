@@ -32,6 +32,16 @@ app.get('/health', (req, res) => {
 });
 
 /**
+ * Dynamic runtime environment variables endpoint for client browser.
+ * Injects CARTO_API_KEY from DigitalOcean App Platform environment variables.
+ */
+app.get('/env.js', (req, res) => {
+  const cartoApiKey = process.env['CARTO_API_KEY'] || process.env['cartoApiKey'] || '';
+  res.type('application/javascript');
+  res.send(`window.__ENV__ = Object.assign(window.__ENV__ || {}, { CARTO_API_KEY: ${JSON.stringify(cartoApiKey)} });`);
+});
+
+/**
  * Serve static files from /browser
  */
 app.use(

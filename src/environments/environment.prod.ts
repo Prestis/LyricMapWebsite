@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://lyricmap.gr/api'
+  apiUrl: 'https://lyricmap.gr/api',
+  cartoApiKey: ''
 };
 

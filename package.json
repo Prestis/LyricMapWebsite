@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "node dist/lyric-map-app/server/server.mjs",
     "start:dev": "ng serve",
+    "prebuild": "node scripts/set-env.mjs",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
