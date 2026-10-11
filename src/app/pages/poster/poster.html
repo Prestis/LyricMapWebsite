@@ -1,215 +1,362 @@
-<section class="poster-page">
+<section class="poster-studio">
 
-  <!-- ── Page Header ─────────────────────────────────────────── -->
-  <div class="poster-page-header">
-    <h1 class="poster-page-title">
-      <svg class="poster-title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M9 6.75V15m6-6v8.25m.503-10.498 4.875 2.437a.75.75 0 0 1 0 1.323l-4.875 2.437M3.503 7.372l4.875 2.437a.75.75 0 0 0 .744 0l4.875-2.437" />
-      </svg>
-      Area Poster
-    </h1>
-  </div>
+  <!-- ── Studio Header ───────────────────────────────────────────── -->
+  <header class="studio-header">
+    <div class="studio-header-inner">
+      <div class="studio-title-block">
+        <div class="studio-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+          </svg>
+          LYRICMAP PRINT STUDIO
+        </div>
+        <h1 class="studio-title">Cartographic Poster Generator</h1>
+        <p class="studio-subtitle">
+          Design gallery-quality, high-resolution prints of Greek hip-hop lyric geography — framed or shared.
+        </p>
+      </div>
 
+      <!-- Area Selection Navigation (Horizontal touch scroll on mobile) -->
+      <div class="studio-area-nav">
+        <button
+          *ngFor="let entry of availableAreas"
+          class="area-pill"
+          [class.active]="selectedArea?.id === entry.area.id"
+          (click)="selectArea(entry.area)"
+          [id]="'area-pill-' + entry.area.id">
+          <span class="area-pill-indicator"></span>
+          <span class="area-pill-name">{{ entry.area.displayName }}</span>
+          <span class="area-pill-badge">{{ entry.count }}</span>
+        </button>
+        <span *ngIf="availableAreas.length === 0" class="area-loading">Loading locations…</span>
+      </div>
+    </div>
+  </header>
 
-  <!-- ── Controls Accordion ────────────────────────────────────── -->
-  <div class="controls-accordion">
-    <button class="controls-toggle-btn" (click)="isControlsOpen = !isControlsOpen">
-      <span class="toggle-text">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
-        </svg>
-        {{ isControlsOpen ? 'Hide' : 'Edit' }} Settings
-      </span>
-      <svg class="chevron" [class.open]="isControlsOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-        stroke-width="2" width="18" height="18">
-        <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6" />
-      </svg>
-    </button>
-    <!-- ── Controls Bar ────────────────────────────────────────── -->
-    <div class="poster-controls" [class.hidden]="!isControlsOpen">
+  <!-- ── Studio Workspace ────────────────────────────────────────── -->
+  <div class="studio-workspace">
 
-      <!-- Area Selector -->
-      <div class="control-group">
-        <label class="control-label">Area</label>
-        <div class="area-chips">
-          <button *ngFor="let entry of availableAreas" class="area-chip"
-            [class.active]="selectedArea?.id === entry.area.id" (click)="selectArea(entry.area)"
-            [id]="'area-chip-' + entry.area.id">
-            {{ entry.area.displayName }}
-            <span class="area-chip-count">{{ entry.count }}</span>
+    <!-- ── Left / Secondary on Mobile: Controls Panel ── -->
+    <aside class="studio-sidebar" id="studio-controls-panel">
+
+      <!-- Style Themes -->
+      <div class="control-box">
+        <label class="box-label">Aesthetic Colorway</label>
+        <div class="theme-grid">
+          <button
+            *ngFor="let th of themes"
+            class="theme-card"
+            [class.active]="currentTheme.id === th.id"
+            (click)="setTheme(th.id)"
+            [title]="th.tagline">
+            <span class="theme-swatch" [style.background]="th.bgColor" [style.borderColor]="th.frameBorderColor">
+              <span class="theme-swatch-dot" [style.background]="th.accentColor"></span>
+            </span>
+            <div class="theme-meta">
+              <span class="theme-name">{{ th.name }}</span>
+              <span class="theme-tagline">{{ th.tagline }}</span>
+            </div>
           </button>
-          <span *ngIf="availableAreas.length === 0" class="area-empty">Loading areas…</span>
+        </div>
+      </div>
+
+      <!-- Format / Aspect Ratio -->
+      <div class="control-box">
+        <label class="box-label">Format & Canvas</label>
+        <div class="ratio-grid">
+          <button
+            *ngFor="let opt of aspectRatioOptions"
+            class="ratio-card"
+            [class.active]="aspectRatio === opt.value"
+            (click)="setAspectRatio(opt.value)">
+            <span class="ratio-label">{{ opt.label }}</span>
+            <span class="ratio-badge">{{ opt.badge }}</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Map Label Density -->
+      <div class="control-box">
+        <label class="box-label">Map Pin Labels</label>
+        <div class="segmented-control">
+          <button
+            class="seg-btn"
+            [class.active]="labelDensity === 'top'"
+            (click)="setLabelDensity('top')"
+            title="Cleanest for framing: labels top hubs, points for others">
+            Top Spots
+          </button>
+          <button
+            class="seg-btn"
+            [class.active]="labelDensity === 'all'"
+            (click)="setLabelDensity('all')"
+            title="Shows labels for all locations">
+            All Labels
+          </button>
+          <button
+            class="seg-btn"
+            [class.active]="labelDensity === 'minimal'"
+            (click)="setLabelDensity('minimal')"
+            title="Artistic pure dots without text clutter">
+            Minimal Dots
+          </button>
         </div>
       </div>
 
       <!-- Artist Filter -->
-      <div class="control-group" *ngIf="selectedArea">
-        <label class="control-label">Artists</label>
-        <div class="artist-filter-wrapper">
-          <button class="artist-filter-toggle" (click)="toggleArtistFilter()" id="artist-filter-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-              <circle cx="11" cy="11" r="8" />
-              <path stroke-linecap="round" d="m21 21-4.35-4.35" />
-            </svg>
-            {{ getSelectedArtistCount() }} / {{ artistColors.length }} artists
-            <svg class="chevron" [class.open]="isArtistFilterOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2" width="12" height="12">
+      <div class="control-box" *ngIf="selectedArea">
+        <div class="box-header-row">
+          <label class="box-label">Artists Filter</label>
+          <span class="box-stat">{{ getSelectedArtistCount() }} / {{ artistColors.length }} active</span>
+        </div>
+        <div class="artist-quick-actions">
+          <button class="quick-btn" (click)="selectAllArtists()">Select All</button>
+          <button class="quick-btn" (click)="clearAllArtists()">Clear</button>
+          <button class="quick-btn toggle-list-btn" (click)="isArtistFilterOpen = !isArtistFilterOpen">
+            {{ isArtistFilterOpen ? 'Collapse' : 'Customize' }}
+            <svg class="chevron-sm" [class.open]="isArtistFilterOpen" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" width="12" height="12">
               <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6" />
             </svg>
           </button>
+        </div>
 
-          <div class="artist-dropdown" [class.open]="isArtistFilterOpen">
-            <div class="artist-dropdown-actions">
-              <button class="dropdown-action-btn" (click)="selectAllArtists()">All</button>
-              <button class="dropdown-action-btn" (click)="clearAllArtists()">None</button>
-            </div>
-            <div class="artist-list">
-              <label *ngFor="let ac of artistColors" class="artist-item" [class.selected]="ac.selected"
-                (click)="toggleArtist(ac.artist)">
-                <span class="artist-dot" [style.background]="ac.color"></span>
-                <span class="artist-name">{{ ac.artist }}</span>
-                <span class="artist-check" *ngIf="ac.selected">✓</span>
-              </label>
-            </div>
+        <div class="artist-checklist" *ngIf="isArtistFilterOpen">
+          <div
+            *ngFor="let ac of artistColors"
+            class="artist-row"
+            [class.checked]="ac.selected"
+            (click)="toggleArtist(ac.artist)">
+            <span class="artist-dot" [style.background]="ac.color"></span>
+            <span class="artist-name">{{ ac.artist }}</span>
+            <span class="artist-check" *ngIf="ac.selected">✓</span>
           </div>
         </div>
       </div>
 
-      <!-- Aspect Ratio -->
-      <div class="control-group" *ngIf="selectedArea">
-        <label class="control-label">Format</label>
-        <select class="ratio-select" [(ngModel)]="aspectRatio" (ngModelChange)="onAspectRatioChange()"
-          id="aspect-ratio-select">
-          <option *ngFor="let opt of aspectRatioOptions" [value]="opt.value">{{ opt.label }}</option>
-        </select>
+      <!-- Framing & Navigation -->
+      <div class="control-box" *ngIf="selectedArea">
+        <label class="box-label">Poster Framing & Camera</label>
+        <div class="framing-tools">
+          <button class="tool-btn" [class.active]="!isMapLocked" (click)="toggleMapLock()">
+            <svg *ngIf="isMapLocked" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+            </svg>
+            <svg *ngIf="!isMapLocked" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M13.5 10.5V6.75a4.5 4.5 0 1 1 9 0v3.75M3.75 21.75h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H3.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+            </svg>
+            {{ isMapLocked ? 'Adjust Pan / Zoom' : 'Lock Framing' }}
+          </button>
+          <button class="tool-btn" (click)="resetMapBounds()" title="Reset back to default area bounds">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+            </svg>
+            Reset
+          </button>
+        </div>
+        <!-- Smartphone Zoom buttons when unlocked -->
+        <div class="framing-zoom-row" *ngIf="!isMapLocked">
+          <button class="zoom-btn" (click)="zoomIn()">+ Zoom In</button>
+          <button class="zoom-btn" (click)="zoomOut()">− Zoom Out</button>
+        </div>
       </div>
 
-      <p class="poster-page-subtitle">
-        Select an area to generate a printable map of all lyric mentions — perfect for framing.
-      </p>
-
-      <!-- Export Buttons -->
-      <div class="control-group export-group" *ngIf="selectedArea && hasMap">
-        <label class="control-label">Export</label>
-        <div class="export-buttons">
-          <button class="export-btn export-png" (click)="exportPoster('png')" [disabled]="isExporting"
+      <!-- Export Buttons (Desktop & Tablet) -->
+      <div class="control-box export-box" *ngIf="selectedArea && hasMap">
+        <label class="box-label">Export & Download</label>
+        <div class="export-actions">
+          <button
+            class="btn-export-primary"
+            (click)="exportPoster('png')"
+            [disabled]="isExporting"
             id="export-png-btn">
-            <span *ngIf="!isExporting || exportFormat !== 'png'">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-              </svg>
-              PNG
-            </span>
-            <span *ngIf="isExporting && exportFormat === 'png'" class="exporting-label">
-              <span class="spinner"></span> Exporting…
-            </span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+            Download PNG (300 DPI)
           </button>
-          <button class="export-btn export-pdf" (click)="exportPoster('pdf')" [disabled]="isExporting"
+          <button
+            class="btn-export-secondary"
+            (click)="exportPoster('pdf')"
+            [disabled]="isExporting"
             id="export-pdf-btn">
-            <span *ngIf="!isExporting || exportFormat !== 'pdf'">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
-              </svg>
-              PDF
-            </span>
-            <span *ngIf="isExporting && exportFormat === 'pdf'" class="exporting-label">
-              <span class="spinner"></span> Exporting…
-            </span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+            </svg>
+            Print PDF
           </button>
         </div>
+        <p class="export-note">
+          Vector-crisp 3x canvas rendering. Ideal for physical wall framing or social posts.
+        </p>
       </div>
 
-    </div>
-  </div>
-  <!-- ── Error Message ───────────────────────────────────────── -->
-  <div class="poster-error" *ngIf="errorMessage">
-    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
-    </svg>
-    {{ errorMessage }}
-  </div>
+    </aside>
 
-  <!-- ── Empty State ─────────────────────────────────────────── -->
-  <div class="poster-empty" *ngIf="!selectedArea">
-    <div class="poster-empty-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="64" height="64">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-      </svg>
-    </div>
-    <p class="poster-empty-text">Choose an area above to preview the poster</p>
-  </div>
+    <!-- ── Right / First on Mobile: Live Poster Canvas ── -->
+    <main class="studio-canvas">
 
-  <!-- ── Poster Frame ────────────────────────────────────────── -->
-  <div class="poster-frame-wrapper" [class.visible]="selectedArea"
-    [class.ratio-a3-portrait]="aspectRatio === 'a3-portrait'" [class.ratio-a4-portrait]="aspectRatio === 'a4-portrait'"
-    [class.ratio-a4-landscape]="aspectRatio === 'a4-landscape'" [class.ratio-square]="aspectRatio === 'square'">
+      <!-- Error State -->
+      <div class="poster-banner-error" *ngIf="errorMessage">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+        </svg>
+        {{ errorMessage }}
+      </div>
 
-    <div class="poster-frame" id="poster-frame">
-
-      <!-- Poster Header -->
-      <div class="poster-header">
-        <div class="poster-header-left">
-          <span class="poster-brand">LYRICMAP</span>
-          <span class="poster-header-divider">—</span>
-          <span class="poster-subtitle-text">Greek Hip-Hop Atlas</span>
+      <!-- Empty State -->
+      <div class="poster-empty-view" *ngIf="!selectedArea">
+        <div class="empty-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" width="64" height="64">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9 6.75V15m6-6v8.25m.503-10.498 4.875 2.437a.75.75 0 0 1 0 1.323l-4.875 2.437M3.503 7.372l4.875 2.437a.75.75 0 0 0 .744 0l4.875-2.437" />
+          </svg>
         </div>
-        <div class="poster-area-name" *ngIf="selectedArea">
-          {{ selectedArea.displayName }}
+        <h3 class="empty-title">Select a City or Area to Begin</h3>
+        <p class="empty-text">Choose Athens, Thessaloniki, or Patras from the header pills above to generate your print poster.</p>
+      </div>
+
+      <!-- Poster Canvas Frame -->
+      <div
+        class="poster-frame-wrapper"
+        *ngIf="selectedArea"
+        [class]="'theme-' + currentTheme.id + ' ratio-' + aspectRatio">
+
+        <!-- Floating notice when framing is unlocked -->
+        <div class="framing-notice" *ngIf="!isMapLocked">
+          <span class="pulsing-dot"></span>
+          <span>Framing Unlocked: Drag or scroll inside the map to fine-tune. Click "Lock Framing" when ready.</span>
         </div>
-      </div>
 
-      <!-- Map -->
-      <div class="poster-map-container">
-        <div id="poster-map"></div>
-      </div>
+        <div class="poster-frame" id="poster-frame">
 
-      <!-- Legend -->
-      <div class="poster-legend" *ngIf="getSelectedArtistCount() > 0">
-        <div class="poster-legend-items">
-          <ng-container *ngFor="let ac of artistColors">
-            <div class="poster-legend-item" *ngIf="ac.selected">
-              <span class="poster-legend-dot" [style.background]="ac.color"></span>
-              <span class="poster-legend-name">{{ ac.artist }}</span>
+          <!-- Inner Passe-Partout Matting Border -->
+          <div class="poster-matting-border">
+
+            <!-- ── Poster Header ── -->
+            <header class="poster-header">
+              <div class="poster-eyebrow">
+                <span class="eyebrow-item">LYRICMAP PRINT SERIES</span>
+                <span class="eyebrow-divider">/</span>
+                <span class="eyebrow-item">HELLAS</span>
+              </div>
+
+              <h2 class="poster-title">{{ spacedAreaTitle }}</h2>
+
+              <div class="poster-coordinates">
+                {{ formattedCoordinates }}
+              </div>
+
+              <div class="poster-subtitle">
+                GREEK HIP-HOP CARTOGRAPHIC ATLAS
+              </div>
+
+              <div class="poster-hairline">
+                <span class="hairline-diamond">◆</span>
+              </div>
+            </header>
+
+            <!-- ── Map Viewport ── -->
+            <div class="poster-map-container">
+              <!-- Corner Crosshairs -->
+              <span class="corner-crosshair top-left">+</span>
+              <span class="corner-crosshair top-right">+</span>
+              <span class="corner-crosshair bottom-left">+</span>
+              <span class="corner-crosshair bottom-right">+</span>
+
+              <div id="poster-map"></div>
             </div>
-          </ng-container>
-        </div>
+
+            <!-- ── Poster Legend (Smart Capped & Themed) ── -->
+            <div class="poster-legend" *ngIf="getSelectedArtistCount() > 0">
+              <div class="legend-items">
+                <div class="legend-pill" *ngFor="let ac of topLegendArtists">
+                  <span class="legend-dot" [style.background]="ac.color"></span>
+                  <span class="legend-name">{{ ac.artist }}</span>
+                </div>
+                <div class="legend-pill more-pill" *ngIf="remainingArtistsCount > 0">
+                  +{{ remainingArtistsCount }} others
+                </div>
+              </div>
+            </div>
+
+            <!-- ── Poster Footer & Stats ── -->
+            <footer class="poster-footer">
+              <div class="poster-stats-row">
+                <div class="stat-cell">
+                  <span class="stat-number">{{ filteredMentionsCount }}</span>
+                  <span class="stat-label">Mentions</span>
+                </div>
+                <span class="stat-bullet">·</span>
+                <div class="stat-cell">
+                  <span class="stat-number">{{ filteredSongsCount }}</span>
+                  <span class="stat-label">Songs</span>
+                </div>
+                <span class="stat-bullet">·</span>
+                <div class="stat-cell">
+                  <span class="stat-number">{{ filteredLocationsCount }}</span>
+                  <span class="stat-label">Spots</span>
+                </div>
+                <span class="stat-bullet">·</span>
+                <div class="stat-cell">
+                  <span class="stat-number">{{ getSelectedArtistCount() }}</span>
+                  <span class="stat-label">Artists</span>
+                </div>
+              </div>
+
+              <div class="poster-imprint">
+                <span>LYRICMAP.GR</span>
+                <span class="imprint-divider">—</span>
+                <span>EDITION 2026</span>
+              </div>
+            </footer>
+
+          </div><!-- /poster-matting-border -->
+
+        </div><!-- /poster-frame -->
+
+      </div><!-- /poster-frame-wrapper -->
+
+    </main>
+
+  </div><!-- /studio-workspace -->
+
+  <!-- ── Sticky Bottom Bar for Smartphones (Always accessible) ── -->
+  <div class="mobile-bottom-bar" *ngIf="selectedArea && hasMap">
+    <button class="mobile-bar-btn-settings" (click)="scrollToSettings()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+      </svg>
+      <span>Style & Options</span>
+    </button>
+    <button class="mobile-bar-btn-download" (click)="exportPoster('png')" [disabled]="isExporting">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+      </svg>
+      <span>{{ isExporting ? 'Exporting…' : 'Download Poster' }}</span>
+    </button>
+  </div>
+
+  <!-- ── High-DPI Exporting Overlay Modal ── -->
+  <div class="export-overlay" *ngIf="isExporting">
+    <div class="export-modal-card">
+      <div class="export-spinner-ring"></div>
+      <h3 class="modal-title">Generating High-Resolution Print</h3>
+      <p class="modal-sub">
+        Rendering map tiles, vector typography, and lyric coordinates at 300 DPI clarity...
+      </p>
+      <div class="modal-format-badge">
+        {{ exportFormat.toUpperCase() }} · {{ aspectRatio.toUpperCase() }}
       </div>
-
-      <!-- Stats Footer -->
-      <div class="poster-footer" *ngIf="selectedArea">
-        <div class="poster-stats">
-          <div class="poster-stat">
-            <span class="poster-stat-value">{{ filteredMentionsCount }}</span>
-            <span class="poster-stat-label">mentions</span>
-          </div>
-          <div class="poster-stat-sep">·</div>
-          <div class="poster-stat">
-            <span class="poster-stat-value">{{ filteredSongsCount }}</span>
-            <span class="poster-stat-label">songs</span>
-          </div>
-          <div class="poster-stat-sep">·</div>
-          <div class="poster-stat">
-            <span class="poster-stat-value">{{ filteredLocationsCount }}</span>
-            <span class="poster-stat-label">locations</span>
-          </div>
-          <div class="poster-stat-sep">·</div>
-          <div class="poster-stat">
-            <span class="poster-stat-value">{{ getSelectedArtistCount() }}</span>
-            <span class="poster-stat-label">artists</span>
-          </div>
-        </div>
-
-        <!-- Watermark -->
-        <div class="poster-watermark">lyricmap.gr</div>
-      </div>
-
-    </div><!-- /poster-frame -->
-  </div><!-- /poster-frame-wrapper -->
+    </div>
+  </div>
 
 </section>

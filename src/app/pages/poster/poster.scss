@@ -1,559 +1,1349 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+// Design Tokens
+$font-sans: 'Outfit', sans-serif;
+$font-mono: 'Space Mono', monospace;
 
-// Variables
-$bg-dark: #0d0d0d;
-$text-light: #f5f5f5;
-$text-muted: #a0a0a0;
-$border-color: #333333;
-$accent-color: #a29bfe;
-$font-main: 'Outfit', sans-serif;
+$bg-app: #0b0c10;
+$bg-card: rgba(255, 255, 255, 0.035);
+$bg-card-hover: rgba(255, 255, 255, 0.065);
+$border-subtle: rgba(255, 255, 255, 0.09);
+$border-active: rgba(204, 255, 0, 0.5);
 
-.poster-page {
+$text-bright: #ffffff;
+$text-secondary: #94a3b8;
+$text-muted: #64748b;
+
+$brand-neon: #ccff00;
+$brand-cyan: #00e5ff;
+$brand-blue: #38bdf8;
+
+.poster-studio {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $bg-app;
+  color: $text-bright;
+  font-family: $font-sans;
+  padding: 1.5rem 2rem 3rem 2rem;
+  box-sizing: border-box;
+
+  /* Mobile page padding adjustments */
+  @media (max-width: 768px) {
+    padding: 1rem 0.85rem 6.5rem 0.85rem;
+  }
+
+  /* ── Studio Top Header ── */
+  .studio-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid $border-subtle;
+
+    @media (max-width: 768px) {
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+    }
+
+    .studio-header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.25rem;
+    }
+
+    .studio-title-block {
+      max-width: 620px;
+
+      .studio-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-family: $font-mono;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: $brand-neon;
+        background: rgba(204, 255, 0, 0.08);
+        border: 1px solid rgba(204, 255, 0, 0.25);
+        padding: 0.3rem 0.7rem;
+        border-radius: 999px;
+        margin-bottom: 0.65rem;
+      }
+
+      .studio-title {
+        font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin: 0 0 0.35rem 0;
+        background: linear-gradient(135deg, #ffffff 40%, #cbd5e1 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .studio-subtitle {
+        color: $text-secondary;
+        font-size: 0.92rem;
+        line-height: 1.5;
+        margin: 0;
+
+        @media (max-width: 768px) {
+          font-size: 0.85rem;
+        }
+      }
+    }
+
+    /* Area Selection Pills (Horizontal Touch Swipe on Smartphones) */
+    .studio-area-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+
+      .area-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: $bg-card;
+        border: 1px solid $border-subtle;
+        color: $text-bright;
+        padding: 0.55rem 1.15rem;
+        border-radius: 999px;
+        font-family: $font-sans;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+        min-height: 44px; /* Touch target accessibility */
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+        .area-pill-indicator {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.3);
+          transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        .area-pill-badge {
+          font-family: $font-mono;
+          font-size: 0.75rem;
+          color: $text-muted;
+          background: rgba(255, 255, 255, 0.06);
+          padding: 0.15rem 0.5rem;
+          border-radius: 12px;
+          transition: all 0.2s;
+        }
+
+        &:hover {
+          background: $bg-card-hover;
+          border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        &.active {
+          background: rgba(255, 255, 255, 0.09);
+          border-color: $brand-neon;
+          box-shadow: 0 0 20px rgba(204, 255, 0, 0.15);
+
+          .area-pill-indicator {
+            background: $brand-neon;
+            box-shadow: 0 0 10px $brand-neon;
+          }
+
+          .area-pill-badge {
+            color: $bg-app;
+            background: $brand-neon;
+            font-weight: 700;
+          }
+        }
+      }
+
+      .area-loading {
+        color: $text-muted;
+        font-size: 0.85rem;
+        font-style: italic;
+        align-self: center;
+      }
+    }
+  }
+
+  /* ── Studio Workspace (Grid / Responsive Mobile Flow) ── */
+  .studio-workspace {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+
+    /* On Smartphones & Tablets: Canvas comes FIRST! */
+    @media (max-width: 960px) {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+
+      .studio-canvas {
+        order: 1;
+        width: 100%;
+      }
+
+      .studio-sidebar {
+        order: 2;
+        width: 100%;
+        position: static;
+      }
+    }
+  }
+
+  /* ── Left Sidebar Controls ── */
+  .studio-sidebar {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    background-color: $bg-dark;
-    color: $text-light;
-    font-family: $font-main;
-    padding: 2rem;
+    gap: 1.25rem;
+    position: sticky;
+    top: 1.5rem;
+    width: 100%;
     box-sizing: border-box;
 
-    /* ── Page Header ── */
-    .poster-page-header {
-        margin-bottom: 0.25rem;
+    .control-box {
+      background: $bg-card;
+      border: 1px solid $border-subtle;
+      border-radius: 16px;
+      padding: 1.25rem;
+      backdrop-filter: blur(12px);
+      box-sizing: border-box;
+      width: 100%;
 
-        .poster-page-title {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 0 0 0.5rem 0;
+      @media (max-width: 768px) {
+        padding: 1rem;
+        border-radius: 14px;
+      }
 
-            .poster-title-icon {
-                width: 28px;
-                height: 28px;
-                color: $accent-color;
-            }
+      .box-label {
+        display: block;
+        font-family: $font-mono;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: $text-muted;
+        margin-bottom: 0.85rem;
+      }
+
+      .box-header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+
+        .box-label {
+          margin-bottom: 0;
         }
 
-        .poster-page-subtitle {
-            color: $text-muted;
-            margin: 0;
-            font-size: 1rem;
+        .box-stat {
+          font-family: $font-mono;
+          font-size: 0.72rem;
+          color: $brand-cyan;
         }
+      }
     }
 
-    /* ── Controls Accordion ── */
-    .controls-accordion {
-        margin-bottom: 2rem;
+    /* Aesthetic Theme Cards */
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.6rem;
+      width: 100%;
+      box-sizing: border-box;
 
-        .controls-toggle-btn {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid $border-color;
-            border-radius: 12px;
-            padding: 1rem 1.5rem;
-            color: $text-light;
-            font-family: $font-main;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-
-            &:hover {
-                background: rgba(255, 255, 255, 0.08);
-            }
-
-            .toggle-text {
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-            }
-
-            .chevron {
-                transition: transform 0.3s ease;
-
-                &.open {
-                    transform: rotate(180deg);
-                }
-            }
-        }
-
-        /* ── Controls Bar ── */
-        .poster-controls {
-            margin-top: 1rem;
-            margin-bottom: 0;
-
-            &.hidden {
-                display: none;
-            }
-
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            border: 1px solid $border-color;
-
-            .control-group {
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-
-                .control-label {
-                    font-size: 0.85rem;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
-                    color: $text-muted;
-                    font-weight: 600;
-                }
-            }
-
-            .area-chips {
-                display: flex;
-                gap: 0.5rem;
-                flex-wrap: wrap;
-
-                .area-chip {
-                    background: transparent;
-                    border: 1px solid $border-color;
-                    color: $text-light;
-                    padding: 0.5rem 1rem;
-                    border-radius: 20px;
-                    cursor: pointer;
-                    font-family: $font-main;
-                    transition: all 0.2s ease;
-                    display: flex;
-                    align-items: center;
-                    gap: 0.5rem;
-
-                    &:hover {
-                        border-color: $text-muted;
-                    }
-
-                    &.active {
-                        background: $text-light;
-                        color: $bg-dark;
-                        border-color: $text-light;
-                    }
-
-                    .area-chip-count {
-                        font-size: 0.75rem;
-                        opacity: 0.7;
-                        background: rgba(128, 128, 128, 0.2);
-                        padding: 0.1rem 0.4rem;
-                        border-radius: 10px;
-                    }
-                }
-
-                .area-empty {
-                    color: $text-muted;
-                    font-style: italic;
-                    padding: 0.5rem 0;
-                }
-            }
-
-            .artist-filter-wrapper {
-                position: relative;
-
-                .artist-filter-toggle {
-                    display: flex;
-                    align-items: center;
-                    gap: 0.5rem;
-                    background: transparent;
-                    border: 1px solid $border-color;
-                    color: $text-light;
-                    padding: 0.5rem 1rem;
-                    border-radius: 8px;
-                    cursor: pointer;
-                    font-family: $font-main;
-
-                    .chevron {
-                        transition: transform 0.2s;
-
-                        &.open {
-                            transform: rotate(180deg);
-                        }
-                    }
-                }
-
-                .artist-dropdown {
-                    display: none;
-                    position: absolute;
-                    top: calc(100% + 0.5rem);
-                    left: 0;
-                    background: #1a1a1a;
-                    border: 1px solid $border-color;
-                    border-radius: 8px;
-                    padding: 1rem;
-                    width: 250px;
-                    z-index: 1000;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-
-                    &.open {
-                        display: block;
-                    }
-
-                    .artist-dropdown-actions {
-                        display: flex;
-                        gap: 0.5rem;
-                        margin-bottom: 1rem;
-                        border-bottom: 1px solid $border-color;
-                        padding-bottom: 0.5rem;
-
-                        .dropdown-action-btn {
-                            background: transparent;
-                            border: none;
-                            color: $accent-color;
-                            cursor: pointer;
-                            font-size: 0.85rem;
-                            padding: 0;
-
-                            &:hover {
-                                text-decoration: underline;
-                            }
-                        }
-                    }
-
-                    .artist-list {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 0.5rem;
-                        max-height: 200px;
-                        overflow-y: auto;
-
-                        .artist-item {
-                            display: flex;
-                            align-items: center;
-                            gap: 0.75rem;
-                            cursor: pointer;
-                            padding: 0.25rem 0;
-                            opacity: 0.5;
-                            transition: opacity 0.2s;
-
-                            &.selected {
-                                opacity: 1;
-                            }
-
-                            .artist-dot {
-                                width: 10px;
-                                height: 10px;
-                                border-radius: 50%;
-                            }
-
-                            .artist-name {
-                                flex: 1;
-                                font-size: 0.9rem;
-                            }
-
-                            .artist-check {
-                                color: $accent-color;
-                            }
-                        }
-                    }
-                }
-            }
-
-            .ratio-select {
-                background: transparent;
-                border: 1px solid $border-color;
-                color: $text-light;
-                padding: 0.5rem 1rem;
-                border-radius: 8px;
-                font-family: $font-main;
-                outline: none;
-
-                option {
-                    background: $bg-dark;
-                }
-            }
-
-            .export-group {
-                margin-left: auto;
-
-                .export-buttons {
-                    display: flex;
-                    gap: 0.5rem;
-
-                    .export-btn {
-                        display: flex;
-                        align-items: center;
-                        gap: 0.5rem;
-                        background: $text-light;
-                        color: $bg-dark;
-                        border: none;
-                        padding: 0.5rem 1rem;
-                        border-radius: 8px;
-                        cursor: pointer;
-                        font-weight: 600;
-                        font-family: $font-main;
-                        transition: transform 0.1s;
-
-                        &:hover:not([disabled]) {
-                            transform: translateY(-1px);
-                        }
-
-                        &[disabled] {
-                            opacity: 0.7;
-                            cursor: not-allowed;
-                        }
-
-                        .spinner {
-                            display: inline-block;
-                            width: 12px;
-                            height: 12px;
-                            border: 2px solid $bg-dark;
-                            border-top-color: transparent;
-                            border-radius: 50%;
-                            animation: spin 1s linear infinite;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* ── Error & Empty States ── */
-    .poster-error {
+      .theme-card {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        color: #ff6b6b;
-        background: rgba(255, 107, 107, 0.1);
-        padding: 1rem;
-        border-radius: 8px;
-        margin-bottom: 2rem;
+        gap: 0.55rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid $border-subtle;
+        border-radius: 12px;
+        padding: 0.55rem 0.65rem;
+        cursor: pointer;
+        text-align: left;
+        min-height: 44px;
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        transition: all 0.2s ease;
+
+        .theme-swatch {
+          width: 26px;
+          height: 26px;
+          border-radius: 8px;
+          border: 1px solid transparent;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+
+          .theme-swatch-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+          }
+        }
+
+        .theme-meta {
+          display: flex;
+          flex-direction: column;
+          min-width: 0;
+          flex: 1;
+          overflow: hidden;
+
+          .theme-name {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: $text-bright;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .theme-tagline {
+            font-size: 0.66rem;
+            color: $text-muted;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+
+        &:hover {
+          background: $bg-card-hover;
+          border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        &.active {
+          background: rgba(255, 255, 255, 0.08);
+          border-color: $brand-neon;
+          box-shadow: 0 0 10px rgba(204, 255, 0, 0.12);
+        }
+      }
     }
 
-    .poster-empty {
+    /* Format & Ratio Grid */
+    .ratio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      width: 100%;
+      box-sizing: border-box;
+
+      .ratio-card {
         display: flex;
         flex-direction: column;
+        gap: 0.15rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid $border-subtle;
+        border-radius: 10px;
+        padding: 0.6rem 0.8rem;
+        text-align: left;
+        cursor: pointer;
+        min-height: 44px;
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        transition: all 0.2s ease;
+
+        .ratio-label {
+          font-size: 0.82rem;
+          font-weight: 600;
+          color: $text-bright;
+        }
+
+        .ratio-badge {
+          font-family: $font-mono;
+          font-size: 0.65rem;
+          color: $text-muted;
+        }
+
+        &:hover {
+          background: $bg-card-hover;
+          border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        &.active {
+          background: rgba(255, 255, 255, 0.08);
+          border-color: $brand-cyan;
+          box-shadow: 0 0 12px rgba(0, 229, 255, 0.12);
+
+          .ratio-label {
+            color: $brand-cyan;
+          }
+        }
+      }
+    }
+
+    /* Segmented Controls (Density) */
+    .segmented-control {
+      display: flex;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid $border-subtle;
+      border-radius: 10px;
+      padding: 0.25rem;
+      gap: 0.25rem;
+
+      .seg-btn {
+        flex: 1;
+        background: transparent;
+        border: none;
+        color: $text-secondary;
+        font-family: $font-sans;
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 0.55rem 0.25rem;
+        border-radius: 7px;
+        cursor: pointer;
+        min-height: 38px;
+        transition: all 0.15s ease;
+
+        &:hover {
+          color: $text-bright;
+        }
+
+        &.active {
+          background: rgba(255, 255, 255, 0.12);
+          color: $text-bright;
+          font-weight: 600;
+        }
+      }
+    }
+
+    /* Artist Filter Controls */
+    .artist-quick-actions {
+      display: flex;
+      gap: 0.45rem;
+      margin-bottom: 0.75rem;
+
+      .quick-btn {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid $border-subtle;
+        color: $text-secondary;
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 0.4rem 0.75rem;
+        border-radius: 7px;
+        cursor: pointer;
+        min-height: 36px;
+        transition: all 0.15s;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.08);
+          color: $text-bright;
+        }
+
+        &.toggle-list-btn {
+          margin-left: auto;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.35rem;
+          color: $brand-neon;
+          border-color: rgba(204, 255, 0, 0.2);
+
+          .chevron-sm {
+            transition: transform 0.2s ease;
+            &.open {
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
+    }
+
+    .artist-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      max-height: 180px;
+      overflow-y: auto;
+      padding-right: 0.25rem;
+      border-top: 1px solid $border-subtle;
+      padding-top: 0.65rem;
+
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 4px;
+      }
+
+      .artist-row {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.45rem 0.5rem;
+        border-radius: 6px;
+        cursor: pointer;
+        opacity: 0.5;
+        min-height: 36px;
+        transition: all 0.15s ease;
+
+        .artist-dot {
+          width: 9px;
+          height: 9px;
+          border-radius: 50%;
+          flex-shrink: 0;
+        }
+
+        .artist-name {
+          font-size: 0.82rem;
+          color: $text-bright;
+          flex: 1;
+        }
+
+        .artist-check {
+          color: $brand-neon;
+          font-weight: 700;
+          font-size: 0.75rem;
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.04);
+          opacity: 0.8;
+        }
+
+        &.checked {
+          opacity: 1;
+        }
+      }
+    }
+
+    /* Framing & Camera Tools */
+    .framing-tools {
+      display: flex;
+      gap: 0.5rem;
+
+      .tool-btn {
+        flex: 1;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
+        gap: 0.45rem;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid $border-subtle;
+        color: $text-secondary;
+        font-family: $font-sans;
+        font-size: 0.78rem;
+        font-weight: 600;
+        padding: 0.6rem 0.75rem;
+        border-radius: 9px;
+        cursor: pointer;
+        min-height: 40px;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.08);
+          color: $text-bright;
+        }
+
+        &.active {
+          background: rgba(204, 255, 0, 0.1);
+          border-color: $brand-neon;
+          color: $brand-neon;
+        }
+      }
+    }
+
+    .framing-zoom-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.55rem;
+
+      .zoom-btn {
         flex: 1;
-        color: $text-muted;
-        gap: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid $border-subtle;
+        color: $text-bright;
+        font-family: $font-sans;
+        font-size: 0.78rem;
+        font-weight: 600;
+        padding: 0.5rem;
+        border-radius: 8px;
+        cursor: pointer;
+        min-height: 38px;
+        transition: all 0.15s;
 
-        .poster-empty-icon {
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+          border-color: rgba(255, 255, 255, 0.25);
+        }
+      }
+    }
+
+    /* Desktop Export Box */
+    .export-box {
+      border-color: rgba(204, 255, 0, 0.25);
+      background: linear-gradient(180deg, rgba(204, 255, 0, 0.05) 0%, rgba(255, 255, 255, 0.03) 100%);
+
+      .export-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+
+        .btn-export-primary {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.6rem;
+          background: $brand-neon;
+          color: #0b0c10;
+          border: none;
+          padding: 0.85rem 1.25rem;
+          border-radius: 12px;
+          font-family: $font-sans;
+          font-size: 0.95rem;
+          font-weight: 700;
+          cursor: pointer;
+          min-height: 48px;
+          transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: 0 4px 20px rgba(204, 255, 0, 0.25);
+
+          &:hover:not([disabled]) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 26px rgba(204, 255, 0, 0.4);
+          }
+
+          &[disabled] {
             opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+          }
         }
 
-        .poster-empty-text {
-            font-size: 1.1rem;
+        .btn-export-secondary {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.6rem;
+          background: rgba(255, 255, 255, 0.08);
+          color: $text-bright;
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          padding: 0.75rem 1.25rem;
+          border-radius: 12px;
+          font-family: $font-sans;
+          font-size: 0.88rem;
+          font-weight: 600;
+          cursor: pointer;
+          min-height: 44px;
+          transition: all 0.2s ease;
+
+          &:hover:not([disabled]) {
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(255, 255, 255, 0.3);
+          }
+
+          &[disabled] {
+            opacity: 0.5;
+            cursor: not-allowed;
+          }
         }
+      }
+
+      .export-note {
+        font-size: 0.72rem;
+        color: $text-muted;
+        line-height: 1.45;
+        margin: 0.85rem 0 0 0;
+        text-align: center;
+      }
+    }
+  }
+
+  /* ── Right Canvas Container ── */
+  .studio-canvas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .poster-banner-error {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #f87171;
+      padding: 0.85rem 1.25rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      width: 100%;
+      max-width: 800px;
     }
 
-    /* ── Poster Frame ── */
-    .poster-frame-wrapper {
-        display: none;
-        margin: 0 auto;
-        width: 100%;
-        max-width: 800px;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    .poster-empty-view {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+      color: $text-muted;
+
+      .empty-icon-wrap {
+        opacity: 0.3;
+        margin-bottom: 1.25rem;
+      }
+
+      .empty-title {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: $text-bright;
+        margin: 0 0 0.5rem 0;
+      }
+
+      .empty-text {
+        font-size: 0.95rem;
+        max-width: 440px;
+        line-height: 1.5;
+        margin: 0;
+      }
+    }
+
+    .framing-notice {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: rgba(204, 255, 0, 0.12);
+      border: 1px solid rgba(204, 255, 0, 0.4);
+      color: $brand-neon;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.65rem 1.15rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+      width: 100%;
+      max-width: 760px;
+      box-sizing: border-box;
+      animation: fadeIn 0.3s ease;
+
+      .pulsing-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $brand-neon;
+        box-shadow: 0 0 10px $brand-neon;
+        flex-shrink: 0;
+        animation: pulse 1.5s infinite;
+      }
+    }
+  }
+
+  /* ── The Poster Frame Canvas ── */
+  .poster-frame-wrapper {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow:
+      0 30px 80px -20px rgba(0, 0, 0, 0.8),
+      0 0 0 1px rgba(255, 255, 255, 0.08);
+
+    /* Aspect Ratio classes */
+    &.ratio-a3-portrait {
+      aspect-ratio: 1 / 1.414;
+    }
+    &.ratio-square {
+      aspect-ratio: 1 / 1;
+    }
+    &.ratio-story {
+      aspect-ratio: 9 / 16;
+      max-width: 500px;
+    }
+    &.ratio-a4-landscape {
+      aspect-ratio: 1.414 / 1;
+      max-width: 960px;
+    }
+
+    /* ── Theme Definitions ── */
+    &.theme-midnight {
+      --p-bg: #0c0d12;
+      --p-frame-border: #262936;
+      --p-matting-border: rgba(255, 255, 255, 0.12);
+      --p-text: #f8fafc;
+      --p-subtext: #94a3b8;
+      --p-accent: #ccff00;
+      --p-map-bg: #111218;
+      --p-map-filter: none;
+    }
+
+    &.theme-gallery {
+      --p-bg: #f8f5ee;
+      --p-frame-border: #d6d1c4;
+      --p-matting-border: #18181b;
+      --p-text: #18181b;
+      --p-subtext: #52525b;
+      --p-accent: #18181b;
+      --p-map-bg: #eae6dc;
+      --p-map-filter: contrast(1.08) saturate(0.9);
+    }
+
+    &.theme-blueprint {
+      --p-bg: #081426;
+      --p-frame-border: #1e3a5f;
+      --p-matting-border: rgba(56, 189, 248, 0.35);
+      --p-text: #f0f9ff;
+      --p-subtext: #7dd3fc;
+      --p-accent: #00e5ff;
+      --p-map-bg: #0b1a30;
+      --p-map-filter: hue-rotate(190deg) saturate(1.8) contrast(1.15);
+    }
+
+    &.theme-vintage {
+      --p-bg: #171311;
+      --p-frame-border: #3a2e28;
+      --p-matting-border: rgba(245, 158, 11, 0.3);
+      --p-text: #fef3c7;
+      --p-subtext: #d97706;
+      --p-accent: #f59e0b;
+      --p-map-bg: #1f1a17;
+      --p-map-filter: sepia(0.35) contrast(1.08);
+    }
+
+    .poster-frame {
+      width: 100%;
+      height: 100%;
+      background: var(--p-bg);
+      color: var(--p-text);
+      display: flex;
+      flex-direction: column;
+      padding: clamp(1.2rem, 3vw, 2.5rem);
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+
+      /* Tighten inner padding on smartphone screens so map has max space */
+      @media (max-width: 640px) {
+        padding: 0.85rem;
+      }
+
+      /* Fine archival paper texture overlay */
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 10;
+      }
+
+      /* Inner Passe-Partout Matting */
+      .poster-matting-border {
+        border: 1px solid var(--p-matting-border);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: clamp(0.9rem, 1.8vw, 1.65rem);
+        box-sizing: border-box;
         position: relative;
+        z-index: 2;
 
-        &.visible {
-            display: block;
+        @media (max-width: 640px) {
+          padding: 0.65rem;
+        }
+      }
+
+      /* ── Poster Typographic Header ── */
+      .poster-header {
+        text-align: center;
+        padding-bottom: 0.65rem;
+        margin-bottom: 0.65rem;
+        flex-shrink: 0;
+
+        .poster-eyebrow {
+          font-family: $font-mono;
+          font-size: clamp(0.52rem, 0.9vw, 0.65rem);
+          font-weight: 700;
+          letter-spacing: 0.25em;
+          color: var(--p-subtext);
+          text-transform: uppercase;
+          margin-bottom: 0.25rem;
+
+          .eyebrow-divider {
+            margin: 0 0.4rem;
+            opacity: 0.5;
+          }
         }
 
-        /* Aspect Ratio Configurations */
-        &.ratio-a3-portrait,
-        &.ratio-a4-portrait {
-            aspect-ratio: 1 / 1.414;
+        .poster-title {
+          font-size: clamp(1.25rem, 4vw, 2.6rem);
+          font-weight: 900;
+          letter-spacing: clamp(0.12em, 2vw, 0.3em);
+          text-indent: clamp(0.12em, 2vw, 0.3em);
+          margin: 0 0 0.25rem 0;
+          line-height: 1.1;
+          color: var(--p-text);
+          text-transform: uppercase;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
-        &.ratio-a4-landscape {
-            aspect-ratio: 1.414 / 1;
-            max-width: 1000px;
+        .poster-coordinates {
+          font-family: $font-mono;
+          font-size: clamp(0.55rem, 1vw, 0.7rem);
+          letter-spacing: 0.14em;
+          color: var(--p-accent);
+          font-weight: 600;
+          margin-bottom: 0.25rem;
         }
 
-        &.ratio-square {
-            aspect-ratio: 1 / 1;
+        .poster-subtitle {
+          font-family: $font-mono;
+          font-size: clamp(0.5rem, 0.8vw, 0.6rem);
+          letter-spacing: 0.2em;
+          color: var(--p-subtext);
+          text-transform: uppercase;
+          margin-bottom: 0.5rem;
         }
 
-        .poster-frame {
-            width: 100%;
-            height: 100%;
-            background: $bg-dark;
-            display: flex;
-            flex-direction: column;
-            padding: 3rem;
-            box-sizing: border-box;
-            position: relative;
-            overflow: hidden;
+        .poster-hairline {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 80%;
+          margin: 0 auto;
 
-            /* Subtle grain texture overlay */
-            &::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-                pointer-events: none;
-                z-index: 10;
-            }
+          &::before, &::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--p-matting-border);
+            opacity: 0.65;
+          }
 
-            .poster-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-end;
-                border-bottom: 2px solid $border-color;
-                padding-bottom: 1rem;
-                margin-bottom: 1.5rem;
-                z-index: 2;
-
-                .poster-header-left {
-                    display: flex;
-                    align-items: center;
-                    gap: 1rem;
-
-                    .poster-brand {
-                        font-size: 1.5rem;
-                        font-weight: 700;
-                        letter-spacing: 2px;
-                    }
-
-                    .poster-header-divider {
-                        color: $text-muted;
-                    }
-
-                    .poster-subtitle-text {
-                        font-size: 1rem;
-                        color: $text-muted;
-                        font-weight: 300;
-                    }
-                }
-
-                .poster-area-name {
-                    font-size: 2.5rem;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    line-height: 1;
-                }
-            }
-
-            .poster-map-container {
-                flex: 1;
-                width: 100%;
-                border: 1px solid $border-color;
-                border-radius: 4px;
-                overflow: hidden;
-                position: relative;
-                z-index: 1;
-
-                #poster-map {
-                    width: 100%;
-                    height: 100%;
-                    background: #111;
-                }
-            }
-
-            .poster-legend {
-                margin-top: 1.5rem;
-                padding-bottom: 1.5rem;
-                border-bottom: 1px solid $border-color;
-                z-index: 2;
-
-                .poster-legend-items {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 1.25rem;
-                    justify-content: center;
-
-                    .poster-legend-item {
-                        display: flex;
-                        align-items: center;
-                        gap: 0.5rem;
-                        font-size: 0.9rem;
-                        transition: opacity 0.3s;
-
-                        &.faded {
-                            opacity: 0.3;
-                        }
-
-                        .poster-legend-dot {
-                            width: 12px;
-                            height: 12px;
-                            border-radius: 50%;
-                        }
-
-                        .poster-legend-name {
-                            font-weight: 600;
-                            letter-spacing: 0.5px;
-                        }
-                    }
-                }
-            }
-
-            .poster-footer {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-top: 1.5rem;
-                z-index: 2;
-
-                .poster-stats {
-                    display: flex;
-                    align-items: center;
-                    gap: 1rem;
-                    color: $text-muted;
-                    font-size: 0.85rem;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
-
-                    .poster-stat {
-                        display: flex;
-                        gap: 0.4rem;
-
-                        .poster-stat-value {
-                            font-weight: 700;
-                            color: $text-light;
-                        }
-                    }
-
-                    .poster-stat-sep {
-                        opacity: 0.5;
-                    }
-                }
-
-                .poster-watermark {
-                    font-weight: 600;
-                    letter-spacing: 1px;
-                    color: $text-muted;
-                }
-            }
+          .hairline-diamond {
+            font-size: 0.5rem;
+            color: var(--p-accent);
+            padding: 0 0.5rem;
+          }
         }
-    }
+      }
 
-    @keyframes spin {
-        100% {
-            transform: rotate(360deg);
+      /* ── Map Container ── */
+      .poster-map-container {
+        flex: 1;
+        width: 100%;
+        min-height: 220px;
+        position: relative;
+        border: 1px solid var(--p-matting-border);
+        overflow: hidden;
+        background: var(--p-map-bg);
+
+        /* Corner Crosshairs */
+        .corner-crosshair {
+          position: absolute;
+          font-family: $font-mono;
+          font-size: 0.85rem;
+          line-height: 1;
+          color: var(--p-accent);
+          opacity: 0.75;
+          pointer-events: none;
+          z-index: 500;
+
+          &.top-left { top: 6px; left: 6px; }
+          &.top-right { top: 6px; right: 6px; }
+          &.bottom-left { bottom: 6px; left: 6px; }
+          &.bottom-right { bottom: 6px; right: 6px; }
         }
-    }
 
-    /* Map Tooltip Overrides */
-    ::ng-deep {
-        .leaflet-tooltip.poster-pin-label {
-            background: transparent;
-            border: none;
-            box-shadow: none;
-            color: $text-light;
-            font-family: $font-main;
+        #poster-map {
+          width: 100%;
+          height: 100%;
+          filter: var(--p-map-filter);
+        }
+      }
+
+      /* ── Poster Legend (Smart Capped & Themed) ── */
+      .poster-legend {
+        padding-top: 0.65rem;
+        flex-shrink: 0;
+
+        .legend-items {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.35rem 0.75rem;
+          justify-content: center;
+
+          .legend-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: clamp(0.62rem, 0.9vw, 0.74rem);
             font-weight: 600;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            color: var(--p-text);
 
-            &::before {
-                display: none;
+            .legend-dot {
+              width: 8px;
+              height: 8px;
+              border-radius: 50%;
+              flex-shrink: 0;
             }
+
+            &.more-pill {
+              color: var(--p-subtext);
+              font-family: $font-mono;
+              font-size: 0.65rem;
+              opacity: 0.8;
+            }
+          }
         }
+      }
+
+      /* ── Poster Footer ── */
+      .poster-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+        padding-top: 0.65rem;
+        margin-top: 0.45rem;
+        border-top: 1px solid var(--p-matting-border);
+        flex-shrink: 0;
+
+        .poster-stats-row {
+          display: flex;
+          align-items: center;
+          gap: 0.45rem;
+          font-family: $font-mono;
+          font-size: clamp(0.52rem, 0.85vw, 0.64rem);
+          color: var(--p-subtext);
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+
+          .stat-cell {
+            display: flex;
+            gap: 0.2rem;
+
+            .stat-number {
+              font-weight: 700;
+              color: var(--p-text);
+            }
+          }
+
+          .stat-bullet {
+            opacity: 0.4;
+          }
+        }
+
+        .poster-imprint {
+          font-family: $font-mono;
+          font-size: clamp(0.5rem, 0.8vw, 0.6rem);
+          letter-spacing: 0.14em;
+          color: var(--p-subtext);
+          font-weight: 700;
+
+          .imprint-divider {
+            margin: 0 0.3rem;
+            opacity: 0.4;
+          }
+        }
+      }
     }
+  }
+
+  /* ── Sticky Bottom Bar on Smartphones (Easy 1-Tap Actions) ── */
+  .mobile-bottom-bar {
+    display: none;
+
+    @media (max-width: 960px) {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(12, 13, 18, 0.94);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(16px);
+      padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom, 0px)) 1rem;
+      z-index: 900;
+      box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.6);
+
+      .mobile-bar-btn-settings {
+        flex: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: $text-bright;
+        font-family: $font-sans;
+        font-size: 0.88rem;
+        font-weight: 600;
+        padding: 0.75rem 1rem;
+        border-radius: 12px;
+        min-height: 48px;
+        cursor: pointer;
+
+        &:active {
+          background: rgba(255, 255, 255, 0.14);
+        }
+      }
+
+      .mobile-bar-btn-download {
+        flex: 1.4;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background: $brand-neon;
+        border: none;
+        color: #0b0c10;
+        font-family: $font-sans;
+        font-size: 0.92rem;
+        font-weight: 700;
+        padding: 0.75rem 1.15rem;
+        border-radius: 12px;
+        min-height: 48px;
+        cursor: pointer;
+        box-shadow: 0 4px 16px rgba(204, 255, 0, 0.3);
+
+        &:active {
+          transform: scale(0.98);
+        }
+
+        &[disabled] {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  /* ── Exporting Overlay Modal ── */
+  .export-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 12, 16, 0.88);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    animation: fadeIn 0.25s ease;
+
+    .export-modal-card {
+      background: #14161f;
+      border: 1px solid rgba(204, 255, 0, 0.3);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(204, 255, 0, 0.15);
+      border-radius: 20px;
+      padding: clamp(1.5rem, 5vw, 2.5rem);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+
+      .export-spinner-ring {
+        width: 44px;
+        height: 44px;
+        border: 3px solid rgba(204, 255, 0, 0.2);
+        border-top-color: $brand-neon;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+
+      .modal-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin: 0;
+      }
+
+      .modal-sub {
+        font-size: 0.85rem;
+        color: $text-secondary;
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      .modal-format-badge {
+        font-family: $font-mono;
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: $brand-neon;
+        background: rgba(204, 255, 0, 0.1);
+        border: 1px solid rgba(204, 255, 0, 0.25);
+        padding: 0.35rem 0.85rem;
+        border-radius: 999px;
+      }
+    }
+  }
+
+  /* ── Map Tooltip Overrides ── */
+  ::ng-deep {
+    .leaflet-tooltip.poster-pin-label {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      font-family: $font-sans;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+      pointer-events: none;
+
+      &::before {
+        display: none;
+      }
+
+      .poster-pin-label-text {
+        padding: 0.15rem 0.45rem;
+        border-radius: 4px;
+      }
+
+      &.theme-midnight .poster-pin-label-text {
+        color: #f8fafc;
+        background: rgba(12, 13, 18, 0.88);
+        border: 1px solid rgba(204, 255, 0, 0.35);
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+      }
+
+      &.theme-gallery .poster-pin-label-text {
+        color: #18181b;
+        background: rgba(248, 245, 238, 0.92);
+        border: 1px solid rgba(24, 24, 27, 0.25);
+        text-shadow: none;
+      }
+
+      &.theme-blueprint .poster-pin-label-text {
+        color: #f0f9ff;
+        background: rgba(8, 20, 38, 0.9);
+        border: 1px solid rgba(0, 229, 255, 0.4);
+      }
+
+      &.theme-vintage .poster-pin-label-text {
+        color: #fef3c7;
+        background: rgba(23, 19, 17, 0.9);
+        border: 1px solid rgba(245, 158, 11, 0.3);
+      }
+
+      .poster-pin-hover-text {
+        padding: 0.15rem 0.45rem;
+        border-radius: 4px;
+        background: rgba(0, 0, 0, 0.85);
+        color: #fff;
+        font-size: 0.72rem;
+      }
+    }
+
+    /* Interactive Pin Popup */
+    .leaflet-popup-content-wrapper {
+      background: rgba(18, 19, 26, 0.96) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      backdrop-filter: blur(12px);
+      border-radius: 12px !important;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6) !important;
+      padding: 0 !important;
+      color: #fff !important;
+    }
+
+    .leaflet-popup-tip {
+      background: rgba(18, 19, 26, 0.96) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    }
+
+    .poster-popup {
+      padding: 0.85rem 1rem;
+      font-family: $font-sans;
+
+      .poster-popup-location {
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 0.15rem;
+      }
+
+      .poster-popup-count {
+        font-family: $font-mono;
+        font-size: 0.7rem;
+        color: #94a3b8;
+        margin-bottom: 0.6rem;
+      }
+
+      .poster-popup-item {
+        display: flex;
+        align-items: baseline;
+        gap: 0.4rem;
+        font-size: 0.78rem;
+        margin-top: 0.25rem;
+
+        .poster-popup-artist {
+          font-weight: 600;
+        }
+
+        .poster-popup-song {
+          color: #cbd5e1;
+          font-style: italic;
+        }
+      }
+
+      .poster-popup-more {
+        font-size: 0.72rem;
+        color: #94a3b8;
+        margin-top: 0.35rem;
+      }
+    }
+
+    /* Hide map zoom controls and mobile bottom bar during export capture */
+    .is-exporting-mode {
+      .leaflet-control-zoom,
+      .leaflet-control-attribution,
+      .mobile-bottom-bar {
+        display: none !important;
+      }
+    }
+  }
+}
+
+/* Animations */
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
