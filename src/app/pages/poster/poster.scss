@@ -20,7 +20,7 @@ $font-main: 'Outfit', sans-serif;
 
     /* ── Page Header ── */
     .poster-page-header {
-        margin-bottom: 2rem;
+        margin-bottom: 0.25rem;
 
         .poster-page-title {
             display: flex;
@@ -44,228 +44,275 @@ $font-main: 'Outfit', sans-serif;
         }
     }
 
-    /* ── Controls Bar ── */
-    .poster-controls {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
+    /* ── Controls Accordion ── */
+    .controls-accordion {
         margin-bottom: 2rem;
-        padding: 1.5rem;
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 12px;
-        border: 1px solid $border-color;
 
-        .control-group {
+        .controls-toggle-btn {
             display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid $border-color;
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            color: $text-light;
+            font-family: $font-main;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
 
-            .control-label {
-                font-size: 0.85rem;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                color: $text-muted;
-                font-weight: 600;
+            &:hover {
+                background: rgba(255, 255, 255, 0.08);
             }
-        }
 
-        .area-chips {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-
-            .area-chip {
-                background: transparent;
-                border: 1px solid $border-color;
-                color: $text-light;
-                padding: 0.5rem 1rem;
-                border-radius: 20px;
-                cursor: pointer;
-                font-family: $font-main;
-                transition: all 0.2s ease;
+            .toggle-text {
                 display: flex;
                 align-items: center;
-                gap: 0.5rem;
-
-                &:hover {
-                    border-color: $text-muted;
-                }
-
-                &.active {
-                    background: $text-light;
-                    color: $bg-dark;
-                    border-color: $text-light;
-                }
-
-                .area-chip-count {
-                    font-size: 0.75rem;
-                    opacity: 0.7;
-                    background: rgba(128, 128, 128, 0.2);
-                    padding: 0.1rem 0.4rem;
-                    border-radius: 10px;
-                }
+                gap: 0.75rem;
             }
 
-            .area-empty {
-                color: $text-muted;
-                font-style: italic;
-                padding: 0.5rem 0;
-            }
-        }
-
-        .artist-filter-wrapper {
-            position: relative;
-
-            .artist-filter-toggle {
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                background: transparent;
-                border: 1px solid $border-color;
-                color: $text-light;
-                padding: 0.5rem 1rem;
-                border-radius: 8px;
-                cursor: pointer;
-                font-family: $font-main;
-
-                .chevron {
-                    transition: transform 0.2s;
-
-                    &.open {
-                        transform: rotate(180deg);
-                    }
-                }
-            }
-
-            .artist-dropdown {
-                display: none;
-                position: absolute;
-                top: calc(100% + 0.5rem);
-                left: 0;
-                background: #1a1a1a;
-                border: 1px solid $border-color;
-                border-radius: 8px;
-                padding: 1rem;
-                width: 250px;
-                z-index: 1000;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            .chevron {
+                transition: transform 0.3s ease;
 
                 &.open {
-                    display: block;
-                }
-
-                .artist-dropdown-actions {
-                    display: flex;
-                    gap: 0.5rem;
-                    margin-bottom: 1rem;
-                    border-bottom: 1px solid $border-color;
-                    padding-bottom: 0.5rem;
-
-                    .dropdown-action-btn {
-                        background: transparent;
-                        border: none;
-                        color: $accent-color;
-                        cursor: pointer;
-                        font-size: 0.85rem;
-                        padding: 0;
-
-                        &:hover {
-                            text-decoration: underline;
-                        }
-                    }
-                }
-
-                .artist-list {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 0.5rem;
-                    max-height: 200px;
-                    overflow-y: auto;
-
-                    .artist-item {
-                        display: flex;
-                        align-items: center;
-                        gap: 0.75rem;
-                        cursor: pointer;
-                        padding: 0.25rem 0;
-                        opacity: 0.5;
-                        transition: opacity 0.2s;
-
-                        &.selected {
-                            opacity: 1;
-                        }
-
-                        .artist-dot {
-                            width: 10px;
-                            height: 10px;
-                            border-radius: 50%;
-                        }
-
-                        .artist-name {
-                            flex: 1;
-                            font-size: 0.9rem;
-                        }
-
-                        .artist-check {
-                            color: $accent-color;
-                        }
-                    }
+                    transform: rotate(180deg);
                 }
             }
         }
 
-        .ratio-select {
-            background: transparent;
+        /* ── Controls Bar ── */
+        .poster-controls {
+            margin-top: 1rem;
+            margin-bottom: 0;
+
+            &.hidden {
+                display: none;
+            }
+
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
             border: 1px solid $border-color;
-            color: $text-light;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-family: $font-main;
-            outline: none;
 
-            option {
-                background: $bg-dark;
-            }
-        }
-
-        .export-group {
-            margin-left: auto;
-
-            .export-buttons {
+            .control-group {
                 display: flex;
+                flex-direction: column;
                 gap: 0.5rem;
 
-                .export-btn {
+                .control-label {
+                    font-size: 0.85rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    color: $text-muted;
+                    font-weight: 600;
+                }
+            }
+
+            .area-chips {
+                display: flex;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+
+                .area-chip {
+                    background: transparent;
+                    border: 1px solid $border-color;
+                    color: $text-light;
+                    padding: 0.5rem 1rem;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    font-family: $font-main;
+                    transition: all 0.2s ease;
                     display: flex;
                     align-items: center;
                     gap: 0.5rem;
-                    background: $text-light;
-                    color: $bg-dark;
-                    border: none;
+
+                    &:hover {
+                        border-color: $text-muted;
+                    }
+
+                    &.active {
+                        background: $text-light;
+                        color: $bg-dark;
+                        border-color: $text-light;
+                    }
+
+                    .area-chip-count {
+                        font-size: 0.75rem;
+                        opacity: 0.7;
+                        background: rgba(128, 128, 128, 0.2);
+                        padding: 0.1rem 0.4rem;
+                        border-radius: 10px;
+                    }
+                }
+
+                .area-empty {
+                    color: $text-muted;
+                    font-style: italic;
+                    padding: 0.5rem 0;
+                }
+            }
+
+            .artist-filter-wrapper {
+                position: relative;
+
+                .artist-filter-toggle {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    background: transparent;
+                    border: 1px solid $border-color;
+                    color: $text-light;
                     padding: 0.5rem 1rem;
                     border-radius: 8px;
                     cursor: pointer;
-                    font-weight: 600;
                     font-family: $font-main;
-                    transition: transform 0.1s;
 
-                    &:hover:not([disabled]) {
-                        transform: translateY(-1px);
+                    .chevron {
+                        transition: transform 0.2s;
+
+                        &.open {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+
+                .artist-dropdown {
+                    display: none;
+                    position: absolute;
+                    top: calc(100% + 0.5rem);
+                    left: 0;
+                    background: #1a1a1a;
+                    border: 1px solid $border-color;
+                    border-radius: 8px;
+                    padding: 1rem;
+                    width: 250px;
+                    z-index: 1000;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+                    &.open {
+                        display: block;
                     }
 
-                    &[disabled] {
-                        opacity: 0.7;
-                        cursor: not-allowed;
+                    .artist-dropdown-actions {
+                        display: flex;
+                        gap: 0.5rem;
+                        margin-bottom: 1rem;
+                        border-bottom: 1px solid $border-color;
+                        padding-bottom: 0.5rem;
+
+                        .dropdown-action-btn {
+                            background: transparent;
+                            border: none;
+                            color: $accent-color;
+                            cursor: pointer;
+                            font-size: 0.85rem;
+                            padding: 0;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
                     }
 
-                    .spinner {
-                        display: inline-block;
-                        width: 12px;
-                        height: 12px;
-                        border: 2px solid $bg-dark;
-                        border-top-color: transparent;
-                        border-radius: 50%;
-                        animation: spin 1s linear infinite;
+                    .artist-list {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.5rem;
+                        max-height: 200px;
+                        overflow-y: auto;
+
+                        .artist-item {
+                            display: flex;
+                            align-items: center;
+                            gap: 0.75rem;
+                            cursor: pointer;
+                            padding: 0.25rem 0;
+                            opacity: 0.5;
+                            transition: opacity 0.2s;
+
+                            &.selected {
+                                opacity: 1;
+                            }
+
+                            .artist-dot {
+                                width: 10px;
+                                height: 10px;
+                                border-radius: 50%;
+                            }
+
+                            .artist-name {
+                                flex: 1;
+                                font-size: 0.9rem;
+                            }
+
+                            .artist-check {
+                                color: $accent-color;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .ratio-select {
+                background: transparent;
+                border: 1px solid $border-color;
+                color: $text-light;
+                padding: 0.5rem 1rem;
+                border-radius: 8px;
+                font-family: $font-main;
+                outline: none;
+
+                option {
+                    background: $bg-dark;
+                }
+            }
+
+            .export-group {
+                margin-left: auto;
+
+                .export-buttons {
+                    display: flex;
+                    gap: 0.5rem;
+
+                    .export-btn {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        background: $text-light;
+                        color: $bg-dark;
+                        border: none;
+                        padding: 0.5rem 1rem;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        font-weight: 600;
+                        font-family: $font-main;
+                        transition: transform 0.1s;
+
+                        &:hover:not([disabled]) {
+                            transform: translateY(-1px);
+                        }
+
+                        &[disabled] {
+                            opacity: 0.7;
+                            cursor: not-allowed;
+                        }
+
+                        .spinner {
+                            display: inline-block;
+                            width: 12px;
+                            height: 12px;
+                            border: 2px solid $bg-dark;
+                            border-top-color: transparent;
+                            border-radius: 50%;
+                            animation: spin 1s linear infinite;
+                        }
                     }
                 }
             }
@@ -485,28 +532,28 @@ $font-main: 'Outfit', sans-serif;
             }
         }
     }
-}
 
-@keyframes spin {
-    100% {
-        transform: rotate(360deg);
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
     }
-}
 
-/* Map Tooltip Overrides */
-::ng-deep {
-    .leaflet-tooltip.poster-pin-label {
-        background: transparent;
-        border: none;
-        box-shadow: none;
-        color: $text-light;
-        font-family: $font-main;
-        font-weight: 600;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-        font-size: 0.85rem;
+    /* Map Tooltip Overrides */
+    ::ng-deep {
+        .leaflet-tooltip.poster-pin-label {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            color: $text-light;
+            font-family: $font-main;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            font-size: 0.85rem;
 
-        &::before {
-            display: none;
+            &::before {
+                display: none;
+            }
         }
     }
 }

@@ -138,9 +138,16 @@ export class Poster implements OnInit, AfterViewInit, OnDestroy {
 
   // ─── Area & Artist Logic ─────────────────────────────────────────────────────
 
+  // Add this near your other state properties
+  public isControlsOpen = true;
+
+  // Update your selectArea method:
   public selectArea(area: AreaDefinition): void {
     this.selectedArea = area;
     this.errorMessage = '';
+
+    // Auto-collapse the controls to bring the poster into view immediately
+    this.isControlsOpen = false;
 
     const areaPins = this.mapPinsService.getPinsForArea(area);
     if (areaPins.length === 0) {
@@ -151,17 +158,12 @@ export class Poster implements OnInit, AfterViewInit, OnDestroy {
     this.buildArtistColors(areaPins);
     this.hasMap = true;
 
-    // 1. Force Angular to update the DOM immediately so [class.visible] is applied
     this.cdr.detectChanges();
 
-    // 2. Wait a tick for the browser to physically render the CSS dimensions
     setTimeout(() => {
       if (this.leafletMap) {
-        // 3. Tell Leaflet its container has changed from display:none to visible
         this.leafletMap.invalidateSize();
       }
-
-      // 4. Now calculate bounds and draw pins on a visible map
       this.renderAreaPins();
     }, 50);
   }
