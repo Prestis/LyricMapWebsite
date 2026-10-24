@@ -43,4 +43,5 @@ Thumbs.db
 
 AGENTS.md
 
-environments/environment.ts
+src/environments/environment.ts
+CLAUDE.md
