@@ -508,6 +508,12 @@ $brand-blue: #38bdf8;
           flex: 1;
         }
 
+        .artist-count {
+          font-family: $font-mono;
+          font-size: 0.68rem;
+          color: $text-muted;
+        }
+
         .artist-check {
           color: $brand-neon;
           font-weight: 700;
@@ -522,6 +528,21 @@ $brand-blue: #38bdf8;
         &.checked {
           opacity: 1;
         }
+
+        &.disabled {
+          opacity: 0.25;
+          cursor: not-allowed;
+
+          &:hover {
+            background: none;
+          }
+        }
+      }
+
+      .artist-limit-note {
+        margin: 0 0 0.25rem;
+        font-size: 0.72rem;
+        color: $text-secondary;
       }
     }
 
@@ -863,34 +884,18 @@ $brand-blue: #38bdf8;
       /* ── Poster Typographic Header ── */
       .poster-header {
         text-align: center;
-        padding-bottom: 0.65rem;
-        margin-bottom: 0.65rem;
+        padding-bottom: clamp(0.6rem, 1.4vw, 1rem);
         flex-shrink: 0;
-
-        .poster-eyebrow {
-          font-family: $font-mono;
-          font-size: clamp(0.52rem, 0.9vw, 0.65rem);
-          font-weight: 700;
-          letter-spacing: 0.25em;
-          color: var(--p-subtext);
-          text-transform: uppercase;
-          margin-bottom: 0.25rem;
-
-          .eyebrow-divider {
-            margin: 0 0.4rem;
-            opacity: 0.5;
-          }
-        }
 
         .poster-title {
           font-size: clamp(1.25rem, 4vw, 2.6rem);
-          font-weight: 900;
-          letter-spacing: clamp(0.12em, 2vw, 0.3em);
-          text-indent: clamp(0.12em, 2vw, 0.3em);
-          margin: 0 0 0.25rem 0;
+          font-weight: 800;
+          letter-spacing: clamp(0.2em, 2vw, 0.35em);
+          /* Balance the trailing letter-spacing so the title stays optically centred */
+          text-indent: clamp(0.2em, 2vw, 0.35em);
+          margin: 0 0 0.35rem 0;
           line-height: 1.1;
           color: var(--p-text);
-          text-transform: uppercase;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -898,43 +903,9 @@ $brand-blue: #38bdf8;
 
         .poster-coordinates {
           font-family: $font-mono;
-          font-size: clamp(0.55rem, 1vw, 0.7rem);
-          letter-spacing: 0.14em;
-          color: var(--p-accent);
-          font-weight: 600;
-          margin-bottom: 0.25rem;
-        }
-
-        .poster-subtitle {
-          font-family: $font-mono;
-          font-size: clamp(0.5rem, 0.8vw, 0.6rem);
-          letter-spacing: 0.2em;
+          font-size: clamp(0.5rem, 0.9vw, 0.65rem);
+          letter-spacing: 0.18em;
           color: var(--p-subtext);
-          text-transform: uppercase;
-          margin-bottom: 0.5rem;
-        }
-
-        .poster-hairline {
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 80%;
-          margin: 0 auto;
-
-          &::before, &::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: var(--p-matting-border);
-            opacity: 0.65;
-          }
-
-          .hairline-diamond {
-            font-size: 0.5rem;
-            color: var(--p-accent);
-            padding: 0 0.5rem;
-          }
         }
       }
 
@@ -948,31 +919,18 @@ $brand-blue: #38bdf8;
         overflow: hidden;
         background: var(--p-map-bg);
 
-        /* Corner Crosshairs */
-        .corner-crosshair {
-          position: absolute;
-          font-family: $font-mono;
-          font-size: 0.85rem;
-          line-height: 1;
-          color: var(--p-accent);
-          opacity: 0.75;
-          pointer-events: none;
-          z-index: 500;
-
-          &.top-left { top: 6px; left: 6px; }
-          &.top-right { top: 6px; right: 6px; }
-          &.bottom-left { bottom: 6px; left: 6px; }
-          &.bottom-right { bottom: 6px; right: 6px; }
-        }
-
         #poster-map {
           width: 100%;
           height: 100%;
+        }
+
+        /* Filter only the basemap so pin and label colours stay true to the palette */
+        ::ng-deep .leaflet-tile-pane {
           filter: var(--p-map-filter);
         }
       }
 
-      /* ── Poster Legend (Smart Capped & Themed) ── */
+      /* ── Poster Legend ── */
       .poster-legend {
         padding-top: 0.65rem;
         flex-shrink: 0;
@@ -998,13 +956,6 @@ $brand-blue: #38bdf8;
               border-radius: 50%;
               flex-shrink: 0;
             }
-
-            &.more-pill {
-              color: var(--p-subtext);
-              font-family: $font-mono;
-              font-size: 0.65rem;
-              opacity: 0.8;
-            }
           }
         }
       }
@@ -1012,52 +963,16 @@ $brand-blue: #38bdf8;
       /* ── Poster Footer ── */
       .poster-footer {
         display: flex;
-        flex-wrap: wrap;
         justify-content: space-between;
-        align-items: center;
+        align-items: baseline;
         gap: 0.5rem;
         padding-top: 0.65rem;
-        margin-top: 0.45rem;
-        border-top: 1px solid var(--p-matting-border);
         flex-shrink: 0;
-
-        .poster-stats-row {
-          display: flex;
-          align-items: center;
-          gap: 0.45rem;
-          font-family: $font-mono;
-          font-size: clamp(0.52rem, 0.85vw, 0.64rem);
-          color: var(--p-subtext);
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-
-          .stat-cell {
-            display: flex;
-            gap: 0.2rem;
-
-            .stat-number {
-              font-weight: 700;
-              color: var(--p-text);
-            }
-          }
-
-          .stat-bullet {
-            opacity: 0.4;
-          }
-        }
-
-        .poster-imprint {
-          font-family: $font-mono;
-          font-size: clamp(0.5rem, 0.8vw, 0.6rem);
-          letter-spacing: 0.14em;
-          color: var(--p-subtext);
-          font-weight: 700;
-
-          .imprint-divider {
-            margin: 0 0.3rem;
-            opacity: 0.4;
-          }
-        }
+        font-family: $font-mono;
+        font-size: clamp(0.5rem, 0.8vw, 0.6rem);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--p-subtext);
       }
     }
   }
@@ -1213,37 +1128,6 @@ $brand-blue: #38bdf8;
         display: none;
       }
 
-      .poster-pin-label-text {
-        padding: 0.15rem 0.45rem;
-        border-radius: 4px;
-      }
-
-      &.theme-midnight .poster-pin-label-text {
-        color: #f8fafc;
-        background: rgba(12, 13, 18, 0.88);
-        border: 1px solid rgba(204, 255, 0, 0.35);
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
-      }
-
-      &.theme-gallery .poster-pin-label-text {
-        color: #18181b;
-        background: rgba(248, 245, 238, 0.92);
-        border: 1px solid rgba(24, 24, 27, 0.25);
-        text-shadow: none;
-      }
-
-      &.theme-blueprint .poster-pin-label-text {
-        color: #f0f9ff;
-        background: rgba(8, 20, 38, 0.9);
-        border: 1px solid rgba(0, 229, 255, 0.4);
-      }
-
-      &.theme-vintage .poster-pin-label-text {
-        color: #fef3c7;
-        background: rgba(23, 19, 17, 0.9);
-        border: 1px solid rgba(245, 158, 11, 0.3);
-      }
-
       .poster-pin-hover-text {
         padding: 0.15rem 0.45rem;
         border-radius: 4px;
@@ -1251,6 +1135,20 @@ $brand-blue: #38bdf8;
         color: #fff;
         font-size: 0.72rem;
       }
+    }
+
+    /* Printed map labels: halo text, sized to match LABEL_* constants in poster.ts */
+    .poster-map-label {
+      background: none;
+      border: none;
+      pointer-events: none;
+      font-family: $font-sans;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      line-height: 12px;
+      white-space: nowrap;
+      text-align: center;
     }
 
     /* Interactive Pin Popup */

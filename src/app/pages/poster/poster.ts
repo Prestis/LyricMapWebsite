@@ -33,8 +33,11 @@ export interface PosterTheme {
 
 interface ArtistColor {
   artist: string;
-  color: string;
+  mentions: number;
   selected: boolean;
+  /** Palette index while selected, -1 otherwise. Keeps colours stable across theme changes. */
+  slot: number;
+  color: string;
 }
 
 interface PinGroup {
@@ -45,6 +48,37 @@ interface PinGroup {
   jitteredLat: number;
   jitteredLng: number;
 }
+
+interface PlacedPin {
+  lat: number;
+  lng: number;
+  radius: number;
+  label: string;
+}
+
+interface Rect {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+}
+
+export const MAX_POSTER_ARTISTS = 6;
+const TOP_LABEL_LIMIT = 12;
+const LABEL_FONT_PX = 10;
+const LABEL_TRACKING_EM = 0.08;
+const LABEL_HEIGHT_PX = 12;
+const LABEL_GAP_PX = 3;
+const LABEL_PADDING_PX = 2;
+const UNSELECTED_ARTIST_COLOR = '#4b5563';
+// iOS Safari refuses canvases above ~16.7 megapixels
+const MAX_EXPORT_CANVAS_PIXELS = 16_000_000;
+const EXPORT_TARGET_WIDTH_PX: Record<AspectRatio, number> = {
+  'a3-portrait': 3508, // A4 @ 300 DPI width; A3 lands at ~290 DPI after the canvas cap
+  'a4-landscape': 3508,
+  square: 3000,
+  story: 2160
+};
 
 export const POSTER_THEMES: PosterTheme[] = [
   {
@@ -57,10 +91,7 @@ export const POSTER_THEMES: PosterTheme[] = [
     subtextColor: '#94a3b8',
     accentColor: '#ccff00',
     tileLayer: 'dark',
-    palette: [
-      '#ccff00', '#00e5ff', '#99f6e4', '#a3e635',
-      '#38bdf8', '#86efac', '#22d3ee', '#d9f99d'
-    ]
+    palette: ['#ccff00', '#00e5ff', '#ff4fd8', '#ffb020', '#9d7bff', '#ff5c5c']
   },
   {
     id: 'gallery',
@@ -72,10 +103,7 @@ export const POSTER_THEMES: PosterTheme[] = [
     subtextColor: '#52525b',
     accentColor: '#18181b',
     tileLayer: 'light',
-    palette: [
-      '#18181b', '#27272a', '#3f3f46', '#52525b',
-      '#09090b', '#71717a'
-    ]
+    palette: ['#18181b', '#c2410c', '#1d4ed8', '#047857', '#9d174d', '#a16207']
   },
   {
     id: 'blueprint',
@@ -87,10 +115,7 @@ export const POSTER_THEMES: PosterTheme[] = [
     subtextColor: '#7dd3fc',
     accentColor: '#00e5ff',
     tileLayer: 'dark',
-    palette: [
-      '#00e5ff', '#38bdf8', '#7dd3fc', '#bae6fd',
-      '#0284c7', '#0ea5e9'
-    ]
+    palette: ['#00e5ff', '#ffffff', '#ffd166', '#ff6b9a', '#7cf29c', '#b49cff']
   },
   {
     id: 'vintage',
@@ -102,10 +127,7 @@ export const POSTER_THEMES: PosterTheme[] = [
     subtextColor: '#d97706',
     accentColor: '#f59e0b',
     tileLayer: 'dark',
-    palette: [
-      '#f59e0b', '#fbbf24', '#d97706', '#b45309',
-      '#fcd34d', '#ca8a04'
-    ]
+    palette: ['#f59e0b', '#fef3c7', '#e4572e', '#8ecae6', '#a7c957', '#d291bc']
   }
 ];
 
@@ -131,6 +153,7 @@ export class Poster implements OnInit, AfterViewInit, OnDestroy {
   public currentTheme: PosterTheme = POSTER_THEMES[0];
 
   // Artist Filter
+  public readonly maxArtists = MAX_POSTER_ARTISTS;
   public artistColors: ArtistColor[] = [];
   public isArtistFilterOpen = false;
 
@@ -157,6 +180,9 @@ export class Poster implements OnInit, AfterViewInit, OnDestroy {
   private leafletMap: any = null;
   private L: any = null;
   private markersLayer: any = null;
+  private labelsLayer: any = null;
+  private placedPins: PlacedPin[] = [];
+  private labelMeasureCtx: CanvasRenderingContext2D | null = null;
   private tileLayerInstance: any = null;
   private pinsSubscription: Subscription | undefined;
   private resizeListener: any = null;
@@ -236,6 +262,10 @@ export class Poster implements OnInit, AfterViewInit, OnDestroy {
 
     this.updateTileLayer();
     this.markersLayer = L.layerGroup().addTo(this.leafletMap);
+    this.labelsLayer = L.layerGroup().addTo(this.leafletMap);
+
+    // Label collisions depend on screen-space positions, so re-place after every pan/zoom/resize
+    this.leafletMap.on('moveend resize', () => this.placeLabels());
   }
 
   private updateTileLayer(): void {
@@ -244,8 +274,10 @@ export class Poster implements OnInit, AfterViewInit, OnDestroy {
     const apiKey = envKey || environment.cartoApiKey || '';
     const apiKeyQuery = apiKey ? '?key=' + apiKey : '';
 
-    const subName = this.currentTheme.tileLayer === 'light' ? 'light_all' : 'dark_all';
-    const tileUrl = `https://{s}.basemaps.cartocdn.com/rastertiles/${subName}/{z}/{x}/{y}.png${apiKeyQuery}`;
+    // Label-free basemap so street names don't compete with the lyric labels;
+    // @2x tiles keep the map sharp when the export upscales the canvas.
+    const subName = this.currentTheme.tileLayer === 'light' ? 'light_nolabels' : 'dark_nolabels';
+    const tileUrl = `https://{s}.basemaps.cartocdn.com/rastertiles/${subName}/{z}/{x}/{y}@2x.png${apiKeyQuery}`;
 
     if (this.tileLayerInstance) {
       this.tileLayerInstance.setUrl(tileUrl);
@@ -265,12 +297,8 @@ export class Poster implements OnInit, AfterViewInit, OnDestroy {
     if (!found) return;
     this.currentTheme = found;
     this.updateTileLayer();
-
-    if (this.selectedArea) {
-      const areaPins = this.mapPinsService.getPinsForArea(this.selectedArea);
-      this.buildArtistColors(areaPins);
-      this.renderAreaPins();
-    }
+    this.refreshArtistColors();
+    this.renderAreaPins();
   }
 
   public setLabelDensity(density: LabelDensity): void {
@@ -355,32 +383,83 @@ export class Poster implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private buildArtistColors(pins: LocationData[]): void {
-    const artists = Array.from(new Set(pins.map(p => p.artist))).sort();
-    const existingMap = new Map(this.artistColors.map(a => [a.artist, a]));
-    const palette = this.currentTheme.palette;
+    const counts = new Map<string, number>();
+    pins.forEach(p => counts.set(p.artist, (counts.get(p.artist) || 0) + 1));
+    const previous = new Map(this.artistColors.map(a => [a.artist, a]));
 
-    this.artistColors = artists.map((artist, i) => ({
-      artist,
-      color: palette[i % palette.length],
-      selected: existingMap.get(artist)?.selected ?? true
-    }));
+    // Most-mentioned artists first, so the list doubles as a "who matters here" ranking
+    this.artistColors = Array.from(counts.entries())
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([artist, mentions]) => {
+        const prev = previous.get(artist);
+        return {
+          artist,
+          mentions,
+          selected: prev?.selected ?? false,
+          slot: prev?.selected ? prev.slot : -1,
+          color: ''
+        };
+      });
+
+    // Carry over the previous selection (capped), or default to the top artists of this area
+    const carried = this.artistColors.filter(a => a.selected);
+    if (carried.length === 0) {
+      this.artistColors.slice(0, MAX_POSTER_ARTISTS).forEach(a => (a.selected = true));
+    } else {
+      carried.slice(MAX_POSTER_ARTISTS).forEach(a => (a.selected = false));
+    }
+    this.assignArtistSlots();
+  }
+
+  /** Gives every selected artist a unique palette slot, keeping existing slots where possible. */
+  private assignArtistSlots(): void {
+    const used = new Set<number>();
+    this.artistColors.forEach(a => {
+      if (!a.selected || a.slot < 0 || a.slot >= MAX_POSTER_ARTISTS || used.has(a.slot)) {
+        a.slot = -1;
+      } else {
+        used.add(a.slot);
+      }
+    });
+    this.artistColors.forEach(a => {
+      if (a.selected && a.slot < 0) {
+        let slot = 0;
+        while (used.has(slot)) slot++;
+        a.slot = slot;
+        used.add(slot);
+      }
+    });
+    this.refreshArtistColors();
+  }
+
+  private refreshArtistColors(): void {
+    const palette = this.currentTheme.palette;
+    this.artistColors.forEach(a => {
+      a.color = a.selected ? palette[a.slot % palette.length] : UNSELECTED_ARTIST_COLOR;
+    });
   }
 
   public toggleArtist(artist: string): void {
     const ac = this.artistColors.find(a => a.artist === artist);
-    if (ac) {
-      ac.selected = !ac.selected;
-      this.renderAreaPins();
-    }
+    if (!ac) return;
+    if (!ac.selected && this.isArtistLimitReached) return;
+    ac.selected = !ac.selected;
+    this.assignArtistSlots();
+    this.renderAreaPins();
   }
 
-  public selectAllArtists(): void {
-    this.artistColors.forEach(a => (a.selected = true));
+  public selectTopArtists(): void {
+    this.artistColors.forEach((a, i) => {
+      a.selected = i < MAX_POSTER_ARTISTS;
+      a.slot = -1;
+    });
+    this.assignArtistSlots();
     this.renderAreaPins();
   }
 
   public clearAllArtists(): void {
     this.artistColors.forEach(a => (a.selected = false));
+    this.assignArtistSlots();
     this.renderAreaPins();
   }
 
@@ -388,13 +467,12 @@ export class Poster implements OnInit, AfterViewInit, OnDestroy {
     return this.artistColors.filter(a => a.selected).length;
   }
 
-  public get topLegendArtists(): ArtistColor[] {
-    return this.artistColors.filter(a => a.selected).slice(0, 7);
+  public get isArtistLimitReached(): boolean {
+    return this.getSelectedArtistCount() >= MAX_POSTER_ARTISTS;
   }
 
-  public get remainingArtistsCount(): number {
-    const total = this.artistColors.filter(a => a.selected).length;
-    return Math.max(0, total - 7);
+  public get legendArtists(): ArtistColor[] {
+    return this.artistColors.filter(a => a.selected).sort((a, b) => a.slot - b.slot);
   }
 
   // ─── Pin Rendering ───────────────────────────────────────────────────────────
@@ -408,12 +486,16 @@ export class Poster implements OnInit, AfterViewInit, OnDestroy {
     const colorMap = new Map(this.artistColors.map(a => [a.artist, a.color]));
 
     this.markersLayer.clearLayers();
+    this.placedPins = [];
 
     const areaPins = this.mapPinsService
       .getPinsForArea(area)
       .filter(p => selectedArtists.has(p.artist));
 
-    if (areaPins.length === 0) return;
+    if (areaPins.length === 0) {
+      this.placeLabels();
+      return;
+    }
 
     // Group pins by normalized location
     const groups = new Map<string, PinGroup>();
@@ -446,16 +528,12 @@ export class Poster implements OnInit, AfterViewInit, OnDestroy {
       }
     });
 
-    // Rank groups by mention count for selective labeling in 'top' mode
+    // Most-mentioned first: label placement is greedy, so the important spots win collisions
     const sortedGroups = Array.from(groups.values()).sort(
       (a, b) => b.mentions.length - a.mentions.length
     );
-    const topLocationKeys = new Set(
-      sortedGroups.slice(0, 8).map(g => this.mapPinsService.normalizeLocationName(g.location))
-    );
 
-    // Create markers
-    groups.forEach(group => {
+    sortedGroups.forEach(group => {
       const artistCount: Record<string, number> = {};
       group.mentions.forEach(m => {
         artistCount[m.artist] = (artistCount[m.artist] || 0) + 1;
@@ -465,52 +543,34 @@ export class Poster implements OnInit, AfterViewInit, OnDestroy {
 
       const displayName = this.mapPinsService.capitalizeFirst(group.location);
       const totalMentions = group.mentions.length;
-      const radius = Math.min(4.5 + totalMentions * 1.4, 13);
-
-      const strokeColor = this.currentTheme.id === 'gallery' ? '#18181b' : '#0c0d12';
+      // Square-root scaling keeps a few hubs from swallowing their neighbours
+      const radius = Math.min(3.5 + Math.sqrt(totalMentions) * 2.2, 12);
 
       const marker = L.circleMarker([group.jitteredLat, group.jitteredLng], {
-        color: strokeColor,
+        color: this.currentTheme.bgColor,
         fillColor: color,
         fillOpacity: 0.92,
         radius,
         weight: 1.5
       });
 
-      // Label density logic
-      const normKey = this.mapPinsService.normalizeLocationName(group.location);
-      let showPermanent = false;
-      if (this.labelDensity === 'all') {
-        showPermanent = true;
-      } else if (this.labelDensity === 'top') {
-        showPermanent = topLocationKeys.has(normKey) || totalMentions >= 3;
-      } else {
-        showPermanent = false;
-      }
+      // Hover tooltip for exploring; printed labels are placed separately in placeLabels()
+      marker.bindTooltip(
+        `<span class="poster-pin-hover-text">${displayName} (${totalMentions})</span>`,
+        {
+          permanent: false,
+          direction: 'top',
+          offset: [0, -radius - 2],
+          className: 'poster-pin-label'
+        }
+      );
 
-      if (showPermanent) {
-        marker.bindTooltip(
-          `<span class="poster-pin-label-text">${displayName}</span>`,
-          {
-            permanent: true,
-            direction: 'top',
-            offset: [0, -radius - 2],
-            className: `poster-pin-label theme-${this.currentTheme.id}`,
-            opacity: 1
-          }
-        );
-      } else {
-        // Non-permanent tooltip on hover
-        marker.bindTooltip(
-          `<span class="poster-pin-hover-text">${displayName} (${totalMentions})</span>`,
-          {
-            permanent: false,
-            direction: 'top',
-            offset: [0, -radius - 2],
-            className: `poster-pin-label theme-${this.currentTheme.id}`
-          }
-        );
-      }
+      this.placedPins.push({
+        lat: group.jitteredLat,
+        lng: group.jitteredLng,
+        radius,
+        label: this.toLabelText(group.location)
+      });
 
       // Interactive popup on click
       const popupRows = group.mentions
@@ -540,28 +600,106 @@ export class Poster implements OnInit, AfterViewInit, OnDestroy {
 
       this.markersLayer.addLayer(marker);
     });
+
+    this.placeLabels();
+  }
+
+  // ─── Label Placement (collision-free) ────────────────────────────────────────
+
+  /**
+   * Greedy cartographic labelling: pins are visited by importance and each label tries
+   * above / right / below / left of its pin. A label is only drawn where it overlaps no
+   * other label and no pin; otherwise that spot stays an unlabelled dot.
+   */
+  private placeLabels(): void {
+    if (!this.leafletMap || !this.L || !this.labelsLayer) return;
+    const L = this.L;
+    this.labelsLayer.clearLayers();
+    if (this.labelDensity === 'minimal' || this.placedPins.length === 0) return;
+
+    const size = this.leafletMap.getSize();
+    const pins = this.placedPins
+      .map(p => ({ ...p, pt: this.leafletMap.latLngToContainerPoint([p.lat, p.lng]) }))
+      .filter(p => p.pt.x >= 0 && p.pt.y >= 0 && p.pt.x <= size.x && p.pt.y <= size.y);
+
+    const occupied: Rect[] = pins.map(p => ({
+      x: p.pt.x - p.radius,
+      y: p.pt.y - p.radius,
+      w: p.radius * 2,
+      h: p.radius * 2
+    }));
+    const fitsInMap = (r: Rect) => r.x >= 0 && r.y >= 0 && r.x + r.w <= size.x && r.y + r.h <= size.y;
+    const overlaps = (a: Rect, b: Rect) =>
+      a.x < b.x + b.w + LABEL_PADDING_PX &&
+      b.x < a.x + a.w + LABEL_PADDING_PX &&
+      a.y < b.y + b.h + LABEL_PADDING_PX &&
+      b.y < a.y + a.h + LABEL_PADDING_PX;
+
+    const candidates = this.labelDensity === 'top' ? pins.slice(0, TOP_LABEL_LIMIT) : pins;
+    const { textColor, bgColor } = this.currentTheme;
+    const halo = `0 0 2px ${bgColor}, 0 0 2px ${bgColor}, 0 0 3px ${bgColor}`;
+
+    candidates.forEach(pin => {
+      const w = this.measureLabel(pin.label);
+      const h = LABEL_HEIGHT_PX;
+      const { x, y } = pin.pt;
+      const off = pin.radius + LABEL_GAP_PX;
+      const positions: Rect[] = [
+        { x: x - w / 2, y: y - off - h, w, h }, // above
+        { x: x + off, y: y - h / 2, w, h }, // right
+        { x: x - w / 2, y: y + off, w, h }, // below
+        { x: x - off - w, y: y - h / 2, w, h } // left
+      ];
+      const spot = positions.find(r => fitsInMap(r) && !occupied.some(o => overlaps(r, o)));
+      if (!spot) return;
+      occupied.push(spot);
+
+      const icon = L.divIcon({
+        className: 'poster-map-label',
+        html: `<span style="color:${textColor};text-shadow:${halo}">${pin.label}</span>`,
+        iconSize: [w, h],
+        iconAnchor: [x - spot.x, y - spot.y]
+      });
+      this.labelsLayer.addLayer(
+        L.marker([pin.lat, pin.lng], { icon, interactive: false, keyboard: false })
+      );
+    });
+  }
+
+  private measureLabel(text: string): number {
+    if (!this.labelMeasureCtx) {
+      this.labelMeasureCtx = document.createElement('canvas').getContext('2d');
+    }
+    const ctx = this.labelMeasureCtx;
+    const tracking = text.length * LABEL_FONT_PX * LABEL_TRACKING_EM;
+    if (!ctx) return text.length * LABEL_FONT_PX * 0.7 + tracking;
+    ctx.font = `600 ${LABEL_FONT_PX}px Outfit, sans-serif`;
+    return Math.ceil(ctx.measureText(text).width + tracking);
+  }
+
+  /** Map-style label: uppercase without accents (Greek capitals drop the tonos). */
+  private toLabelText(location: string): string {
+    return location
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '')
+      .toUpperCase();
   }
 
   // ─── Poster Typographic Computations ─────────────────────────────────────────
 
-  public get spacedAreaTitle(): string {
-    if (!this.selectedArea) return '';
-    return this.selectedArea.displayName.toUpperCase().split('').join(' ');
+  public get areaTitle(): string {
+    return this.selectedArea ? this.selectedArea.displayName.toUpperCase() : '';
   }
 
   public get formattedCoordinates(): string {
     if (!this.selectedArea) return '';
-    const lat = this.selectedArea.centerLat;
-    const lng = this.selectedArea.centerLng;
-    const latDir = lat >= 0 ? 'N' : 'S';
-    const lngDir = lng >= 0 ? 'E' : 'W';
-    const latDeg = Math.floor(Math.abs(lat));
-    const latMin = Math.floor((Math.abs(lat) - latDeg) * 60);
-    const latSec = Math.round(((Math.abs(lat) - latDeg) * 60 - latMin) * 60);
-    const lngDeg = Math.floor(Math.abs(lng));
-    const lngMin = Math.floor((Math.abs(lng) - lngDeg) * 60);
-    const lngSec = Math.round(((Math.abs(lng) - lngDeg) * 60 - lngMin) * 60);
-    return `${latDeg}° ${latMin}′ ${latSec}″ ${latDir} · ${lngDeg}° ${lngMin}′ ${lngSec}″ ${lngDir}`;
+    const fmt = (value: number, pos: string, neg: string) => {
+      const totalMinutes = Math.round(Math.abs(value) * 60);
+      const deg = Math.floor(totalMinutes / 60);
+      const min = String(totalMinutes % 60).padStart(2, '0');
+      return `${deg}°${min}′ ${value >= 0 ? pos : neg}`;
+    };
+    return `${fmt(this.selectedArea.centerLat, 'N', 'S')} · ${fmt(this.selectedArea.centerLng, 'E', 'W')}`;
   }
 
   public get filteredMentionsCount(): number {
@@ -579,15 +717,6 @@ export class Poster implements OnInit, AfterViewInit, OnDestroy {
       .getPinsForArea(this.selectedArea)
       .filter(p => sel.has(p.artist));
     return new Set(pins.map(p => p.artist + '||' + p.song)).size;
-  }
-
-  public get filteredLocationsCount(): number {
-    if (!this.selectedArea) return 0;
-    const sel = new Set(this.artistColors.filter(a => a.selected).map(a => a.artist));
-    const pins = this.mapPinsService
-      .getPinsForArea(this.selectedArea)
-      .filter(p => sel.has(p.artist));
-    return new Set(pins.map(p => this.mapPinsService.normalizeLocationName(p.location))).size;
   }
 
   // ─── Poster Export (High DPI Canvas & PDF) ───────────────────────────────────
@@ -616,10 +745,17 @@ export class Poster implements OnInit, AfterViewInit, OnDestroy {
       // Wait for tiles and fonts to stabilize
       await new Promise(r => setTimeout(r, 700));
 
+      // Scale to the target print width, capped by what browsers can allocate for a canvas
+      const { offsetWidth: w, offsetHeight: h } = posterEl;
+      const scale = Math.min(
+        EXPORT_TARGET_WIDTH_PX[this.aspectRatio] / w,
+        Math.sqrt(MAX_EXPORT_CANVAS_PIXELS / (w * h))
+      );
+
       const canvas = await html2canvas(posterEl, {
         useCORS: true,
         allowTaint: false,
-        scale: 3, // Ultra-sharp 300 DPI print scale
+        scale,
         backgroundColor: this.currentTheme.bgColor,
         logging: false,
         ignoreElements: (element: Element) => {

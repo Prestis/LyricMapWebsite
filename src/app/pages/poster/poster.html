@@ -107,11 +107,11 @@
       <!-- Artist Filter -->
       <div class="control-box" *ngIf="selectedArea">
         <div class="box-header-row">
-          <label class="box-label">Artists Filter</label>
-          <span class="box-stat">{{ getSelectedArtistCount() }} / {{ artistColors.length }} active</span>
+          <label class="box-label">Artists</label>
+          <span class="box-stat">{{ getSelectedArtistCount() }} / {{ maxArtists }} selected</span>
         </div>
         <div class="artist-quick-actions">
-          <button class="quick-btn" (click)="selectAllArtists()">Select All</button>
+          <button class="quick-btn" (click)="selectTopArtists()">Top {{ maxArtists }}</button>
           <button class="quick-btn" (click)="clearAllArtists()">Clear</button>
           <button class="quick-btn toggle-list-btn" (click)="isArtistFilterOpen = !isArtistFilterOpen">
             {{ isArtistFilterOpen ? 'Collapse' : 'Customize' }}
@@ -123,13 +123,18 @@
         </div>
 
         <div class="artist-checklist" *ngIf="isArtistFilterOpen">
+          <p class="artist-limit-note" *ngIf="isArtistLimitReached">
+            Max {{ maxArtists }} artists per poster. Deselect one to swap.
+          </p>
           <div
             *ngFor="let ac of artistColors"
             class="artist-row"
             [class.checked]="ac.selected"
+            [class.disabled]="!ac.selected && isArtistLimitReached"
             (click)="toggleArtist(ac.artist)">
             <span class="artist-dot" [style.background]="ac.color"></span>
             <span class="artist-name">{{ ac.artist }}</span>
+            <span class="artist-count">{{ ac.mentions }}</span>
             <span class="artist-check" *ngIf="ac.selected">✓</span>
           </div>
         </div>
@@ -178,7 +183,7 @@
               <path stroke-linecap="round" stroke-linejoin="round"
                 d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
             </svg>
-            Download PNG (300 DPI)
+            Download PNG
           </button>
           <button
             class="btn-export-secondary"
@@ -193,7 +198,7 @@
           </button>
         </div>
         <p class="export-note">
-          Vector-crisp 3x canvas rendering. Ideal for physical wall framing or social posts.
+          Rendered at print resolution (~300 DPI). Ideal for framing or social posts.
         </p>
       </div>
 
@@ -241,80 +246,31 @@
 
             <!-- ── Poster Header ── -->
             <header class="poster-header">
-              <div class="poster-eyebrow">
-                <span class="eyebrow-item">LYRICMAP PRINT SERIES</span>
-                <span class="eyebrow-divider">/</span>
-                <span class="eyebrow-item">HELLAS</span>
-              </div>
-
-              <h2 class="poster-title">{{ spacedAreaTitle }}</h2>
-
-              <div class="poster-coordinates">
-                {{ formattedCoordinates }}
-              </div>
-
-              <div class="poster-subtitle">
-                GREEK HIP-HOP CARTOGRAPHIC ATLAS
-              </div>
-
-              <div class="poster-hairline">
-                <span class="hairline-diamond">◆</span>
-              </div>
+              <h2 class="poster-title">{{ areaTitle }}</h2>
+              <div class="poster-coordinates">{{ formattedCoordinates }}</div>
             </header>
 
             <!-- ── Map Viewport ── -->
             <div class="poster-map-container">
-              <!-- Corner Crosshairs -->
-              <span class="corner-crosshair top-left">+</span>
-              <span class="corner-crosshair top-right">+</span>
-              <span class="corner-crosshair bottom-left">+</span>
-              <span class="corner-crosshair bottom-right">+</span>
-
               <div id="poster-map"></div>
             </div>
 
-            <!-- ── Poster Legend (Smart Capped & Themed) ── -->
+            <!-- ── Poster Legend ── -->
             <div class="poster-legend" *ngIf="getSelectedArtistCount() > 0">
               <div class="legend-items">
-                <div class="legend-pill" *ngFor="let ac of topLegendArtists">
+                <div class="legend-pill" *ngFor="let ac of legendArtists">
                   <span class="legend-dot" [style.background]="ac.color"></span>
                   <span class="legend-name">{{ ac.artist }}</span>
-                </div>
-                <div class="legend-pill more-pill" *ngIf="remainingArtistsCount > 0">
-                  +{{ remainingArtistsCount }} others
                 </div>
               </div>
             </div>
 
-            <!-- ── Poster Footer & Stats ── -->
+            <!-- ── Poster Footer ── -->
             <footer class="poster-footer">
-              <div class="poster-stats-row">
-                <div class="stat-cell">
-                  <span class="stat-number">{{ filteredMentionsCount }}</span>
-                  <span class="stat-label">Mentions</span>
-                </div>
-                <span class="stat-bullet">·</span>
-                <div class="stat-cell">
-                  <span class="stat-number">{{ filteredSongsCount }}</span>
-                  <span class="stat-label">Songs</span>
-                </div>
-                <span class="stat-bullet">·</span>
-                <div class="stat-cell">
-                  <span class="stat-number">{{ filteredLocationsCount }}</span>
-                  <span class="stat-label">Spots</span>
-                </div>
-                <span class="stat-bullet">·</span>
-                <div class="stat-cell">
-                  <span class="stat-number">{{ getSelectedArtistCount() }}</span>
-                  <span class="stat-label">Artists</span>
-                </div>
-              </div>
-
-              <div class="poster-imprint">
-                <span>LYRICMAP.GR</span>
-                <span class="imprint-divider">—</span>
-                <span>EDITION 2026</span>
-              </div>
+              <span class="poster-stats">
+                {{ filteredMentionsCount }} mentions · {{ filteredSongsCount }} songs
+              </span>
+              <span class="poster-imprint">lyricmap.gr</span>
             </footer>
 
           </div><!-- /poster-matting-border -->
@@ -351,7 +307,7 @@
       <div class="export-spinner-ring"></div>
       <h3 class="modal-title">Generating High-Resolution Print</h3>
       <p class="modal-sub">
-        Rendering map tiles, vector typography, and lyric coordinates at 300 DPI clarity...
+        Rendering map tiles, labels and typography at print resolution...
       </p>
       <div class="modal-format-badge">
         {{ exportFormat.toUpperCase() }} · {{ aspectRatio.toUpperCase() }}

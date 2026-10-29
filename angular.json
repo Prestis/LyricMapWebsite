@@ -69,6 +69,17 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "local": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.local.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -81,6 +92,9 @@
             },
             "development": {
               "buildTarget": "lyric-map-app:build:development"
+            },
+            "local": {
+              "buildTarget": "lyric-map-app:build:local"
             }
           },
           "defaultConfiguration": "development"

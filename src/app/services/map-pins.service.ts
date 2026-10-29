@@ -13,6 +13,11 @@ export interface LocationData {
   lat: number;
   lng: number;
   is_manual: boolean;
+  lyric?: string | null;                 // the lyric line the location appears in
+  surface_text?: string | null;          // the location as written in that line, for highlighting
+  release_date?: string | null;          // ISO date, e.g. "2020-08-09"
+  release_date_precision?: 'day' | 'month' | 'year' | null;
+  song_url?: string | null;
 }
 
 export interface AreaDefinition {
@@ -61,8 +66,10 @@ export const DEFINED_AREAS: AreaDefinition[] = [
 export class MapPinsService {
   private readonly API_URL = `${environment.apiUrl}/locations`;
   private readonly REFRESH_INTERVAL_DAYS = 7;
-  private readonly STORAGE_KEY = 'lastMapPinRefresh';
-  private readonly CACHE_KEY = 'cachedMapPins';
+  // Bump the version when LocationData gains fields, so stale caches are refetched
+  private readonly STORAGE_KEY = 'lastMapPinRefresh_v2';
+  private readonly CACHE_KEY = 'cachedMapPins_v2';
+  private readonly LEGACY_KEYS = ['lastMapPinRefresh', 'cachedMapPins'];
 
   private pinsSubject = new BehaviorSubject<LocationData[]>([]);
   public pins$ = this.pinsSubject.asObservable();
@@ -140,6 +147,7 @@ export class MapPinsService {
     }
 
     try {
+      this.LEGACY_KEYS.forEach(key => localStorage.removeItem(key));
       const lastRefresh = localStorage.getItem(this.STORAGE_KEY);
       const now = new Date().getTime();
       const msPerDay = 24 * 60 * 60 * 1000;
@@ -322,7 +330,12 @@ export class MapPinsService {
       song: item.song || 'Unknown',
       lat: Number(item.lat),
       lng: Number(item.lng),
-      is_manual: !!item.is_manual
+      is_manual: !!item.is_manual,
+      lyric: item.lyric ?? null,
+      surface_text: item.surface_text ?? null,
+      release_date: item.release_date ?? null,
+      release_date_precision: item.release_date_precision ?? null,
+      song_url: item.song_url ?? null
     };
   }
 
